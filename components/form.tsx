@@ -15,12 +15,22 @@ const steps = [
   {
     id: 'Step 1',
     name: 'Specifications of the required property',
-    fields: ['LikeTo', 'SpecifyType', 'Country','District','GovernateOrState']
+    fields: [
+      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState']
   },
   {
     id: 'Step 2',
     name: 'Home Size',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['PriceRangeMax', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
+    'NumberOfLivingRooms',
+    'NumberOfBathrooms',
+    'NumberOfDiningRooms',
+    'MaidRoomWithBathroom',
+    'StorageRoom',
+    'WaterWell',
+    'Generator',
+    'NumberOfParkingLots',
+    'Other']
   },
   {
     id: 'Step 3',
