@@ -30,12 +30,20 @@ const steps = [
     'WaterWell',
     'Generator',
     'NumberOfParkingLots',
-    'Other']
+    'OtherHomeSize']
   },
   {
     id: 'Step 3',
     name: 'Location',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['CloseToWork',
+      'CloseToSchool',
+      'CloseToHospital',
+      'CloseToSupermarket',
+      'CloseToParksRecreation',
+      'CloseToRestaurants',
+      'CloseToHighways',
+      'PublicTransportation',
+      'OtherLocation']
   },
   {
     id: 'Step 4',
