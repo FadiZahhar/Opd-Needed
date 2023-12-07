@@ -13,15 +13,50 @@ type Inputs = z.infer<typeof FormDataSchema>
 const steps = [
   {
     id: 'Step 1',
-    name: 'Personal Information',
+    name: 'Specifications of the required property',
     fields: ['firstName', 'lastName', 'email']
   },
   {
     id: 'Step 2',
-    name: 'Address',
+    name: 'Home Size',
     fields: ['country', 'state', 'city', 'street', 'zip']
   },
-  { id: 'Step 3', name: 'Complete' }
+  {
+    id: 'Step 3',
+    name: 'Location',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 4',
+    name: 'Neighborhood',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 5',
+    name: 'Schools',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 6',
+    name: 'Home Systems',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 7',
+    name: 'Home Systems',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 8',
+    name: 'Home Features - Exterior',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  {
+    id: 'Step 9',
+    name: 'Home Features - Interior',
+    fields: ['country', 'state', 'city', 'street', 'zip']
+  },
+  { id: 'Step 10', name: 'Complete' }
 ]
 
 export default function Form() {
