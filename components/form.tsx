@@ -10,11 +10,12 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
+
 const steps = [
   {
     id: 'Step 1',
     name: 'Specifications of the required property',
-    fields: ['firstName', 'lastName', 'email']
+    fields: ['LikeTo', 'SpecifyType', 'Country','District','GovernateOrState']
   },
   {
     id: 'Step 2',
