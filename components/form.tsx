@@ -107,7 +107,7 @@ const steps = [
       'WalkInCloset',
       'OtherHomeFeaturesInterior']
   },
-  { id: 'Step 10', name: 'Complete' }
+  { id: 'Step 9', name: 'Complete' }
 ]
 
 export default function Form() {
@@ -417,10 +417,85 @@ export default function Form() {
         {currentStep === 2 && (
           <>
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Complete
+              step 2
             </h2>
             <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Thank you for your submission.
+              continue on the step 2
+            </p>
+          </>
+        )}
+
+        {currentStep === 3 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 3
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 3
+            </p>
+          </>
+        )}
+
+          {currentStep === 4 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 4
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 4
+            </p>
+          </>
+        )}
+
+        {currentStep === 5 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 5
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 5
+            </p>
+          </>
+        )}
+
+        {currentStep === 6 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 6
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 6
+            </p>
+          </>
+        )}
+
+        {currentStep === 7 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 7
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 7
+            </p>
+          </>
+        )}
+         {currentStep === 8 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 8
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 8
+            </p>
+          </>
+        )}
+        {currentStep === 9 && (
+          <>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              step 9
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              continue on the step 9
             </p>
           </>
         )}
