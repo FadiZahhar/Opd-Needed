@@ -48,7 +48,12 @@ const steps = [
   {
     id: 'Step 4',
     name: 'Neighborhood',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['NoTraffic',
+      'VeryQuiet',
+      'YoungerNeighbors',
+      'OlderNeighbors',
+      'ChildFriendly',
+      'OtherNeighborhood']
   },
   {
     id: 'Step 5',
