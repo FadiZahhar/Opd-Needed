@@ -58,12 +58,28 @@ const steps = [
   {
     id: 'Step 5',
     name: 'Schools',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['CloseToHome',
+    'GoodReputation',
+    'SmallClassSize',
+    'SolidCurriculum',
+    'OtherSchools']
   },
   {
     id: 'Step 6',
     name: 'Home Systems',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['CentralAC',
+    'WoodStove',
+    'Fireplace',
+    'TanklessWaterHeater',
+    'CopperPlumbing',
+    'SolarPower',
+    'Generator',
+    'SecuritySystem',
+    'HomeAutomation',
+    'Cable',
+    'SatelliteDish',
+    'FiberOpticCable',
+    'OtherHomeSystems']
   },
   {
     id: 'Step 7',
