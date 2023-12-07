@@ -83,18 +83,29 @@ const steps = [
   },
   {
     id: 'Step 7',
-    name: 'Home Systems',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    name: 'Home Features - Exterior',
+    fields: ['Garage',
+      'WalkOutBasement',
+      'Driveway',
+      'FencedYard',
+      'Gardens',
+      'Pool',
+      'OtherHomeFeaturesExterior']
   },
   {
     id: 'Step 8',
-    name: 'Home Features - Exterior',
-    fields: ['country', 'state', 'city', 'street', 'zip']
-  },
-  {
-    id: 'Step 9',
     name: 'Home Features - Interior',
-    fields: ['country', 'state', 'city', 'street', 'zip']
+    fields: ['WoodFlooring',
+      'MaidRoom',
+      'LaundryRoom',
+      'FinishedBasement',
+      'EatInKitchen',
+      'GameRoom',
+      'Office',
+      'MasterBedroom',
+      'MasterBathroom',
+      'WalkInCloset',
+      'OtherHomeFeaturesInterior']
   },
   { id: 'Step 10', name: 'Complete' }
 ]
