@@ -321,9 +321,36 @@ export default function Form() {
                 </label>
                 <div className='mt-2'>
                 <select
-                    id='SpecifyRegion'
-                    {...register('SpecifyRegion')}
-                    autoComplete='SpecifyRegion'
+                    id='District'
+                    {...register('District')}
+                    autoComplete='District'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>City</option>
+                    <option>Town</option>
+                    <option>Village</option>
+                  </select>
+                  {errors.SpecifyRegion?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.SpecifyRegion.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+                            {/* Governent Or State */}
+                            <div className='sm:col-span-1'>
+                <label
+                  htmlFor='Government'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                 Governent Or State
+                </label>
+                <div className='mt-2'>
+                <select
+                    id='District'
+                    {...register('District')}
+                    autoComplete='District'
                     className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
                   >
                     <option>City</option>
