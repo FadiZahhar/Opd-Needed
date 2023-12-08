@@ -201,80 +201,144 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Personal Information
+              Specifications of the required property
             </h2>
             <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Provide your personal details.
+              Provide more details about the required property.
             </p>
             <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-              <div className='sm:col-span-3'>
+              {/* LikeTo */}
+              <div className='sm:col-span-1'>
                 <label
-                  htmlFor='firstName'
+                  htmlFor='wouldliketo'
                   className='block text-sm font-medium leading-6 text-gray-900'
                 >
-                  First name
+                  I would like to:
                 </label>
                 <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='firstName'
-                    {...register('firstName')}
-                    autoComplete='given-name'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.firstName?.message && (
+                  <select
+                    id='LikeTo'
+                    {...register('LikeTo')}
+                    autoComplete='LikeTo'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>Buy</option>
+                    <option>Rent</option>
+                    <option>Lease to buy</option>
+                  </select>
+                  {errors.LikeTo?.message && (
                     <p className='mt-2 text-sm text-red-400'>
-                      {errors.firstName.message}
+                      {errors.LikeTo.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {/* SpecifyType */}
+              <div className='sm:col-span-1'>
+                <label
+                  htmlFor='SpecifyType'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                  Specify Type
+                </label>
+                <div className='mt-2'>
+                <select
+                    id='SpecifyType'
+                    {...register('SpecifyType')}
+                    autoComplete='SpecifyType'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>House</option>
+                    <option>Apartment</option>
+                  </select>
+                  {errors.SpecifyType?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.SpecifyType.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {/* SpecifyRegion */}
+              <div className='sm:col-span-1'>
+                <label
+                  htmlFor='SpecifyRegion'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                 Specify Region
+                </label>
+                <div className='mt-2'>
+                <select
+                    id='SpecifyRegion'
+                    {...register('SpecifyRegion')}
+                    autoComplete='SpecifyRegion'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>City</option>
+                    <option>Town</option>
+                    <option>Village</option>
+                  </select>
+                  {errors.SpecifyRegion?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.SpecifyRegion.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {/* Country */}
+              <div className='sm:col-span-1'>
+                <label
+                  htmlFor='Country'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                 Country
+                </label>
+                <div className='mt-2'>
+                <select
+                    id='Country'
+                    {...register('Country')}
+                    autoComplete='Country'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>Lebanon</option>
+                    <option>Turkey</option>
+                    <option>Greece</option>
+                    <option>USA</option>
+                  </select>
+                  {errors.Country?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.Country.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+              {/* District */}
+              <div className='sm:col-span-1'>
+                <label
+                  htmlFor='District'
+                  className='block text-sm font-medium leading-6 text-gray-900'
+                >
+                 District
+                </label>
+                <div className='mt-2'>
+                <select
+                    id='SpecifyRegion'
+                    {...register('SpecifyRegion')}
+                    autoComplete='SpecifyRegion'
+                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
+                  >
+                    <option>City</option>
+                    <option>Town</option>
+                    <option>Village</option>
+                  </select>
+                  {errors.SpecifyRegion?.message && (
+                    <p className='mt-2 text-sm text-red-400'>
+                      {errors.SpecifyRegion.message}
                     </p>
                   )}
                 </div>
               </div>
 
-              <div className='sm:col-span-3'>
-                <label
-                  htmlFor='lastName'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Last name
-                </label>
-                <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='lastName'
-                    {...register('lastName')}
-                    autoComplete='family-name'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.lastName?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.lastName.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className='sm:col-span-4'>
-                <label
-                  htmlFor='email'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Email address
-                </label>
-                <div className='mt-2'>
-                  <input
-                    id='email'
-                    type='email'
-                    {...register('email')}
-                    autoComplete='email'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.email?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              
             </div>
           </motion.div>
         )}
