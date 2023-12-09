@@ -616,6 +616,11 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            {/*'CloseToHome',*/}
+            {/*'GoodReputation',*/}
+            {/*'SmallClassSize',*/}
+            {/*'SolidCurriculum',*/}
+            {/*'OtherSchools',*/}
             </div>
 
             <Heading title='Home Systems'>
@@ -623,6 +628,19 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            {/*'CentralAC',*/}
+            {/*'WoodStove',*/}
+            {/*'Fireplace',*/}
+            {/*'TanklessWaterHeater',*/}
+            {/*'CopperPlumbing',*/}
+            {/*'SolarPower',*/}
+            {/*'Generator',*/}
+            {/*'SecuritySystem',*/}
+            {/*'HomeAutomation',*/}
+            {/*'Cable',*/}
+            {/*'SatelliteDish',*/}
+            {/*'FiberOpticCable',*/}
+            {/*'OtherHomeSystems'*/}
             </div>
 
             
@@ -640,6 +658,13 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            {/*'Garage',*/}
+            {/*'WalkOutBasement',*/}
+            {/*'Driveway',*/}
+            {/*'FencedYard',*/}
+            {/*'Gardens',*/}
+            {/*'Pool',*/}
+            {/*'OtherHomeFeaturesExterior',*/}
             </div>
 
             <Heading title='Home Features Interior'>
@@ -647,6 +672,17 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            {/*'WoodFlooring',*/}
+            {/*'MaidRoom',*/}
+            {/*'LaundryRoom',*/}
+            {/*'FinishedBasement',*/}
+            {/*'EatInKitchen',*/}
+            {/*'GameRoom',*/}
+            {/*'Office',*/}
+            {/*'MasterBedroom',*/}
+            {/*'MasterBathroom',*/}
+            {/*'WalkInCloset',*/}
+            {/*'OtherHomeFeaturesInterior'*/}
             </div>
             
           </motion.div>
@@ -673,16 +709,7 @@ export default function Form() {
         )}
 
         
-        {currentStep === 5 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 9
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 9
-            </p>
-          </>
-        )}
+        
       </form>
 
       {/* Navigation */}
