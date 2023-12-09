@@ -9,7 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
 import Heading from './heading'
-
+import './form.css';
 type Inputs = z.infer<typeof FormDataSchema>
 
 
@@ -138,14 +138,18 @@ export default function Form() {
   }
 
   return (
-    <section className='absolute inset-0 flex flex-col  p-24'>
+    <section className='absolute inset-0 flex flex-col  p-12'>
+      <div className="flex flex-col items-center justify-center mb-3">
+      <img src="/propertypro.svg" alt="logo" width="50" height="50" />
+      <h2 className="opd-header">Property Pro</h2>
+      </div>
       {/* steps */}
       <nav aria-label='Progress'>
         <ol role='list' className='space-y-4 md:flex md:space-x-8 md:space-y-0'>
           {steps.map((step, index) => (
             <li key={step.name} className='md:flex-1'>
               {currentStep > index ? (
-                <div className='group flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'>
+                <div className='opd-border group flex w-full flex-col border-l-4 border-sky-600  py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'>
                   <span className='text-sm font-medium text-sky-600 transition-colors '>
                     {step.id}
                   </span>
@@ -153,20 +157,20 @@ export default function Form() {
                 </div>
               ) : currentStep === index ? (
                 <div
-                  className='flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'
+                  className='opd-border flex w-full flex-col border-l-4 border-sky-600 py-2 pl-4 md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'
                   aria-current='step'
                 >
-                  <span className='text-sm font-medium text-sky-600'>
+                  <span className='text-sm font-medium text-sky-600 opd-link'>
                     {step.id}
                   </span>
-                  <span className='text-sm font-medium'>{step.name}</span>
+                  <span className='text-sm font-medium opd-text'>{step.name}</span>
                 </div>
               ) : (
                 <div className='group flex w-full flex-col border-l-4 border-gray-200 py-2 pl-4 transition-colors md:border-l-0 md:border-t-4 md:pb-0 md:pl-0 md:pt-4'>
-                  <span className='text-sm font-medium text-gray-500 transition-colors'>
+                  <span className='text-sm font-medium text-gray-500 transition-colors opd-link'>
                     {step.id}
                   </span>
-                  <span className='text-sm font-medium'>{step.name}</span>
+                  <span className='text-sm font-medium opd-text'>{step.name}</span>
                 </div>
               )}
             </li>
@@ -185,7 +189,7 @@ export default function Form() {
             <Heading title='Specifications of the required property'>
               Provide more details about the required property.
             </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* LikeTo */}
               <div className='sm:col-span-1'>
                 <label
@@ -350,7 +354,7 @@ export default function Form() {
             <Heading title='Home Size'>
              Provide more details about the the size of the property.
             </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* PriceRangeMax */}
               <Input 
               id="PriceRangeMax"
@@ -473,7 +477,7 @@ export default function Form() {
             </Heading>
            
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               
 
             {/*'CloseToWork',*/}
@@ -552,7 +556,7 @@ export default function Form() {
             <Heading title='Neighborhood'>
              Provide more details about the neighborhood of the property.
             </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/* 'NoTraffic', */}
             <Input 
               id="NoTraffic"
@@ -615,7 +619,7 @@ export default function Form() {
              Provide more details about the schools suround the property.
             </Heading>
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'CloseToHome',*/}
             <Input 
               id="CloseToHome"
@@ -662,7 +666,7 @@ export default function Form() {
              Provide more details about the home system provided by the property.
             </Heading>
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'CentralAC',*/}
             <Input 
               id="CentralAC"
@@ -783,7 +787,7 @@ export default function Form() {
              Provide more details about the exterior home features of the property.
             </Heading>
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'Garage',*/}
             <Input 
               id="Garage"
@@ -846,7 +850,7 @@ export default function Form() {
              Provide more details about the interior features of the property.
             </Heading>
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'WoodFlooring',*/}
             <Input 
               id="WoodFlooring"
@@ -946,17 +950,27 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-            Location
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-            Location of the property.
-            </p>
+            
 
-            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-              
+            
+            <div className="flex flex-col items-center justify-center">
 
-            </div>
+   <br/><br/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="60.039" height="45.06" viewBox="0 0 60.039 45.06">
+            <path id="Path_162" data-name="Path 162" d="M22.362,42.423,9.928,29.989a3.573,3.573,0,1,0-5.052,5.052L19.854,50.02a3.569,3.569,0,0,0,5.052,0L62.818,12.108a3.573,3.573,0,1,0-5.052-5.052Z" transform="translate(-3.828 -6.008)" fill="#477b11"/>
+          </svg><br/>
+
+   
+    <h2 className="text-lg font-semibold mb-2 opd-heading">Your request has been sent</h2>
+    <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
+
+  
+    <a href="https://example.com" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+</div>
+
+
+
+           
           </motion.div>
         )}
 
@@ -967,48 +981,24 @@ export default function Form() {
       {/* Navigation */}
       <div className='mt-8 pt-5'>
         <div className='flex justify-between'>
+        {(currentStep !== steps.length - 1) &&
           <button
             type='button'
             onClick={prev}
             disabled={currentStep === 0}
-            className='rounded bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50'
+            className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50'
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth='1.5'
-              stroke='currentColor'
-              className='h-6 w-6'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M15.75 19.5L8.25 12l7.5-7.5'
-              />
-            </svg>
-          </button>
+            Prev
+          </button>}
+          {(currentStep !== steps.length - 1) &&
           <button
             type='button'
             onClick={next}
             disabled={currentStep === steps.length - 1}
-            className='rounded bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50'
+            className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset disabled:cursor-not-allowed disabled:opacity-50'
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth='1.5'
-              stroke='currentColor'
-              className='h-6 w-6'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M8.25 4.5l7.5 7.5-7.5 7.5'
-              />
-            </svg>
-          </button>
+             {(currentStep === steps.length - 2) ? "Finish" : "Next" }
+          </button>}
         </div>
       </div>
     </section>

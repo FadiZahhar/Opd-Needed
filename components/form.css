@@ -1,0 +1,41 @@
+.opd-border {
+    border-color: #477b11!important;
+}
+.opd-header {
+    color:#1F1F1F!important;
+    font-size:1.6rem!important;
+}
+
+.opd-text {
+    color:#4F4F4F!important;
+    font-size:1.2rem!important;
+}
+
+.opd-link {
+    color:#477B11!important;
+    font-size:1rem!important;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+textarea{
+    min-height:100px
+}
+
+.text-sky-600{
+    color:#477b11!important;
+    font-size: 1rem;
+}
+
+button {
+    background-color:#477b11!important;
+    color: #fff !important;
+    padding: 5px 20px!important;
+    outline: none!important;
+}
+
+input[type="checkbox"]{
+
+}

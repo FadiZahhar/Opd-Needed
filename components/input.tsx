@@ -8,14 +8,14 @@ export default function Input({id,label,type,register,error}:any){
          <div className='sm:col-span-1'>
         <label
           htmlFor={id}
-          className='inline-flex items-center mt-3'
+          className='inline-flex items-center mt-3 opd-text'
         >{label}</label>
         <div className='mt-2'>
         <input
             type={type}
             id={id}
             {...register(id)}
-            className='form-checkbox h-5 w-5 text-blue-600'
+            className='form-checkbox h-5 w-5 text-green-600'
           />
           {error && (
             <p className='mt-2 text-sm text-red-400'>
@@ -28,7 +28,7 @@ export default function Input({id,label,type,register,error}:any){
          : type === 'textarea' ? (<div className='sm:col-span-6'>
          <label
            htmlFor={id}
-           className='block text-sm font-medium leading-6 text-gray-900'
+           className='block text-sm font-medium leading-6 text-gray-900 opd-text'
          >
            {label}
          </label>
@@ -51,7 +51,7 @@ export default function Input({id,label,type,register,error}:any){
         <div className='sm:col-span-1'>
         <label
           htmlFor={id}
-          className='block text-sm font-medium leading-6 text-gray-900'
+          className='block text-sm font-medium leading-6 text-gray-900 opd-tethis'
         >
           {label}
         </label>
