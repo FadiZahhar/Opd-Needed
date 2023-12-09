@@ -617,10 +617,45 @@ export default function Form() {
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             {/*'CloseToHome',*/}
+            <Input 
+              id="CloseToHome"
+              label="Close to home"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'GoodReputation',*/}
+            <Input 
+              id="GoodReputation"
+              label="Good reputation"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'SmallClassSize',*/}
+            <Input 
+              id="SmallClassSize"
+              label="Small class size"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'SolidCurriculum',*/}
+            <Input 
+              id="SolidCurriculum"
+              label="Solid curriculum"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'OtherSchools',*/}
+            <Input 
+              id="OtherSchools"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
             </div>
 
             <Heading title='Home Systems'>
@@ -629,18 +664,109 @@ export default function Form() {
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             {/*'CentralAC',*/}
+            <Input 
+              id="CentralAC"
+              label="Central AC"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'WoodStove',*/}
+            <Input 
+              id="WoodStove"
+              label="Wood Stove"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Fireplace',*/}
+            <Input 
+              id="Fireplace"
+              label="Fire Place"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'TanklessWaterHeater',*/}
+            <Input 
+              id="TanklessWaterHeater"
+              label="Tankless water heater"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'CopperPlumbing',*/}
+            <Input 
+              id="CopperPlumbing"
+              label="Copper Plumbing"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'SolarPower',*/}
+            <Input 
+              id="SolarPower"
+              label="Solar Power"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Generator',*/}
+            <Input 
+              id="Generator"
+              label="Generator"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'SecuritySystem',*/}
+            <Input 
+              id="SecuritySystem"
+              label="Security System"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'HomeAutomation',*/}
+            <Input 
+              id="HomeAutomation"
+              label="Home Automation"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Cable',*/}
+            <Input 
+              id="Cable"
+              label="Cable"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'SatelliteDish',*/}
+            <Input 
+              id="SatelliteDish"
+              label="Satellite dish"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'FiberOpticCable',*/}
+            <Input 
+              id="FiberOpticCable"
+              label="Fiber Optic Cable"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'OtherHomeSystems'*/}
+            <Input 
+              id="OtherHomeSystems"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
             </div>
 
             
@@ -659,12 +785,61 @@ export default function Form() {
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             {/*'Garage',*/}
+            <Input 
+              id="Garage"
+              label="Garage"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'WalkOutBasement',*/}
+            <Input 
+              id="WalkOutBasement"
+              label="WalkOut basement"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Driveway',*/}
+            <Input 
+              id="Driveway"
+              label="Driveway"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'FencedYard',*/}
+            <Input 
+              id="FencedYard"
+              label="Fenced Yard"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Gardens',*/}
+            <Input 
+              id="Gardens"
+              label="Gardens"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Pool',*/}
+            <Input 
+              id="Pool"
+              label="Pool"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'OtherHomeFeaturesExterior',*/}
+            <Input 
+              id="OtherHomeFeaturesExterior"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
             </div>
 
             <Heading title='Home Features Interior'>
@@ -673,16 +848,93 @@ export default function Form() {
 
             <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
             {/*'WoodFlooring',*/}
+            <Input 
+              id="WoodFlooring"
+              label="Wood Flooring"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'MaidRoom',*/}
+            <Input 
+              id="MaidRoom"
+              label="Maid room"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'LaundryRoom',*/}
+            <Input 
+              id="LaundryRoom"
+              label="Laundry room"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'FinishedBasement',*/}
+            <Input 
+              id="FinishedBasement"
+              label="Finished basement"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'EatInKitchen',*/}
+            <Input 
+              id="EatInKitchen"
+              label="Eat In Kitchen"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'GameRoom',*/}
+            <Input 
+              id="GameRoom"
+              label="Game room"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'Office',*/}
+            <Input 
+              id="Office"
+              label="Office"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'MasterBedroom',*/}
+            <Input 
+              id="MasterBedroom"
+              label="Master bedroom"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'MasterBathroom',*/}
+            <Input 
+              id="MasterBathroom"
+              label="Master bathroom"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'WalkInCloset',*/}
+            <Input 
+              id="FiberOpticCable"
+              label="Fiber optic cable"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
             {/*'OtherHomeFeaturesInterior'*/}
+            <Input 
+              id="OtherHomeFeaturesInterior"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
             </div>
             
           </motion.div>
