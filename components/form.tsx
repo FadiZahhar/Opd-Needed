@@ -8,6 +8,7 @@ import { FormDataSchema } from '@/lib/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
+import Heading from './heading'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -17,25 +18,20 @@ const steps = [
     id: 'Step 1',
     name: 'Specifications of the required property',
     fields: [
-      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState']
+      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','PriceRangeMax', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
+      'NumberOfLivingRooms',
+      'NumberOfBathrooms',
+      'NumberOfDiningRooms',
+      'MaidRoomWithBathroom',
+      'StorageRoom',
+      'WaterWell',
+      'Generator',
+      'NumberOfParkingLots',
+      'OtherHomeSize']
   },
   {
     id: 'Step 2',
-    name: 'Home Size',
-    fields: ['PriceRangeMax', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
-    'NumberOfLivingRooms',
-    'NumberOfBathrooms',
-    'NumberOfDiningRooms',
-    'MaidRoomWithBathroom',
-    'StorageRoom',
-    'WaterWell',
-    'Generator',
-    'NumberOfParkingLots',
-    'OtherHomeSize']
-  },
-  {
-    id: 'Step 3',
-    name: 'Location',
+    name: 'Location And Neighborhood',
     fields: ['CloseToWork',
       'CloseToSchool',
       'CloseToHospital',
@@ -44,12 +40,7 @@ const steps = [
       'CloseToRestaurants',
       'CloseToHighways',
       'PublicTransportation',
-      'OtherLocation']
-  },
-  {
-    id: 'Step 4',
-    name: 'Neighborhood',
-    fields: ['NoTraffic',
+      'OtherLocation','NoTraffic',
       'VeryQuiet',
       'YoungerNeighbors',
       'OlderNeighbors',
@@ -57,46 +48,36 @@ const steps = [
       'OtherNeighborhood']
   },
   {
-    id: 'Step 5',
-    name: 'Schools',
+    id: 'Step 3',
+    name: 'Schools And Home Systems',
     fields: ['CloseToHome',
-    'GoodReputation',
-    'SmallClassSize',
-    'SolidCurriculum',
-    'OtherSchools']
+      'GoodReputation',
+      'SmallClassSize',
+      'SolidCurriculum',
+      'OtherSchools','CentralAC',
+      'WoodStove',
+      'Fireplace',
+      'TanklessWaterHeater',
+      'CopperPlumbing',
+      'SolarPower',
+      'Generator',
+      'SecuritySystem',
+      'HomeAutomation',
+      'Cable',
+      'SatelliteDish',
+      'FiberOpticCable',
+      'OtherHomeSystems']
   },
   {
-    id: 'Step 6',
-    name: 'Home Systems',
-    fields: ['CentralAC',
-    'WoodStove',
-    'Fireplace',
-    'TanklessWaterHeater',
-    'CopperPlumbing',
-    'SolarPower',
-    'Generator',
-    'SecuritySystem',
-    'HomeAutomation',
-    'Cable',
-    'SatelliteDish',
-    'FiberOpticCable',
-    'OtherHomeSystems']
-  },
-  {
-    id: 'Step 7',
-    name: 'Home Features - Exterior',
+    id: 'Step 4',
+    name: 'Home Features - Exterior and Interior',
     fields: ['Garage',
       'WalkOutBasement',
       'Driveway',
       'FencedYard',
       'Gardens',
       'Pool',
-      'OtherHomeFeaturesExterior']
-  },
-  {
-    id: 'Step 8',
-    name: 'Home Features - Interior',
-    fields: ['WoodFlooring',
+      'OtherHomeFeaturesExterior','WoodFlooring',
       'MaidRoom',
       'LaundryRoom',
       'FinishedBasement',
@@ -108,7 +89,7 @@ const steps = [
       'WalkInCloset',
       'OtherHomeFeaturesInterior']
   },
-  { id: 'Step 9', name: 'Complete' }
+  { id: 'Step 5', name: 'Complete' }
 ]
 
 export default function Form() {
@@ -201,13 +182,10 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Specifications of the required property
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
+            <Heading title='Specifications of the required property'>
               Provide more details about the required property.
-            </p>
-            <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            </Heading>
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
               {/* LikeTo */}
               <div className='sm:col-span-1'>
                 <label
@@ -369,13 +347,10 @@ export default function Form() {
             </div>
 
             <br /><br/>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Home Size
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Provide more details about the the size of the property.
-            </p>
-            <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            <Heading title='Home Size'>
+             Provide more details about the the size of the property.
+            </Heading>
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
               {/* PriceRangeMax */}
               <Input 
               id="PriceRangeMax"
@@ -493,211 +468,212 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-            Home Size
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-            Home Size information where you can receive mail.
-            </p>
+            <Heading title='Location'>
+             Provide more details about the location of the property.
+            </Heading>
+           
 
-            <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-              <div className='sm:col-span-3'>
-                <label
-                  htmlFor='country'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Country
-                </label>
-                <div className='mt-2'>
-                  <select
-                    id='country'
-                    {...register('country')}
-                    autoComplete='country-name'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
-                  {errors.country?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.country.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+              
 
-              <div className='col-span-full'>
-                <label
-                  htmlFor='street'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Street address
-                </label>
-                <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='street'
-                    {...register('street')}
-                    autoComplete='street-address'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.street?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.street.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className='sm:col-span-2 sm:col-start-1'>
-                <label
-                  htmlFor='city'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  City
-                </label>
-                <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='city'
-                    {...register('city')}
-                    autoComplete='address-level2'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.city?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.city.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className='sm:col-span-2'>
-                <label
-                  htmlFor='state'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  State / Province
-                </label>
-                <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='state'
-                    {...register('state')}
-                    autoComplete='address-level1'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.state?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.state.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className='sm:col-span-2'>
-                <label
-                  htmlFor='zip'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  ZIP / Postal code
-                </label>
-                <div className='mt-2'>
-                  <input
-                    type='text'
-                    id='zip'
-                    {...register('zip')}
-                    autoComplete='postal-code'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6'
-                  />
-                  {errors.zip?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.zip.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+            {/*'CloseToWork',*/}
+            <Input 
+              id="CloseToWork"
+              label="Close to work"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToSchool',*/}
+            <Input 
+              id="CloseToSchool"
+              label="Close to school"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToHospital',*/}
+            <Input 
+              id="CloseToHospital"
+              label="Close to hospital"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToSupermarket',*/}
+            <Input 
+              id="CloseToSupermarket"
+              label="Close to supermarket"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToParksRecreation',*/}
+            <Input 
+              id="CloseToParksRecreation"
+              label="Close to parks recreation"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToRestaurants',*/}
+            <Input 
+              id="CloseToRestaurants"
+              label="Close to restaurants"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'CloseToHighways',*/}
+            <Input 
+              id="CloseToHighways"
+              label="Close to highways"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'PublicTransportation',*/}
+            <Input 
+              id="PublicTransportation"
+              label="Public transportation"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'OtherLocation'*/}
+            <Input 
+              id="OtherLocation"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
+            </div><br/>
+            <Heading title='Neighborhood'>
+             Provide more details about the neighborhood of the property.
+            </Heading>
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            {/* 'NoTraffic', */}
+            <Input 
+              id="NoTraffic"
+              label="No Traffic"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'VeryQuiet',*/}
+            <Input 
+              id="VeryQuiet"
+              label="Very quiet"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'YoungerNeighbors',*/}
+            <Input 
+              id="YoungerNeighbors"
+              label="Younger neighbors"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'OlderNeighbors',*/}
+            <Input 
+              id="Older neighbors"
+              label="Close to school"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'ChildFriendly',*/}
+            <Input 
+              id="Child friendly"
+              label="Close to school"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+            {/*'OtherNeighborhood'*/}
+            <Input 
+              id="OtherNeighborhood"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
             </div>
           </motion.div>
         )}
 
         {currentStep === 2 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 2
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 2
-            </p>
-          </>
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Heading title='Schools'>
+             Provide more details about the schools suround the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            </div>
+
+            <Heading title='Home Systems'>
+             Provide more details about the home system provided by the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            </div>
+
+            
+          </motion.div>
         )}
 
         {currentStep === 3 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 3
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 3
-            </p>
-          </>
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Heading title='Home Features Exterior'>
+             Provide more details about the exterior home features of the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            </div>
+
+            <Heading title='Home Features Interior'>
+             Provide more details about the interior features of the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+            </div>
+            
+          </motion.div>
         )}
 
-          {currentStep === 4 && (
-          <>
+        {currentStep === 4 && (
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 4
+            Location
             </h2>
             <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 4
+            Location of the property.
             </p>
-          </>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+              
+
+            </div>
+          </motion.div>
         )}
 
+        
         {currentStep === 5 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 5
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 5
-            </p>
-          </>
-        )}
-
-        {currentStep === 6 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 6
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 6
-            </p>
-          </>
-        )}
-
-        {currentStep === 7 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 7
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 7
-            </p>
-          </>
-        )}
-         {currentStep === 8 && (
-          <>
-            <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              step 8
-            </h2>
-            <p className='mt-1 text-sm leading-6 text-gray-600'>
-              continue on the step 8
-            </p>
-          </>
-        )}
-        {currentStep === 9 && (
           <>
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
               step 9
