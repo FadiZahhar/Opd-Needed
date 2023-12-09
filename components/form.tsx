@@ -7,6 +7,7 @@ import { z } from 'zod'
 import { FormDataSchema } from '@/lib/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import Input from './input'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -156,7 +157,7 @@ export default function Form() {
   }
 
   return (
-    <section className='absolute inset-0 flex flex-col justify-between p-24'>
+    <section className='absolute inset-0 flex flex-col  p-24'>
       {/* steps */}
       <nav aria-label='Progress'>
         <ol role='list' className='space-y-4 md:flex md:space-x-8 md:space-y-0'>
@@ -191,9 +192,9 @@ export default function Form() {
           ))}
         </ol>
       </nav>
-
+<br/>
       {/* Form */}
-      <form className='mt-12 py-12' onSubmit={handleSubmit(processForm)}>
+      <form className='' onSubmit={handleSubmit(processForm)}>
         {currentStep === 0 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
@@ -341,16 +342,16 @@ export default function Form() {
                             {/* Governent Or State */}
                             <div className='sm:col-span-1'>
                 <label
-                  htmlFor='Government'
+                  htmlFor='GovernentOrState'
                   className='block text-sm font-medium leading-6 text-gray-900'
                 >
                  Governent Or State
                 </label>
                 <div className='mt-2'>
                 <select
-                    id='District'
-                    {...register('District')}
-                    autoComplete='District'
+                    id='GovernateOrState'
+                    {...register('GovernateOrState')}
+                    autoComplete='GovernentOrState'
                     className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
                   >
                     <option>City</option>
@@ -365,8 +366,124 @@ export default function Form() {
                 </div>
               </div>
 
+            </div>
+
+            <br /><br/>
+            <h2 className='text-base font-semibold leading-7 text-gray-900'>
+              Home Size
+            </h2>
+            <p className='mt-1 text-sm leading-6 text-gray-600'>
+              Provide more details about the the size of the property.
+            </p>
+            <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+              {/* PriceRangeMax */}
+              <Input 
+              id="PriceRangeMax"
+              label="Price Range (Maximum)"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* BathRoomsMin */}
+              <Input 
+              id="BathRoomsMin"
+              label="Bedrooms (min.)"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* DesiredFloor */}
+              <Input 
+              id="DesiredFloor"
+              label="Desired floor"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* NumberOfSalons */}
+              <Input 
+              id="NumberOfSalons"
+              label="Number of salons"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* NumberOfLivingRooms */}
+              <Input 
+              id="NumberOfLivingRooms"
+              label="Number of livingRooms"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* NumberOfBathrooms */}
+              <Input 
+              id="NumberOfBathrooms"
+              label="Number of bathrooms"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              {/* NumberOfDiningRooms */}
+              <Input 
+              id="NumberOfDiningRooms"
+              label="Number of dining rooms"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+
+
+               {/* MaidsRoomWithBathroom */}
+               <Input 
+              id="MaidsRoomWithBathroom"
+              label="Maid's room with bathroom"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+
+
+              {/* StorageRoom */}
+              <Input 
+              id="StorageRoom"
+              label="Storage room"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+
+               {/* Generator */}
+              <Input 
+              id="Generator"
+              label="Generator"
+              type="checkbox"
+              register={register}
+              errors={errors}
+              />
+
+              {/* NumberOfParkingLots */}
+              <Input 
+              id="NumberOfParkingLots"
+              label="Number of parking lots"
+              type="number"
+              register={register}
+              errors={errors}
+              />
+              <br/>
+              {/* OtherHomeSize */}
+              <Input 
+              id="OtherHomeSize"
+              label="Other"
+              type="textarea"
+              register={register}
+              errors={errors}
+              />
+
               
             </div>
+
+           
           </motion.div>
         )}
 
@@ -377,10 +494,10 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <h2 className='text-base font-semibold leading-7 text-gray-900'>
-              Address
+            Home Size
             </h2>
             <p className='mt-1 text-sm leading-6 text-gray-600'>
-              Address where you can receive mail.
+            Home Size information where you can receive mail.
             </p>
 
             <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
