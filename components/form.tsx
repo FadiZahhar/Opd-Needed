@@ -794,7 +794,7 @@ export default function Form() {
               label="Garage"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Garage?.message}
               />
             {/*'WalkOutBasement',*/}
             <Input 
@@ -802,7 +802,7 @@ export default function Form() {
               label="WalkOut basement"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.WalkOutBasement?.message}
               />
             {/*'Driveway',*/}
             <Input 
@@ -810,7 +810,7 @@ export default function Form() {
               label="Driveway"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Driveway?.message}
               />
             {/*'FencedYard',*/}
             <Input 
@@ -818,7 +818,7 @@ export default function Form() {
               label="Fenced Yard"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.FencedYard?.message}
               />
             {/*'Gardens',*/}
             <Input 
@@ -826,7 +826,7 @@ export default function Form() {
               label="Gardens"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Gardens?.message}
               />
             {/*'Pool',*/}
             <Input 
@@ -834,15 +834,15 @@ export default function Form() {
               label="Pool"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Pool?.message}
               />
             {/*'OtherHomeFeaturesExterior',*/}
             <Input 
               id="OtherHomeFeaturesExterior"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Exterior"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherHomeFeaturesExterior?.message}
               />
             </div>
 
@@ -857,7 +857,7 @@ export default function Form() {
               label="Wood Flooring"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.WoodFlooring?.message}
               />
             {/*'MaidRoom',*/}
             <Input 
@@ -865,7 +865,7 @@ export default function Form() {
               label="Maid room"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.MaidRoom?.message}
               />
             {/*'LaundryRoom',*/}
             <Input 
@@ -873,7 +873,7 @@ export default function Form() {
               label="Laundry room"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.LaundryRoom?.message}
               />
             {/*'FinishedBasement',*/}
             <Input 
@@ -881,7 +881,7 @@ export default function Form() {
               label="Finished basement"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.FinishedBasement?.message}
               />
             {/*'EatInKitchen',*/}
             <Input 
@@ -889,7 +889,7 @@ export default function Form() {
               label="Eat In Kitchen"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.EatInKitchen?.message}
               />
             {/*'GameRoom',*/}
             <Input 
@@ -897,7 +897,7 @@ export default function Form() {
               label="Game room"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.GameRoom?.message}
               />
             {/*'Office',*/}
             <Input 
@@ -905,7 +905,7 @@ export default function Form() {
               label="Office"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Office?.message}
               />
             {/*'MasterBedroom',*/}
             <Input 
@@ -913,7 +913,7 @@ export default function Form() {
               label="Master bedroom"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.MasterBedroom?.message}
               />
             {/*'MasterBathroom',*/}
             <Input 
@@ -921,7 +921,7 @@ export default function Form() {
               label="Master bathroom"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.MasterBathroom?.message}
               />
             {/*'WalkInCloset',*/}
             <Input 
@@ -929,15 +929,15 @@ export default function Form() {
               label="Fiber optic cable"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.FiberOpticCable?.message}
               />
             {/*'OtherHomeFeaturesInterior'*/}
             <Input 
               id="OtherHomeFeaturesInterior"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Interior"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherHomeFeaturesInterior?.message}
               />
             </div>
             
