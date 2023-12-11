@@ -600,7 +600,7 @@ export default function Form() {
             {/*'OtherNeighborhood'*/}
             <Input 
               id="OtherNeighborhood"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property Neighborhood"
               type="textarea"
               register={register}
               error={errors.OtherNeighborhood?.message}
@@ -626,7 +626,7 @@ export default function Form() {
               label="Close to home"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToHome?.message}
               />
             {/*'GoodReputation',*/}
             <Input 
@@ -634,7 +634,7 @@ export default function Form() {
               label="Good reputation"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.GoodReputation?.message}
               />
             {/*'SmallClassSize',*/}
             <Input 
@@ -642,7 +642,7 @@ export default function Form() {
               label="Small class size"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.SmallClassSize?.message}
               />
             {/*'SolidCurriculum',*/}
             <Input 
@@ -650,15 +650,15 @@ export default function Form() {
               label="Solid curriculum"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.SolidCurriculum?.message}
               />
             {/*'OtherSchools',*/}
             <Input 
               id="OtherSchools"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property School suroundings"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherSchools?.message}
               />
             </div>
 
@@ -673,7 +673,7 @@ export default function Form() {
               label="Central AC"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CentralAC?.message}
               />
             {/*'WoodStove',*/}
             <Input 
@@ -681,7 +681,7 @@ export default function Form() {
               label="Wood Stove"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.WoodStove?.message}
               />
             {/*'Fireplace',*/}
             <Input 
@@ -689,7 +689,7 @@ export default function Form() {
               label="Fire Place"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Fireplace?.message}
               />
             {/*'TanklessWaterHeater',*/}
             <Input 
@@ -697,7 +697,7 @@ export default function Form() {
               label="Tankless water heater"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.TanklessWaterHeater?.message}
               />
             {/*'CopperPlumbing',*/}
             <Input 
@@ -705,7 +705,7 @@ export default function Form() {
               label="Copper Plumbing"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CopperPlumbing?.message}
               />
             {/*'SolarPower',*/}
             <Input 
@@ -713,7 +713,7 @@ export default function Form() {
               label="Solar Power"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.SolarPower?.message}
               />
             {/*'Generator',*/}
             <Input 
@@ -721,7 +721,7 @@ export default function Form() {
               label="Generator"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Generator?.message}
               />
             {/*'SecuritySystem',*/}
             <Input 
@@ -729,7 +729,7 @@ export default function Form() {
               label="Security System"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.SecuritySystem?.message}
               />
             {/*'HomeAutomation',*/}
             <Input 
@@ -737,7 +737,7 @@ export default function Form() {
               label="Home Automation"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.HomeAutomation?.message}
               />
             {/*'Cable',*/}
             <Input 
@@ -745,7 +745,7 @@ export default function Form() {
               label="Cable"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Cable?.message}
               />
             {/*'SatelliteDish',*/}
             <Input 
@@ -753,7 +753,7 @@ export default function Form() {
               label="Satellite dish"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.SatelliteDish?.message}
               />
             {/*'FiberOpticCable',*/}
             <Input 
@@ -761,15 +761,15 @@ export default function Form() {
               label="Fiber Optic Cable"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.FiberOpticCable?.message}
               />
             {/*'OtherHomeSystems'*/}
             <Input 
               id="OtherHomeSystems"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property Home Systems"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherHomeSystems?.message}
               />
             </div>
 
