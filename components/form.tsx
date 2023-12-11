@@ -486,7 +486,7 @@ export default function Form() {
               label="Close to work"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.OtherHomeSize?.message}
               />
             {/*'CloseToSchool',*/}
             <Input 
@@ -494,7 +494,7 @@ export default function Form() {
               label="Close to school"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToSchool?.message}
               />
             {/*'CloseToHospital',*/}
             <Input 
@@ -502,7 +502,7 @@ export default function Form() {
               label="Close to hospital"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToHospital?.message}
               />
             {/*'CloseToSupermarket',*/}
             <Input 
@@ -510,7 +510,7 @@ export default function Form() {
               label="Close to supermarket"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToSupermarket?.message}
               />
             {/*'CloseToParksRecreation',*/}
             <Input 
@@ -518,7 +518,7 @@ export default function Form() {
               label="Close to parks recreation"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToParksRecreation?.message}
               />
             {/*'CloseToRestaurants',*/}
             <Input 
@@ -526,7 +526,7 @@ export default function Form() {
               label="Close to restaurants"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToRestaurants?.message}
               />
             {/*'CloseToHighways',*/}
             <Input 
@@ -534,7 +534,7 @@ export default function Form() {
               label="Close to highways"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.CloseToHighways?.message}
               />
             {/*'PublicTransportation',*/}
             <Input 
@@ -542,15 +542,15 @@ export default function Form() {
               label="Public transportation"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.PublicTransportation?.message}
               />
             {/*'OtherLocation'*/}
             <Input 
               id="OtherLocation"
-              label="Other"
+              label="Describe Breifly What Exactly You Like To Have For Your Property Location"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherLocation?.message}
               />
             </div><br/>
             <Heading title='Neighborhood'>
@@ -563,7 +563,7 @@ export default function Form() {
               label="No Traffic"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.NoTraffic?.message}
               />
             {/*'VeryQuiet',*/}
             <Input 
@@ -571,7 +571,7 @@ export default function Form() {
               label="Very quiet"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.VeryQuiet?.message}
               />
             {/*'YoungerNeighbors',*/}
             <Input 
@@ -579,23 +579,23 @@ export default function Form() {
               label="Younger neighbors"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.YoungerNeighbors?.message}
               />
             {/*'OlderNeighbors',*/}
             <Input 
-              id="Older neighbors"
+              id="OlderNeighbors"
               label="Close to school"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.OlderNeighbors?.message}
               />
             {/*'ChildFriendly',*/}
             <Input 
-              id="Child friendly"
+              id="ChildFriendly"
               label="Close to school"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.ChildFriendly?.message}
               />
             {/*'OtherNeighborhood'*/}
             <Input 
@@ -603,7 +603,7 @@ export default function Form() {
               label="Other"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherNeighborhood?.message}
               />
             </div>
           </motion.div>
