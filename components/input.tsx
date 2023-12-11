@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Input({id,label,type,register,error}:any){
 
+
+    useEffect(()=>{
+        console.log(error);
+    },[error])
     
     return(
         <>

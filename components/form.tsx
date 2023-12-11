@@ -18,7 +18,7 @@ const steps = [
     id: 'Step 1',
     name: 'Specifications of the required property',
     fields: [
-      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','PriceRangeMax', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
+      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','LivableArea', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
       'NumberOfLivingRooms',
       'NumberOfBathrooms',
       'NumberOfDiningRooms',
@@ -355,13 +355,13 @@ export default function Form() {
              Provide more details about the the size of the property.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-              {/* PriceRangeMax */}
+              {/* Livable area */}
               <Input 
-              id="PriceRangeMax"
-              label="Price Range (Maximum)"
+              id="LivableArea"
+              label="Livable Area (Maximum)"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.LivableArea?.message}
               />
               {/* BathRoomsMin */}
               <Input 
@@ -369,7 +369,7 @@ export default function Form() {
               label="Bedrooms (min.)"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.BathRoomsMin?.message}
               />
               {/* DesiredFloor */}
               <Input 
@@ -377,7 +377,7 @@ export default function Form() {
               label="Desired floor"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.DesiredFloor?.message}
               />
               {/* NumberOfSalons */}
               <Input 
@@ -385,7 +385,7 @@ export default function Form() {
               label="Number of salons"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.NumberOfSalons?.message}
               />
               {/* NumberOfLivingRooms */}
               <Input 
@@ -393,7 +393,7 @@ export default function Form() {
               label="Number of livingRooms"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.NumberOfLivingRooms?.message}
               />
               {/* NumberOfBathrooms */}
               <Input 
@@ -401,7 +401,7 @@ export default function Form() {
               label="Number of bathrooms"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.NumberOfBathrooms?.message}
               />
               {/* NumberOfDiningRooms */}
               <Input 
@@ -409,7 +409,7 @@ export default function Form() {
               label="Number of dining rooms"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.NumberOfDiningRooms?.message}
               />
 
 
@@ -419,7 +419,7 @@ export default function Form() {
               label="Maid's room with bathroom"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.MaidsRoomWithBathroom?.message}
               />
 
 
@@ -429,7 +429,7 @@ export default function Form() {
               label="Storage room"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.StorageRoom?.message}
               />
 
                {/* Generator */}
@@ -438,7 +438,7 @@ export default function Form() {
               label="Generator"
               type="checkbox"
               register={register}
-              errors={errors}
+              error={errors.Generator?.message}
               />
 
               {/* NumberOfParkingLots */}
@@ -447,16 +447,16 @@ export default function Form() {
               label="Number of parking lots"
               type="number"
               register={register}
-              errors={errors}
+              error={errors.NumberOfParkingLots?.message}
               />
               <br/>
               {/* OtherHomeSize */}
               <Input 
               id="OtherHomeSize"
-              label="Other"
+              label="Describe breifly what exactly you like to have for your property size"
               type="textarea"
               register={register}
-              errors={errors}
+              error={errors.OtherHomeSize?.message}
               />
 
               
