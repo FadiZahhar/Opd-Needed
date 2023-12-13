@@ -291,7 +291,7 @@ export default function Form() {
               {/* NumberOfLivingRooms */}
               <Input 
               id="NumberOfLivingRooms"
-              label="Number of livingRooms"
+              label="Number of Living Rooms"
               type="number"
               register={register}
               error={errors.NumberOfLivingRooms?.message}
