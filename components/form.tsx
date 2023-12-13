@@ -10,6 +10,9 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
 import Heading from './heading'
 import './form.css';
+import Select from './select'
+import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
+
 type Inputs = z.infer<typeof FormDataSchema>
 
 
@@ -18,7 +21,7 @@ const steps = [
     id: 'Step 1',
     name: 'Specifications of the required property',
     fields: [
-      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','LivableArea', 'BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
+      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','LivableArea','PriceRangeMax','BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
       'NumberOfLivingRooms',
       'NumberOfBathrooms',
       'NumberOfDiningRooms',
@@ -191,162 +194,52 @@ export default function Form() {
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* LikeTo */}
-              <div className='sm:col-span-1'>
-                <label
-                  htmlFor='wouldliketo'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  I would like to:
-                </label>
-                <div className='mt-2'>
-                  <select
-                    id='LikeTo'
-                    {...register('LikeTo')}
-                    autoComplete='LikeTo'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>Buy</option>
-                    <option>Rent</option>
-                    <option>Lease to buy</option>
-                  </select>
-                  {errors.LikeTo?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.LikeTo.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              <Select
+              id="LikeTo"
+              label="I would like to:"
+              register={register}
+              options={likeArray}
+              error={errors.LikeTo?.message}
+              />
               {/* SpecifyType */}
-              <div className='sm:col-span-1'>
-                <label
-                  htmlFor='SpecifyType'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Specify Type
-                </label>
-                <div className='mt-2'>
-                <select
-                    id='SpecifyType'
-                    {...register('SpecifyType')}
-                    autoComplete='SpecifyType'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>House</option>
-                    <option>Apartment</option>
-                  </select>
-                  {errors.SpecifyType?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.SpecifyType.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              <Select
+              id="SpecifyType"
+              label="Specify Type"
+              register={register}
+              options={specifyTypeArray}
+              error={errors.SpecifyType?.message}
+              />
               {/* SpecifyRegion */}
-              <div className='sm:col-span-1'>
-                <label
-                  htmlFor='SpecifyRegion'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                 Specify Region
-                </label>
-                <div className='mt-2'>
-                <select
-                    id='SpecifyRegion'
-                    {...register('SpecifyRegion')}
-                    autoComplete='SpecifyRegion'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>City</option>
-                    <option>Town</option>
-                    <option>Village</option>
-                  </select>
-                  {errors.SpecifyRegion?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.SpecifyRegion.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              <Select
+              id="SpecifyRegion"
+              label="Specify Region"
+              register={register}
+              options={specifyRegionArray}
+              error={errors.SpecifyRegion?.message}
+              />
               {/* Country */}
-              <div className='sm:col-span-1'>
-                <label
-                  htmlFor='Country'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                 Country
-                </label>
-                <div className='mt-2'>
-                <select
-                    id='Country'
-                    {...register('Country')}
-                    autoComplete='Country'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>Lebanon</option>
-                    <option>Turkey</option>
-                    <option>Greece</option>
-                    <option>USA</option>
-                  </select>
-                  {errors.Country?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.Country.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              <Select
+              id="Country"
+              label="Country"
+              register={register}
+              options={countryArray}
+              error={errors.Country?.message}
+              />
               {/* District */}
-              <div className='sm:col-span-1'>
-                <label
-                  htmlFor='District'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                 District
-                </label>
-                <div className='mt-2'>
-                <select
-                    id='District'
-                    {...register('District')}
-                    autoComplete='District'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>City</option>
-                    <option>Town</option>
-                    <option>Village</option>
-                  </select>
-                  {errors.SpecifyRegion?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.SpecifyRegion.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+              <Input
+              id="District"
+              label="District"
+              register={register}
+              error={errors.District?.message}
+              />
 
-                            {/* Governent Or State */}
-                            <div className='sm:col-span-1'>
-                <label
-                  htmlFor='GovernentOrState'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                 Governent Or State
-                </label>
-                <div className='mt-2'>
-                <select
-                    id='GovernateOrState'
-                    {...register('GovernateOrState')}
-                    autoComplete='GovernentOrState'
-                    className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                  >
-                    <option>City</option>
-                    <option>Town</option>
-                    <option>Village</option>
-                  </select>
-                  {errors.SpecifyRegion?.message && (
-                    <p className='mt-2 text-sm text-red-400'>
-                      {errors.SpecifyRegion.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+               {/* GovernateOrState */}
+              <Input
+              id="GovernateOrState"
+              label="Governate Or State"
+              register={register}
+              error={errors.GovernateOrState?.message}
+              />
 
             </div>
 
@@ -358,7 +251,15 @@ export default function Form() {
               {/* Livable area */}
               <Input 
               id="LivableArea"
-              label="Livable Area (Maximum)"
+              label="Livable Area"
+              type="number"
+              register={register}
+              error={errors.LivableArea?.message}
+              />
+              {/* PriceRangeMax */}
+              <Input 
+              id="PriceRangeMax"
+              label="Price Range (Maximum)"
               type="number"
               register={register}
               error={errors.LivableArea?.message}
