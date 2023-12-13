@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'OPD Needed',
   description: 'This form is designed to gather detailed information about the specific property you require. By specifying your needs and preferences, we can better assist in finding the ideal property that meets all your criteria.',
+  icons:'https://opd-needed.vercel.app/propertypro.svg',
   openGraph: {
     title: "OPD DOT VIP",
     description:"Digital Real Estate Marketing",
