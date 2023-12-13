@@ -21,7 +21,7 @@ const steps = [
     id: 'Step 1',
     name: 'Specifications of the required property',
     fields: [
-      'LikeTo', 'SpecifyType', 'Country','District','GovernateOrState','LivableArea','PriceRangeMax','BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
+      'LikeTo', 'SpecifyType','SpecifyRegion','Country','District','GovernateOrState','LivableArea','PriceRangeMax','BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
       'NumberOfLivingRooms',
       'NumberOfBathrooms',
       'NumberOfDiningRooms',
