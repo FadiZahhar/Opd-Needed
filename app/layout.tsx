@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     emails:'info@propertypro.vip',
     phoneNumbers:'961 3 948 739',
     siteName:"OPD DOT VIP",
-    images:'https://firebasestorage.googleapis.com/v0/b/opddev-51cfb.appspot.com/o/hero%2Fhero-img.png?alt=media&token=f57b1b99-9343-41a2-bddd-120378aac3d9',
+    images:'https://opd-needed.vercel.app/hero-img.png',
     url:'https://propertypro.vip/',
     countryName:'Lebanon'
 },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     creator:"OPD DOT VIP",
     description:'Digital Real Estate Marketing',
     title: "OPD DOT VIP",
-    images:'https://firebasestorage.googleapis.com/v0/b/opddev-51cfb.appspot.com/o/hero%2Fhero-img.png?alt=media&token=f57b1b99-9343-41a2-bddd-120378aac3d9',
+    images:'https://opd-needed.vercel.app/hero-img.png',
   }
 }
 
