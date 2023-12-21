@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
   secure: false, // true for 465, false for other ports
   auth: {
     user: 'apikey',
-    pass: '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' // Your SendGrid API key
+    pass: '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' // Your SendGrid API key
   }
 });
 
@@ -95,7 +95,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     OtherHomeFeaturesInterior } = req.body;
 
 
-    /*const html = `<div style="width:600px; height: 800px; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
+    const html = `<div style="width:600px; height: 800px; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
 
 <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
   <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
@@ -124,7 +124,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Country</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${country}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${Country}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">District</td>
@@ -161,7 +161,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of salons</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${NumberOfSalons}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${NmberOfSalons}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of living rooms</td>
@@ -236,7 +236,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherLocation}/td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherLocation}</td>
       </tr>
       
     </table>
@@ -485,7 +485,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
   
 </div>
 </div>`;
-*/
+
     // Add data to Firestore (optional)
     /*db.collection("opd-needed-form").add({
       LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState,LivableArea,PriceRangeMax,BedRoomsMin, BathRoomsMin, DesiredFloor, NumberOfSalons,
@@ -549,15 +549,15 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     WalkInCloset,
     OtherHomeFeaturesInterior
       // Add more fields as required
-    });
-     */
+    });*/
+     
     // Set up email content
     const mailOptions = {
       from: 'info@wmvp.dev',
-      to: 'fnzahhar@gmail.com',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
       subject: `OPD Needed from PostMan Test`,
       text: '',
-      html: 'test',//html // Include your HTML content
+      html: html // Include your HTML content
     };
 
     // Send email
