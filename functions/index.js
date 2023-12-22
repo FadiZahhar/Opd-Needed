@@ -188,7 +188,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 
 <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
   <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
-    <img style="float: left; padding-left:20px; width:60px;" src="https://opd-needed-azh0t1cfm-prosolutions.vercel.app/favicon-32x32.png" />
+    <img style="float: left; padding-left:20px; width:60px;" src="https://needed.propertypro.vip/apple-touch-icon.png" />
     <!-- <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">Property Pro</h1> -->
   </div>
   
