@@ -18,7 +18,7 @@ function validateValue(value) {
   return value === undefined ? '' : value;
 }
 // Setup Nodemailer with your SMTP provider credentials
-const apiKey = functions.config().someservice.api_key;
+const apiKey = functions.config().sebdgrid.api_key;
 const transporter = nodemailer.createTransport({
   host: 'smtp.sendgrid.net',
   port: 465,
@@ -188,7 +188,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 
 <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
   <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
-    <img style="float: left; padding-left:20px; width:60px;" src="propertypro.svg" />
+    <img style="float: left; padding-left:20px; width:60px;" src="https://opd-needed-azh0t1cfm-prosolutions.vercel.app/favicon-32x32.png" />
     <!-- <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">Property Pro</h1> -->
   </div>
   
@@ -258,6 +258,11 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of dining rooms</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfDiningRooms)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Maid's room with bathroom</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaidRoomWithBathroom)}</td>
       </tr>
@@ -299,6 +304,10 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to School</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSchool)}</td>
       </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Hospital</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHospital)}</td>
+    </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Supermarket</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSupermarket)}</td>
@@ -399,6 +408,10 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Wood Stove</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WoodStove)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fireplace</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Fireplace)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Tankless Water Heater</td>

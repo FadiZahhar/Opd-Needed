@@ -192,7 +192,8 @@ export default function Form() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      url: 'https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmail',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -220,7 +221,6 @@ export default function Form() {
 
     if (currentStep < steps.length - 1) {
       if (currentStep === steps.length - 2) {
-        alert('should submit');
         // write the logic of the submit form
         console.log("before submit")
         await handleSubmit(processForm)();
@@ -365,10 +365,18 @@ export default function Form() {
               register={register}
               error={errors.LivableArea?.message}
               />
+              {/* BedRoomsMin */}
+              <Input 
+              id="BedRoomsMin"
+              label="Bedrooms (min.)"
+              type="number"
+              register={register}
+              error={errors.BedRoomsMin?.message}
+              />
               {/* BathRoomsMin */}
               <Input 
               id="BathRoomsMin"
-              label="Bedrooms (min.)"
+              label="Bath Rooms (min.)"
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
@@ -397,14 +405,6 @@ export default function Form() {
               register={register}
               error={errors.NumberOfLivingRooms?.message}
               />
-              {/* NumberOfBathrooms */}
-              <Input 
-              id="NumberOfBathrooms"
-              label="Number of bathrooms"
-              type="number"
-              register={register}
-              error={errors.NumberOfBathrooms?.message}
-              />
               {/* NumberOfDiningRooms */}
               <Input 
               id="NumberOfDiningRooms"
@@ -415,13 +415,13 @@ export default function Form() {
               />
 
 
-               {/* MaidsRoomWithBathroom */}
+               {/* MaidRoomWithBathroom */}
                <Input 
-              id="MaidsRoomWithBathroom"
+              id="MaidRoomWithBathroom"
               label="Maid's room with bathroom"
               type="checkbox"
               register={register}
-              error={errors.MaidsRoomWithBathroom?.message}
+              error={errors.MaidRoomWithBathroom?.message}
               />
 
 
@@ -432,6 +432,15 @@ export default function Form() {
               type="number"
               register={register}
               error={errors.StorageRoom?.message}
+              />
+
+              {/* WaterWell */}
+              <Input 
+              id="WaterWell"
+              label="Water Well"
+              type="checkbox"
+              register={register}
+              error={errors.WaterWell?.message}
               />
 
                {/* Generator */}
@@ -927,8 +936,8 @@ export default function Form() {
               />
             {/*'WalkInCloset',*/}
             <Input 
-              id="FiberOpticCable"
-              label="Fiber optic cable"
+              id="WalkInCloset"
+              label="Walk In Closet"
               type="checkbox"
               register={register}
               error={errors.FiberOpticCable?.message}
@@ -974,7 +983,7 @@ export default function Form() {
     <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
 
   
-    <a href="https://example.com" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+    <a href="https://propertypro.vip/" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
 </div>
 
 
