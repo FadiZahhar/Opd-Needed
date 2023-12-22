@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
   secure: true, // true for 465, false for other ports
   auth: {
     user: 'apikey',
-    pass: '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' // Your SendGrid API key
+    pass: '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' // Your SendGrid API key
   }
 });
 
@@ -181,14 +181,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
       // Add more fields as required
     });
      
-    // Set up email content
-    const mailOptions = {
-      from: 'info@wmvp.dev',
-      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
-      subject: `OPD Needed Form Submission`,
-      text: '',
-      html: html // Include your HTML content
-    };
+
 
     const html = `<div style="width:600px; height: 800px; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
 
@@ -581,14 +574,21 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 </div>
 </div>`;
 
-   
+    // Set up email content
+    const mailOptions = {
+      from: 'info@wmvp.dev',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+      subject: `OPD Needed Form Submission`,
+      text: '',
+      html: html // Include your HTML content
+    };   
 
     // Send email
     return transporter.sendMail(mailOptions)
-      .then(() => res.status(200).send({ success: 'Email sent!' }))
+      .then(() => res.status(200).send({ status: 'Successs', message: 'Email Sent' }))
       .catch(error => {
         console.error('Error sending email:', error);
-        return res.status(500).send({ error: `Error sending email: ${error.message}` });
+        return res.status(500).send({ status: 'error',message: `Error sending email: ${error.message}` });
       });
   });
 });

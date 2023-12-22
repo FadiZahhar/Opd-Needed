@@ -70,4 +70,5 @@ export const FormDataSchema = z.object({
   MasterBedroom: z.boolean(),
   MasterBathroom: z.boolean(),
   OtherHomeFeaturesInterior: z.string().min(1,'This field is required, please describe in breif what you are looking for'),
+  honeypot: z.string()
 })

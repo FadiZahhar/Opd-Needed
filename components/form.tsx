@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState,useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
@@ -12,7 +12,7 @@ import Heading from './heading'
 import './form.css';
 import Select from './select'
 import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
-
+import axios from 'axios'
 type Inputs = z.infer<typeof FormDataSchema>
 
 
@@ -99,6 +99,8 @@ export default function Form() {
   const [previousStep, setPreviousStep] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
+  const formRef = useRef(null);
+
 
   const {
     register,
@@ -107,12 +109,104 @@ export default function Form() {
     reset,
     trigger,
     formState: { errors }
-  } = useForm<Inputs>({
-    resolver: zodResolver(FormDataSchema)
-  })
+  } = useForm<Inputs>()
 
   const processForm: SubmitHandler<Inputs> = data => {
-    console.log(data)
+    console.log("processForm",data)
+
+    /*let data = JSON.stringify({
+      "LikeTo": "Like to",
+      "SpecifyType": "Specify type",
+      "SpecifyRegion": "Specify Region",
+      "Country": "Country value test",
+      "District": "District value",
+      "GovernateOrState": "test ",
+      "LivableArea": "test 2",
+      "PriceRangeMax": "test 3",
+      "BedRoomsMin": "test 4",
+      "BathRoomsMin": "test 5",
+      "DesiredFloor": "test 6",
+      "NumberOfSalons": "test 7",
+      "NumberOfLivingRooms": "test 8",
+      "NumberOfBathrooms": "test 9",
+      "NumberOfDiningRooms": "test 10",
+      "MaidRoomWithBathroom": "tesst 11",
+      "StorageRoom": "test 12",
+      "WaterWell": "test 13",
+      "Generator": "test 14",
+      "NumberOfParkingLots": "test 15",
+      "OtherHomeSize": "test 16",
+      "CloseToWork": "test 17",
+      "CloseToSchool": "test 18",
+      "CloseToHospital": "test 19",
+      "CloseToSupermarket": "test 20",
+      "CloseToParksRecreation": "test 21",
+      "CloseToRestaurants": "test 22",
+      "CloseToHighways": "test 23",
+      "PublicTransportation": "test 24",
+      "OtherLocation": "test 25",
+      "NoTraffic": "test 26",
+      "VeryQuiet": "test 27",
+      "YoungerNeighbors": "test 28",
+      "OlderNeighbors": "test 29",
+      "ChildFriendly": "test 30",
+      "OtherNeighborhood": "test 31",
+      "CloseToHome": "test 33",
+      "GoodReputation": "test 34",
+      "SmallClassSize": "test 35",
+      "SolidCurriculum": "test 36",
+      "OtherSchools": "test 37",
+      "CentralAC": "test 38",
+      "WoodStove": "test 39",
+      "Fireplace": "test 40",
+      "TanklessWaterHeater": "test 41",
+      "CopperPlumbing": "test 42",
+      "SolarPower": "test 43",
+      "SecuritySystem": "test 44",
+      "HomeAutomation": "test 45",
+      "Cable": "test 46",
+      "SatelliteDish": "test 47",
+      "FiberOpticCable": "test 48",
+      "OtherHomeSystems": "test 49",
+      "Garage": "test 50",
+      "WalkOutBasement": "test 51",
+      "Driveway": "test 52",
+      "FencedYard": "test 53",
+      "Gardens": "test 54",
+      "Pool": "test 55",
+      "OtherHomeFeaturesExterior": "test 56",
+      "WoodFlooring": "test 57",
+      "MaidRoom": "test 58",
+      "LaundryRoom": "test 59",
+      "FinishedBasement": "test 60",
+      "EatInKitchen": "test 61",
+      "GameRoom": "test 62",
+      "Office": "test 63",
+      "MasterBedroom": "test 64",
+      "MasterBathroom": "test 65",
+      "WalkInCloset": "test 66",
+      "OtherHomeFeaturesInterior": "test 67",
+      "honeypot": "hi it should not work"
+    });*/
+    
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response:any) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error:any) => {
+      console.log(error);
+    });
+
     reset()
   }
 
@@ -121,12 +215,19 @@ export default function Form() {
   const next = async () => {
     const fields = steps[currentStep].fields
     const output = await trigger(fields as FieldName[], { shouldFocus: true })
-
+   
     if (!output) return
 
     if (currentStep < steps.length - 1) {
       if (currentStep === steps.length - 2) {
-        await handleSubmit(processForm)()
+        alert('should submit');
+        // write the logic of the submit form
+        console.log("before submit")
+        await handleSubmit(processForm)();
+       //formRef.current.submit();
+;
+
+
       }
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
@@ -182,7 +283,7 @@ export default function Form() {
       </nav>
 <br/>
       {/* Form */}
-      <form className='' onSubmit={handleSubmit(processForm)}>
+      <form className='' ref={formRef} onSubmit={handleSubmit(processForm)}>
         {currentStep === 0 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
@@ -840,6 +941,13 @@ export default function Form() {
               register={register}
               error={errors.OtherHomeFeaturesInterior?.message}
               />
+              <Input 
+              id="honeypot"
+              label=""
+              type="hidden"
+              register={register}
+              error={errors.OtherHomeFeaturesInterior?.message}
+              />
             </div>
             
           </motion.div>
@@ -876,10 +984,7 @@ export default function Form() {
         )}
 
         
-        
-      </form>
-
-      {/* Navigation */}
+              {/* Navigation */}
       <div className='mt-8 pt-5'>
         <div className='flex justify-between'>
         {(currentStep !== steps.length - 1) &&
@@ -902,6 +1007,9 @@ export default function Form() {
           </button>}
         </div>
       </div>
+      </form>
+
+
     </section>
   )
 }

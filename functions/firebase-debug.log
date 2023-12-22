@@ -578,3 +578,266 @@
 
 [debug] [2023-12-22T14:15:35.305Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
 [debug] [2023-12-22T14:15:35.315Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
+[debug] [2023-12-22T14:40:51.588Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:40:52.590Z] Validating nodejs source
+[debug] [2023-12-22T14:40:54.350Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T14:40:54.350Z] Building nodejs source
+[debug] [2023-12-22T14:40:54.351Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T14:40:54.353Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T14:40:54.354Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8866
+
+[debug] [2023-12-22T14:40:54.664Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T14:40:54.675Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
+[debug] [2023-12-22T14:52:40.949Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:52:41.951Z] Validating nodejs source
+[debug] [2023-12-22T14:52:43.104Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T14:52:43.104Z] Building nodejs source
+[debug] [2023-12-22T14:52:43.104Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T14:52:43.105Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T14:52:43.106Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8497
+
+[debug] [2023-12-22T14:52:43.667Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T14:52:43.681Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
+[debug] [2023-12-22T14:58:07.487Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:58:08.488Z] Validating nodejs source
+[debug] [2023-12-22T14:58:09.562Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T14:58:09.562Z] Building nodejs source
+[debug] [2023-12-22T14:58:09.562Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T14:58:09.563Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T14:58:09.563Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8030
+
+[error] node:events:491
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::8030
+    at Server.setupListenHandle [as _listen2] (node:net:1733:16)
+    at listenInCluster (node:net:1781:12)
+    at Server.listen (node:net:1869:7)
+    at Function.listen (/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/firebase-functions/lib/bin/firebase-functions.js:71:14)
+    at Module._compile (node:internal/modules/cjs/loader:1218:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1272:10)
+    at Module.load (node:internal/modules/cjs/loader:1081:32)
+    at Module._load (node:internal/modules/cjs/loader:922:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1760:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 8030
+}
+
+Node.js v18.13.0
+
+[debug] [2023-12-22T14:58:10.101Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T14:58:10.104Z] Failed to call quitquitquit. This often means the server failed to start request to http://localhost:8030/__/quitquitquit failed, reason: read ECONNRESET {"message":"request to http://localhost:8030/__/quitquitquit failed, reason: read ECONNRESET","type":"system","errno":"ECONNRESET","code":"ECONNRESET"}
+[debug] [2023-12-22T14:58:13.583Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:58:13.684Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:58:14.685Z] Validating nodejs source
+[debug] [2023-12-22T14:58:15.515Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T14:58:15.515Z] Building nodejs source
+[debug] [2023-12-22T14:58:15.515Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T14:58:15.519Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T14:58:15.520Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8994
+
+[debug] [2023-12-22T14:58:15.952Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T14:58:15.961Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
+[debug] [2023-12-22T14:58:23.812Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:58:23.912Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T14:58:24.912Z] Validating nodejs source
+[debug] [2023-12-22T14:58:25.793Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T14:58:25.793Z] Building nodejs source
+[debug] [2023-12-22T14:58:25.793Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T14:58:25.795Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T14:58:25.796Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8457
+
+[debug] [2023-12-22T14:58:26.151Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T14:58:26.161Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
+[debug] [2023-12-22T15:07:09.122Z] DEBUG: File /Users/apple/Documents/GitHub/Opd-Needed/functions/index.js changed, reloading triggers
+[debug] [2023-12-22T15:07:10.124Z] Validating nodejs source
+[debug] [2023-12-22T15:07:11.831Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2023-12-22T15:07:11.831Z] Building nodejs source
+[debug] [2023-12-22T15:07:11.831Z] Failed to find version of module node: reached end of search path /Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules
+[info] ✔  functions: Using node@18 from host. 
+[debug] [2023-12-22T15:07:11.832Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-22T15:07:11.832Z] Found firebase-functions binary at '/Users/apple/Documents/GitHub/Opd-Needed/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8109
+
+[debug] [2023-12-22T15:07:12.506Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-12-22T15:07:12.517Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail.
