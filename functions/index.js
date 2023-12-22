@@ -18,13 +18,14 @@ function validateValue(value) {
   return value === undefined ? '' : value;
 }
 // Setup Nodemailer with your SMTP provider credentials
+const apiKey = functions.config().someservice.api_key;
 const transporter = nodemailer.createTransport({
   host: 'smtp.sendgrid.net',
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
     user: 'apikey',
-    pass: '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' // Your SendGrid API key
+    pass: apiKey // Your SendGrid API key
   }
 });
 
