@@ -6,13 +6,15 @@
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
   },
   "engines": {
     "node": "18"
   },
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
     "@sendgrid/mail": "^8.1.0",
     "cors": "^2.8.5",
     "firebase-admin": "^11.11.1",

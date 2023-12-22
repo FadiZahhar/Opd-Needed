@@ -14,15 +14,17 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 const db = admin.firestore();
 
-
+function validateValue(value) {
+  return value === undefined ? '' : value;
+}
 // Setup Nodemailer with your SMTP provider credentials
 const transporter = nodemailer.createTransport({
   host: 'smtp.sendgrid.net',
-  port: 587,
-  secure: false, // true for 465, false for other ports
+  port: 465,
+  secure: true, // true for 465, false for other ports
   auth: {
     user: 'apikey',
-    pass: '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' // Your SendGrid API key
+    pass: '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' // Your SendGrid API key
   }
 });
 
@@ -33,7 +35,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     }
 
     // Extract data from request bodyu
-    const { LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState,LivableArea,PriceRangeMax,BedRoomsMin, BathRoomsMin, DesiredFloor, NmberOfSalons,
+    const { LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState,LivableArea,PriceRangeMax,BedRoomsMin, BathRoomsMin, DesiredFloor, NumberOfSalons,
     NumberOfLivingRooms,
     NumberOfBathrooms,
     NumberOfDiningRooms,
@@ -92,8 +94,101 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     MasterBedroom,
     MasterBathroom,
     WalkInCloset,
-    OtherHomeFeaturesInterior } = req.body;
+    OtherHomeFeaturesInterior,honeypot } = req.body;
 
+    if (honeypot) {
+      console.log('Bot detected');
+      // Handle as bot submission, like ignoring the request
+      return res.status(400).json({ status: 'error', message: 'Bot detected' });
+    }
+    //validate fields
+
+
+    // save to db
+     // Add data to Firestore (optional)
+     db.collection("opd-needed-form").add({
+      LikeTo: validateValue(LikeTo), 
+      SpecifyType: validateValue(SpecifyType),
+      SpecifyRegion: validateValue(SpecifyRegion),
+      Country: validateValue(Country),
+      District: validateValue(District),
+      GovernateOrState: validateValue(GovernateOrState),
+      LivableArea: validateValue(LivableArea),
+      PriceRangeMax: validateValue(PriceRangeMax),
+      BedRoomsMin: validateValue(BedRoomsMin), 
+      BathRoomsMin: validateValue(BathRoomsMin), 
+      DesiredFloor: validateValue(DesiredFloor), 
+      NumberOfSalons: validateValue(NumberOfSalons),
+      NumberOfLivingRooms: validateValue(NumberOfLivingRooms),
+      NumberOfBathrooms: validateValue(NumberOfBathrooms),
+      NumberOfDiningRooms: validateValue(NumberOfDiningRooms),
+      MaidRoomWithBathroom: validateValue(MaidRoomWithBathroom),
+      StorageRoom: validateValue(StorageRoom),
+      WaterWell: validateValue(WaterWell),
+      Generator: validateValue(Generator),
+      NumberOfParkingLots: validateValue(NumberOfParkingLots),
+      OtherHomeSize: validateValue(OtherHomeSize),
+      CloseToWork: validateValue(CloseToWork),
+      CloseToSchool: validateValue(CloseToSchool),
+      CloseToHospital: validateValue(CloseToHospital),
+      CloseToSupermarket: validateValue(CloseToSupermarket),
+      CloseToParksRecreation: validateValue(CloseToParksRecreation),
+      CloseToRestaurants: validateValue(CloseToRestaurants),
+      CloseToHighways: validateValue(CloseToHighways),
+      PublicTransportation: validateValue(PublicTransportation),
+      OtherLocation: validateValue(OtherLocation),
+      NoTraffic: validateValue(NoTraffic),
+      VeryQuiet: validateValue(VeryQuiet),
+      YoungerNeighbors: validateValue(YoungerNeighbors),
+      OlderNeighbors: validateValue(OlderNeighbors),
+      ChildFriendly: validateValue(ChildFriendly),
+      OtherNeighborhood: validateValue(OtherNeighborhood),
+      CloseToHome: validateValue(CloseToHome),
+      GoodReputation: validateValue(GoodReputation),
+      SmallClassSize: validateValue(SmallClassSize),
+      SolidCurriculum: validateValue(SolidCurriculum),
+      OtherSchools: validateValue(OtherSchools),
+      CentralAC: validateValue(CentralAC),
+      WoodStove: validateValue(WoodStove),
+      Fireplace: validateValue(Fireplace),
+      TanklessWaterHeater: validateValue(TanklessWaterHeater),
+      CopperPlumbing: validateValue(CopperPlumbing),
+      SolarPower: validateValue(SolarPower),
+      SecuritySystem: validateValue(SecuritySystem),
+      HomeAutomation: validateValue(HomeAutomation),
+      Cable: validateValue(Cable),
+      SatelliteDish: validateValue(SatelliteDish),
+      FiberOpticCable: validateValue(FiberOpticCable),
+      OtherHomeSystems: validateValue(OtherHomeSystems),
+      Garage: validateValue(Garage),
+      WalkOutBasement: validateValue(WalkOutBasement),
+      Driveway: validateValue(Driveway),
+      FencedYard: validateValue(FencedYard),
+      Gardens: validateValue(Gardens),
+      Pool: validateValue(Pool),
+      OtherHomeFeaturesExterior: validateValue(OtherHomeFeaturesExterior),
+      WoodFlooring: validateValue(WoodFlooring),
+      MaidRoom: validateValue(MaidRoom),
+      LaundryRoom: validateValue(LaundryRoom),
+      FinishedBasement: validateValue(FinishedBasement),
+      EatInKitchen: validateValue(EatInKitchen),
+      GameRoom: validateValue(GameRoom),
+      Office: validateValue(Office),
+      MasterBedroom: validateValue(MasterBedroom),
+      MasterBathroom: validateValue(MasterBathroom),
+      WalkInCloset: validateValue(WalkInCloset),
+      OtherHomeFeaturesInterior: validateValue(OtherHomeFeaturesInterior)
+      // Add more fields as required
+    });
+     
+    // Set up email content
+    const mailOptions = {
+      from: 'info@wmvp.dev',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+      subject: `OPD Needed Form Submission`,
+      text: '',
+      html: html // Include your HTML content
+    };
 
     const html = `<div style="width:600px; height: 800px; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
 
@@ -115,24 +210,24 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">${LikeTo}</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SpecifyType}</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">${validateValue(LikeTo)}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyType)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Region</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SpecifyRegion}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyRegion)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Country</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Country}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Country)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">District</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${District}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(District)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Governate or state</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${GovernateOrState}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GovernateOrState)}</td>
       </tr>
     </table>
     
@@ -141,61 +236,61 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Livable Area</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${LivableArea}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LivableArea)}</td>
           </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Price Range (Maximum)</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${PriceRangeMax}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PriceRangeMax)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Bedrooms (min.)</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${BedRoomsMin}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(BedRoomsMin)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Bathrooms (min.)</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${BathRoomsMin}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(BathRoomsMin)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Desired floor</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${DesiredFloor}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(DesiredFloor)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of salons</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${NmberOfSalons}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfSalons)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of living rooms</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${NumberOfLivingRooms}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfLivingRooms)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Maid's room with bathroom</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${MaidRoomWithBathroom}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaidRoomWithBathroom)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Storage room</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${StorageRoom}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(StorageRoom)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Water well</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${WaterWell}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WaterWell)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Generator</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Generator}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Generator)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of parking lots</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${NumberOfParkingLots}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfParkingLots)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherHomeSize}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSize)}</td>
       </tr>
     </table>
     
@@ -204,39 +299,39 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Work</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToWork}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToWork)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to School</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToSchool}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSchool)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Supermarket</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToSupermarket}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSupermarket)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Parks/Recreation</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToParksRecreation}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToParksRecreation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Restaurants</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToRestaurants}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToRestaurants)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Highways</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToHighways}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHighways)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Public Transportation</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${PublicTransportation}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PublicTransportation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherLocation}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherLocation)}</td>
       </tr>
       
     </table>
@@ -246,29 +341,29 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">No Traffic</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${NoTraffic}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NoTraffic)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Very Quiet</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${VeryQuiet}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(VeryQuiet)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Younger Neighbors</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${YoungerNeighbors}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(YoungerNeighbors)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Older Neighbors</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OlderNeighbors}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OlderNeighbors)}</td>
       </tr>
       
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Child-Friendly</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${ChildFriendly}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(ChildFriendly)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherNeighborhood}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherNeighborhood)}</td>
       </tr>
       
     </table>
@@ -278,24 +373,24 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Home</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CloseToHome}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHome)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Good Reputation</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${GoodReputation}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GoodReputation)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Small Class Size</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SmallClassSize}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SmallClassSize)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Solid Curriculum</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SolidCurriculum}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SolidCurriculum)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherSchools}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherSchools)}</td>
       </tr>
       
     </table>
@@ -305,59 +400,59 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Central A/C</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CentralAC}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CentralAC)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Wood Stove</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${WoodStove}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WoodStove)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Tankless Water Heater</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${TanklessWaterHeater}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(TanklessWaterHeater)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Copper Plumbing</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${CopperPlumbing}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CopperPlumbing)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Solar Power</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SolarPower}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SolarPower)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Generator</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Generator}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Generator)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Security System</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SecuritySystem}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SecuritySystem)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Home Automation</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${HomeAutomation}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(HomeAutomation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Cable</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Cable}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Cable)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Satellite Dish</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${SatelliteDish}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SatelliteDish)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fiber Optic Cable</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${FiberOpticCable}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FiberOpticCable)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherHomeSystems}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSystems)}</td>
       </tr>
       
     </table>
@@ -368,32 +463,32 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Garage</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${Garage}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Garage)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Walk-Out Basement</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${WalkOutBasement}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WalkOutBasement)}</td>
         </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Driveway</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Driveway}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Driveway)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fenced Yard</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${FencedYard}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FencedYard)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Gardens</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Gardens}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Gardens)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Pool</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Pool}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Pool)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherHomeFeaturesExterior}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesExterior)}</td>
       </tr>
       
     </table>
@@ -404,48 +499,48 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Wood Flooring</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${WoodFlooring}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WoodFlooring)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Maid Room</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${MaidRoom}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaidRoom)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Laundry Room</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${LaundryRoom}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LaundryRoom)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Finished Basement</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${FinishedBasement}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FinishedBasement)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Eat-In Kitchen</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${EatInKitchen}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(EatInKitchen)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
             <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Game Room</td>
-            <td style="background-color: #fff;padding: 6px;width: 240px;">${GameRoom}</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GameRoom)}</td>
           </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Office</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${Office}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Office)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Master Bedroom</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${MasterBedroom}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MasterBedroom)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Master Bathroom</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${MasterBathroom}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MasterBathroom)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Walk-In Closet</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${WalkInCloset}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WalkInCloset)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
         <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
-        <td style="background-color: #fff;padding: 6px;width: 240px;">${OtherHomeFeaturesInterior}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesInterior)}</td>
       </tr>
       
     </table>
@@ -486,79 +581,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 </div>
 </div>`;
 
-    // Add data to Firestore (optional)
-    /*db.collection("opd-needed-form").add({
-      LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState,LivableArea,PriceRangeMax,BedRoomsMin, BathRoomsMin, DesiredFloor, NumberOfSalons,
-    NumberOfLivingRooms,
-    NumberOfBathrooms,
-    NumberOfDiningRooms,
-    MaidRoomWithBathroom,
-    StorageRoom,
-    WaterWell,
-    Generator,
-    NumberOfParkingLots,
-    OtherHomeSize,
-    CloseToWork,
-    CloseToSchool,
-    CloseToHospital,
-    CloseToSupermarket,
-    CloseToParksRecreation,
-    CloseToRestaurants,
-    CloseToHighways,
-    PublicTransportation,
-    OtherLocation,
-    NoTraffic,
-    VeryQuiet,
-    YoungerNeighbors,
-    OlderNeighbors,
-    ChildFriendly,
-    OtherNeighborhood,
-    CloseToHome,
-    GoodReputation,
-    SmallClassSize,
-    SolidCurriculum,
-    OtherSchools,
-    CentralAC,
-    WoodStove,
-    Fireplace,
-    TanklessWaterHeater,
-    CopperPlumbing,
-    SolarPower,
-    SecuritySystem,
-    HomeAutomation,
-    Cable,
-    SatelliteDish,
-    FiberOpticCable,
-    OtherHomeSystems,
-    Garage,
-    WalkOutBasement,
-    Driveway,
-    FencedYard,
-    Gardens,
-    Pool,
-    OtherHomeFeaturesExterior,
-    WoodFlooring,
-    MaidRoom,
-    LaundryRoom,
-    FinishedBasement,
-    EatInKitchen,
-    GameRoom,
-    Office,
-    MasterBedroom,
-    MasterBathroom,
-    WalkInCloset,
-    OtherHomeFeaturesInterior
-      // Add more fields as required
-    });*/
-     
-    // Set up email content
-    const mailOptions = {
-      from: 'info@wmvp.dev',
-      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
-      subject: `OPD Needed from PostMan Test`,
-      text: '',
-      html: html // Include your HTML content
-    };
+   
 
     // Send email
     return transporter.sendMail(mailOptions)
