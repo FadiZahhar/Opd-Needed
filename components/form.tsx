@@ -134,7 +134,7 @@ export default function Form() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/semdP[dNeededEmail',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmail',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -145,7 +145,7 @@ export default function Form() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClient',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/semdP[dNeededEmailToClient',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
       headers: { 
         'Content-Type': 'application/json'
       },
