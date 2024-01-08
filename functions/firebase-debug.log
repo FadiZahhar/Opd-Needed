@@ -1,0 +1,101 @@
+[debug] [2024-01-08T20:20:38.492Z] ----------------------------------------------------------------------
+[debug] [2024-01-08T20:20:38.494Z] Command:       /Users/apple/node_modules/node/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2024-01-08T20:20:38.494Z] CLI Version:   11.20.0
+[debug] [2024-01-08T20:20:38.495Z] Platform:      darwin
+[debug] [2024-01-08T20:20:38.495Z] Node Version:  v18.13.0
+[debug] [2024-01-08T20:20:38.496Z] Time:          Mon Jan 08 2024 22:20:38 GMT+0200 (Eastern European Standard Time)
+[debug] [2024-01-08T20:20:38.496Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-08T20:20:38.499Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-01-08T20:20:38.604Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-08T20:20:38.604Z] > authorizing via signed-in user (info@wmvp.dev)
+[debug] [2024-01-08T20:20:38.604Z] [iam] checking project opddev-51cfb for permissions ["firebase.projects.get"]
+[debug] [2024-01-08T20:20:38.605Z] > refreshing access token with scopes: []
+[debug] [2024-01-08T20:20:38.606Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-01-08T20:20:38.606Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-01-08T20:20:43.859Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-01-08T20:20:43.860Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-01-08T20:20:43.912Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/opddev-51cfb:testIamPermissions [none]
+[debug] [2024-01-08T20:20:43.912Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/opddev-51cfb:testIamPermissions x-goog-quota-user=projects/opddev-51cfb
+[debug] [2024-01-08T20:20:43.912Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/opddev-51cfb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-01-08T20:20:55.710Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/opddev-51cfb:testIamPermissions 200
+[debug] [2024-01-08T20:20:55.711Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/opddev-51cfb:testIamPermissions {"permissions":["firebase.projects.get"]}
+[warn] ⚠  functions: Functions Emulator unable to start on port 5000, starting on 5001 instead. {"metadata":{"emulator":{"name":"functions"},"message":"Functions Emulator unable to start on port 5000, starting on 5001 instead."}}
+[debug] [2024-01-08T20:20:56.047Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-01-08T20:20:56.049Z] [functions] Using node@18 from host.
+[debug] [2024-01-08T20:20:56.050Z] defaultcredentials: writing to file /Users/apple/.config/firebase/info_wmvp_dev_application_default_credentials.json
+[debug] [2024-01-08T20:20:56.053Z] DEBUG: Setting GAC to /Users/apple/.config/firebase/info_wmvp_dev_application_default_credentials.json
+[debug] [2024-01-08T20:20:56.054Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/opddev-51cfb/adminSdkConfig [none]
+[debug] [2024-01-08T20:21:04.875Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-01-08T20:21:04.876Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-01-08T20:21:05.627Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/opddev-51cfb/adminSdkConfig 200
+[debug] [2024-01-08T20:21:05.627Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/opddev-51cfb/adminSdkConfig {"projectId":"opddev-51cfb","databaseURL":"https://opddev-51cfb-default-rtdb.firebaseio.com","storageBucket":"opddev-51cfb.appspot.com","locationId":"europe-west"}
+[debug] [2024-01-08T20:21:05.674Z] [functions] Watching "/Users/apple/Documents/GitHub/Opd-Needed/functions" for Cloud Functions...
+[debug] [2024-01-08T20:21:05.681Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2024-01-08T20:21:24.528Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "npx @google-cloud/functions-framework"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@sendgrid/mail": "^8.1.0",
+    "cors": "^2.8.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.3.1",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-01-08T20:21:24.528Z] Building nodejs source
+[debug] [2024-01-08T20:21:24.530Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-01-08T20:21:24.778Z] Serving at port 9005
+
+[debug] [2024-01-08T20:21:25.356Z] Got response from /__/functions.yaml {"endpoints":{"sendOpdNeededEmail":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmail"},"sendOpdNeededEmailToClient":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"sendOpdNeededEmailToClient"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2024-01-08T20:21:25.381Z] [functions] Loaded functions definitions from source: sendOpdNeededEmail, sendOpdNeededEmailToClient.
+[debug] [2024-01-08T20:21:25.382Z] [functions[us-central1-sendOpdNeededEmail]] http function initialized (http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail).
+[debug] [2024-01-08T20:21:25.382Z] [functions[us-central1-sendOpdNeededEmailToClient]] http function initialized (http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClient).
+[info] i  functions: Loaded functions: sendOpdNeededEmail, sendOpdNeededEmailToClient 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc 
+[debug] [2024-01-08T20:22:29.981Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-01-08T20:22:56.409Z] ----------------------------------------------------------------------
+[debug] [2024-01-08T20:22:56.410Z] Command:       /Users/apple/node_modules/node/bin/node /usr/local/bin/firebase emulators:start --only functions
+[debug] [2024-01-08T20:22:56.411Z] CLI Version:   11.20.0
+[debug] [2024-01-08T20:22:56.411Z] Platform:      darwin
+[debug] [2024-01-08T20:22:56.411Z] Node Version:  v18.13.0
+[debug] [2024-01-08T20:22:56.412Z] Time:          Mon Jan 08 2024 22:22:56 GMT+0200 (Eastern European Standard Time)
+[debug] [2024-01-08T20:22:56.412Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-08T20:22:56.505Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-01-08T20:22:56.505Z] > authorizing via signed-in user (info@wmvp.dev)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2024-01-08T20:22:57.102Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-01-08T20:22:57.102Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-01-08T20:22:57.110Z] [hub] writing locator at /var/folders/p8/rhpbjvkn5tdftngs5dr_b6900000gn/T/hub-opddev-51cfb.json
+[debug] [2024-01-08T20:22:57.519Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-01-08T20:22:57.519Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-01-08T20:22:57.519Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[info] ✔  functions: Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@18 from host."}}
+[debug] [2024-01-08T20:22:57.524Z] defaultcredentials: writing to file /Users/apple/.config/firebase/info_wmvp_dev_application_default_credentials.json
+[debug] [2024-01-08T20:22:57.531Z] Setting GAC to /Users/apple/.config/firebase/info_wmvp_dev_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/apple/.config/firebase/info_wmvp_dev_application_default_credentials.json"}}
+[debug] [2024-01-08T20:22:57.532Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/opddev-51cfb/adminSdkConfig [none]

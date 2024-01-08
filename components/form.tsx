@@ -12,6 +12,7 @@ import Heading from './heading'
 import './form.css';
 import Select from './select'
 import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
+import axios from 'axios'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -119,6 +120,24 @@ export default function Form() {
 
   const processForm: SubmitHandler<Inputs> = data => {
     console.log(data)
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response:any) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error:any) => {
+      console.log(error);
+    });
+
     reset()
   }
 
