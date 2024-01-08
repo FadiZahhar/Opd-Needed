@@ -1,6 +1,10 @@
 import { z } from 'zod'
 
 export const FormDataSchema = z.object({
+  FirstName: z.string().min(1, 'Your Name is required'),
+  LastName: z.string().min(1, 'Your Last Name is required'),
+  Email: z.string().min(1, 'Your Email  is required'),
+  PhoneNumber: z.string().min(1, 'Your Phone Number is Required'),
   LikeTo: z.string().min(1, 'This field is required'),
   SpecifyType: z.string().min(1, 'Type is required'),
   //SpecifyRegion: z.string().min(1, 'Email is required').email('Invalid email address'),

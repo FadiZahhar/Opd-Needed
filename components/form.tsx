@@ -19,6 +19,12 @@ type Inputs = z.infer<typeof FormDataSchema>
 const steps = [
   {
     id: 'Step 1',
+    name: 'Personal Information',
+    fields: [
+      'FirstName', 'LastName','Email','PhoneNumber']
+  },
+  {
+    id: 'Step 2',
     name: 'Specifications of the required property',
     fields: [
       'LikeTo', 'SpecifyType','SpecifyRegion','Country','District','GovernateOrState','LivableArea','PriceRangeMax','BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
@@ -33,7 +39,7 @@ const steps = [
       'OtherHomeSize']
   },
   {
-    id: 'Step 2',
+    id: 'Step 3',
     name: 'Location And Neighborhood',
     fields: ['CloseToWork',
       'CloseToSchool',
@@ -51,7 +57,7 @@ const steps = [
       'OtherNeighborhood']
   },
   {
-    id: 'Step 3',
+    id: 'Step 4',
     name: 'Schools And Home Systems',
     fields: ['CloseToHome',
       'GoodReputation',
@@ -72,7 +78,7 @@ const steps = [
       'OtherHomeSystems']
   },
   {
-    id: 'Step 4',
+    id: 'Step 5',
     name: 'Home Features - Exterior and Interior',
     fields: ['Garage',
       'WalkOutBasement',
@@ -284,7 +290,58 @@ export default function Form() {
 <br/>
       {/* Form */}
       <form className='' ref={formRef} onSubmit={handleSubmit(processForm)}>
-        {currentStep === 0 && (
+      {currentStep === 0 && (
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Heading title='Specifications of the required property'>
+              Provide more details about your self.
+            </Heading>
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
+              
+              {/* District */}
+              <Input
+              id="FirstName"
+              label="First Name"
+              register={register}
+              error={errors.FirstName?.message}
+              />
+
+               {/* GovernateOrState */}
+              <Input
+              id="LastName"
+              label="Last Name"
+              register={register}
+              error={errors.LastName?.message}
+              />
+
+              {/* Livable area */}
+              <Input 
+              id="Email"
+              label="Email"
+              type="email"
+              register={register}
+              error={errors.Email?.message}
+              />
+              {/* PriceRangeMax */}
+              <Input 
+              id="PhoneNumber"
+              label="Phone Number"
+              type="text"
+              register={register}
+              error={errors.PhoneNumber?.message}
+              />
+             
+
+              
+            </div>
+
+           
+          </motion.div>
+        )}
+        {currentStep === 1 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -477,7 +534,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 1 && (
+        {currentStep === 2 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -620,7 +677,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 2 && (
+        {currentStep === 3 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -788,7 +845,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 3 && (
+        {currentStep === 4 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -962,7 +1019,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 4 && (
+        {currentStep === 5 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
