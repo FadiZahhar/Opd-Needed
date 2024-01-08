@@ -3,7 +3,11 @@ export default function Input({id,label,type,register,error}:any){
 
 
     useEffect(()=>{
-        console.log(error);
+      //1console.log("id",id);
+      //console.log("label",label);
+      //console.log("type",type);
+      //console.log("register",register);
+        console.log("error",error);
     },[error])
     
     return(

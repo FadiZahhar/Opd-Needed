@@ -1,6 +1,6 @@
 'use client'
 
-import { useState,useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
@@ -12,19 +12,13 @@ import Heading from './heading'
 import './form.css';
 import Select from './select'
 import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
-import axios from 'axios'
+
 type Inputs = z.infer<typeof FormDataSchema>
 
 
 const steps = [
   {
     id: 'Step 1',
-    name: 'Personal Information',
-    fields: [
-      'FirstName', 'LastName','Email','PhoneNumber']
-  },
-  {
-    id: 'Step 2',
     name: 'Specifications of the required property',
     fields: [
       'LikeTo', 'SpecifyType','SpecifyRegion','Country','District','GovernateOrState','LivableArea','PriceRangeMax','BedRoomsMin', 'BathRoomsMin', 'DesiredFloor', 'NumberOfSalons',
@@ -39,7 +33,7 @@ const steps = [
       'OtherHomeSize']
   },
   {
-    id: 'Step 3',
+    id: 'Step 2',
     name: 'Location And Neighborhood',
     fields: ['CloseToWork',
       'CloseToSchool',
@@ -57,7 +51,7 @@ const steps = [
       'OtherNeighborhood']
   },
   {
-    id: 'Step 4',
+    id: 'Step 3',
     name: 'Schools And Home Systems',
     fields: ['CloseToHome',
       'GoodReputation',
@@ -78,7 +72,7 @@ const steps = [
       'OtherHomeSystems']
   },
   {
-    id: 'Step 5',
+    id: 'Step 4',
     name: 'Home Features - Exterior and Interior',
     fields: ['Garage',
       'WalkOutBasement',
@@ -105,8 +99,6 @@ export default function Form() {
   const [previousStep, setPreviousStep] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
   const delta = currentStep - previousStep
-  const formRef = useRef(null);
-
 
   const {
     register,
@@ -115,105 +107,12 @@ export default function Form() {
     reset,
     trigger,
     formState: { errors }
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({
+    resolver: zodResolver(FormDataSchema)
+  })
 
   const processForm: SubmitHandler<Inputs> = data => {
-    console.log("processForm",data)
-
-    /*let data = JSON.stringify({
-      "LikeTo": "Like to",
-      "SpecifyType": "Specify type",
-      "SpecifyRegion": "Specify Region",
-      "Country": "Country value test",
-      "District": "District value",
-      "GovernateOrState": "test ",
-      "LivableArea": "test 2",
-      "PriceRangeMax": "test 3",
-      "BedRoomsMin": "test 4",
-      "BathRoomsMin": "test 5",
-      "DesiredFloor": "test 6",
-      "NumberOfSalons": "test 7",
-      "NumberOfLivingRooms": "test 8",
-      "NumberOfBathrooms": "test 9",
-      "NumberOfDiningRooms": "test 10",
-      "MaidRoomWithBathroom": "tesst 11",
-      "StorageRoom": "test 12",
-      "WaterWell": "test 13",
-      "Generator": "test 14",
-      "NumberOfParkingLots": "test 15",
-      "OtherHomeSize": "test 16",
-      "CloseToWork": "test 17",
-      "CloseToSchool": "test 18",
-      "CloseToHospital": "test 19",
-      "CloseToSupermarket": "test 20",
-      "CloseToParksRecreation": "test 21",
-      "CloseToRestaurants": "test 22",
-      "CloseToHighways": "test 23",
-      "PublicTransportation": "test 24",
-      "OtherLocation": "test 25",
-      "NoTraffic": "test 26",
-      "VeryQuiet": "test 27",
-      "YoungerNeighbors": "test 28",
-      "OlderNeighbors": "test 29",
-      "ChildFriendly": "test 30",
-      "OtherNeighborhood": "test 31",
-      "CloseToHome": "test 33",
-      "GoodReputation": "test 34",
-      "SmallClassSize": "test 35",
-      "SolidCurriculum": "test 36",
-      "OtherSchools": "test 37",
-      "CentralAC": "test 38",
-      "WoodStove": "test 39",
-      "Fireplace": "test 40",
-      "TanklessWaterHeater": "test 41",
-      "CopperPlumbing": "test 42",
-      "SolarPower": "test 43",
-      "SecuritySystem": "test 44",
-      "HomeAutomation": "test 45",
-      "Cable": "test 46",
-      "SatelliteDish": "test 47",
-      "FiberOpticCable": "test 48",
-      "OtherHomeSystems": "test 49",
-      "Garage": "test 50",
-      "WalkOutBasement": "test 51",
-      "Driveway": "test 52",
-      "FencedYard": "test 53",
-      "Gardens": "test 54",
-      "Pool": "test 55",
-      "OtherHomeFeaturesExterior": "test 56",
-      "WoodFlooring": "test 57",
-      "MaidRoom": "test 58",
-      "LaundryRoom": "test 59",
-      "FinishedBasement": "test 60",
-      "EatInKitchen": "test 61",
-      "GameRoom": "test 62",
-      "Office": "test 63",
-      "MasterBedroom": "test 64",
-      "MasterBathroom": "test 65",
-      "WalkInCloset": "test 66",
-      "OtherHomeFeaturesInterior": "test 67",
-      "honeypot": "hi it should not work"
-    });*/
-    
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
-      url: 'https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmail',
-      headers: { 
-        'Content-Type': 'application/json'
-      },
-      data : data
-    };
-    
-    axios.request(config)
-    .then((response:any) => {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch((error:any) => {
-      console.log(error);
-    });
-
+    console.log(data)
     reset()
   }
 
@@ -222,18 +121,12 @@ export default function Form() {
   const next = async () => {
     const fields = steps[currentStep].fields
     const output = await trigger(fields as FieldName[], { shouldFocus: true })
-   
+
     if (!output) return
 
     if (currentStep < steps.length - 1) {
       if (currentStep === steps.length - 2) {
-        // write the logic of the submit form
-        console.log("before submit")
-        await handleSubmit(processForm)();
-       //formRef.current.submit();
-;
-
-
+        await handleSubmit(processForm)()
       }
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
@@ -289,59 +182,8 @@ export default function Form() {
       </nav>
 <br/>
       {/* Form */}
-      <form className='' ref={formRef} onSubmit={handleSubmit(processForm)}>
-      {currentStep === 0 && (
-          <motion.div
-            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <Heading title='Specifications of the required property'>
-              Provide more details about your self.
-            </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-              
-              {/* District */}
-              <Input
-              id="FirstName"
-              label="First Name"
-              register={register}
-              error={errors.FirstName?.message}
-              />
-
-               {/* GovernateOrState */}
-              <Input
-              id="LastName"
-              label="Last Name"
-              register={register}
-              error={errors.LastName?.message}
-              />
-
-              {/* Livable area */}
-              <Input 
-              id="Email"
-              label="Email"
-              type="email"
-              register={register}
-              error={errors.Email?.message}
-              />
-              {/* PriceRangeMax */}
-              <Input 
-              id="PhoneNumber"
-              label="Phone Number"
-              type="text"
-              register={register}
-              error={errors.PhoneNumber?.message}
-              />
-             
-
-              
-            </div>
-
-           
-          </motion.div>
-        )}
-        {currentStep === 1 && (
+      <form className='' onSubmit={handleSubmit(processForm)}>
+        {currentStep === 0 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -422,18 +264,10 @@ export default function Form() {
               register={register}
               error={errors.LivableArea?.message}
               />
-              {/* BedRoomsMin */}
-              <Input 
-              id="BedRoomsMin"
-              label="Bedrooms (min.)"
-              type="number"
-              register={register}
-              error={errors.BedRoomsMin?.message}
-              />
               {/* BathRoomsMin */}
               <Input 
               id="BathRoomsMin"
-              label="Bath Rooms (min.)"
+              label="Bedrooms (min.)"
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
@@ -462,6 +296,14 @@ export default function Form() {
               register={register}
               error={errors.NumberOfLivingRooms?.message}
               />
+              {/* NumberOfBathrooms */}
+              <Input 
+              id="NumberOfBathrooms"
+              label="Number of bathrooms"
+              type="number"
+              register={register}
+              error={errors.NumberOfBathrooms?.message}
+              />
               {/* NumberOfDiningRooms */}
               <Input 
               id="NumberOfDiningRooms"
@@ -472,13 +314,13 @@ export default function Form() {
               />
 
 
-               {/* MaidRoomWithBathroom */}
+               {/* MaidsRoomWithBathroom */}
                <Input 
-              id="MaidRoomWithBathroom"
+              id="MaidsRoomWithBathroom"
               label="Maid's room with bathroom"
               type="checkbox"
               register={register}
-              error={errors.MaidRoomWithBathroom?.message}
+              error={errors.MaidsRoomWithBathroom?.message}
               />
 
 
@@ -489,15 +331,6 @@ export default function Form() {
               type="number"
               register={register}
               error={errors.StorageRoom?.message}
-              />
-
-              {/* WaterWell */}
-              <Input 
-              id="WaterWell"
-              label="Water Well"
-              type="checkbox"
-              register={register}
-              error={errors.WaterWell?.message}
               />
 
                {/* Generator */}
@@ -534,7 +367,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 2 && (
+        {currentStep === 1 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -677,7 +510,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 3 && (
+        {currentStep === 2 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -845,7 +678,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 4 && (
+        {currentStep === 3 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -993,8 +826,8 @@ export default function Form() {
               />
             {/*'WalkInCloset',*/}
             <Input 
-              id="WalkInCloset"
-              label="Walk In Closet"
+              id="FiberOpticCable"
+              label="Fiber optic cable"
               type="checkbox"
               register={register}
               error={errors.FiberOpticCable?.message}
@@ -1007,19 +840,12 @@ export default function Form() {
               register={register}
               error={errors.OtherHomeFeaturesInterior?.message}
               />
-              <Input 
-              id="honeypot"
-              label=""
-              type="hidden"
-              register={register}
-              error={errors.OtherHomeFeaturesInterior?.message}
-              />
             </div>
             
           </motion.div>
         )}
 
-        {currentStep === 5 && (
+        {currentStep === 4 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -1040,7 +866,7 @@ export default function Form() {
     <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
 
   
-    <a href="https://propertypro.vip/" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+    <a href="https://example.com" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
 </div>
 
 
@@ -1050,7 +876,10 @@ export default function Form() {
         )}
 
         
-              {/* Navigation */}
+        
+      </form>
+
+      {/* Navigation */}
       <div className='mt-8 pt-5'>
         <div className='flex justify-between'>
         {(currentStep !== steps.length - 1) &&
@@ -1073,9 +902,6 @@ export default function Form() {
           </button>}
         </div>
       </div>
-      </form>
-
-
     </section>
   )
 }
