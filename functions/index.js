@@ -209,7 +209,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
 
 <div style="padding: 10px; color: rgba(255, 255, 255, 0.75); background-color:#e6e6e6;">
   <div style="background-color: #fff; color:#444; padding:20px 40px; font-weight: 400; font-size:15px; text-align:justify;">
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">I would like to:</h3>
+   
     
     <table style="color:#444;">
     
@@ -234,7 +234,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">${validateValue(LikeTo)}</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">I would like to: ${validateValue(LikeTo)}</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyType)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
