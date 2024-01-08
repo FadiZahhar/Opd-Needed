@@ -622,7 +622,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     const mailOptions = {
       from: 'info@wmvp.dev',
       to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
-      subject: `OPD Needed Form Submission`,
+      subject: `OPD My Home Key Submission`,
       text: '',
       html: html // Include your HTML content
     };   
@@ -656,14 +656,6 @@ exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
             // Handle as bot submission, like ignoring the request
             return res.status(400).json({ status: 'error', message: 'Bot detected' });
           }
-    // Set up email content
-    const mailOptions = {
-      from: 'info@wmvp.dev',
-      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
-      subject: `OPD Needed Form Submission`,
-      text: '',
-      html: html // Include your HTML content
-    };
 
     const html=`<div style="width:600px; height: 800px;margin:0 auto; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
 
@@ -725,6 +717,16 @@ exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
       
     </div>
   </div>`;
+
+      // Set up email content
+      const mailOptions = {
+        from: 'info@wmvp.dev',
+        to: `${Email}`,
+        subject: `OPD My Home Key Submission`,
+        text: '',
+        html: html // Include your HTML content
+      };
+  
 
     // Send email
     return transporter.sendMail(mailOptions)

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
@@ -97,7 +97,8 @@ const steps = [
       'MasterBedroom',
       'MasterBathroom',
       'WalkInCloset',
-      'OtherHomeFeaturesInterior']
+      'OtherHomeFeaturesInterior',
+    'honeypot']
   },
   { id: 'Step 6', name: 'Complete' }
 ]
@@ -105,7 +106,15 @@ const steps = [
 export default function Form() {
   const [previousStep, setPreviousStep] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
-  const delta = currentStep - previousStep
+  const delta = currentStep - previousStep;
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const submitForm = () => {
+    if (formRef.current) {
+      formRef.current.preventDefault();
+      formRef.current.submit();
+    }
+  };
 
   const {
     register,
@@ -119,17 +128,31 @@ export default function Form() {
   })
 
   const processForm: SubmitHandler<Inputs> = data => {
-    console.log(data)
+
+    console.log("data is ",data);
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/semdP[dNeededEmail',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+
+    let config2 = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClient',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/semdP[dNeededEmailToClient',
       headers: { 
         'Content-Type': 'application/json'
       },
       data : data
     };
     
+    // send email to Mr. Itani
     axios.request(config)
     .then((response:any) => {
       console.log(JSON.stringify(response.data));
@@ -138,6 +161,16 @@ export default function Form() {
       console.log(error);
     });
 
+    // send email to Client
+    axios.request(config2)
+    .then((response:any) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error:any) => {
+      console.log(error);
+    });
+
+    // reset form
     reset()
   }
 
@@ -147,12 +180,13 @@ export default function Form() {
     const fields = steps[currentStep].fields
     const output = await trigger(fields as FieldName[], { shouldFocus: true })
     console.log("Form errors: ", errors);
-console.log(output);
+
     if (!output) return
 
     if (currentStep < steps.length - 1) {
       if (currentStep === steps.length - 2) {
-        await handleSubmit(processForm)()
+        //alert('here');
+        await handleSubmit(processForm)();
       }
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
@@ -208,7 +242,7 @@ console.log(output);
       </nav>
 <br/>
       {/* Form */}
-      <form className='' onSubmit={handleSubmit(processForm)}>
+      <form ref={formRef} className='' onSubmit={handleSubmit(processForm)}>
       {currentStep === 0 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
@@ -220,7 +254,7 @@ console.log(output);
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               
-              {/* District */}
+              {/* FirstName */}
               <Input
               id="FirstName"
               label="First Name"
@@ -229,7 +263,7 @@ console.log(output);
               error={errors.FirstName?.message}
               />
 
-               {/* GovernateOrState */}
+               {/* LastName */}
               <Input
               id="LastName"
               label="Last Name"
@@ -238,7 +272,7 @@ console.log(output);
               error={errors.LastName?.message}
               />
 
-              {/* Livable area */}
+              {/* Email */}
               <Input 
               id="Email"
               label="Email"
@@ -246,7 +280,7 @@ console.log(output);
               register={register}
               error={errors.Email?.message}
               />
-              {/* PriceRangeMax */}
+              {/* PhoneNumber */}
               <Input 
               id="PhoneNumber"
               label="Phone Number"
@@ -341,7 +375,7 @@ console.log(output);
               label="Price Range (Maximum)"
               type="number"
               register={register}
-              error={errors.LivableArea?.message}
+              error={errors.PriceRangeMax?.message}
               />
               {/* BathRoomsMin */}
               <Input 
@@ -350,6 +384,14 @@ console.log(output);
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
+              />
+              {/* BedRoomsMin */}
+              <Input 
+              id="BedRoomsMin"
+              label="Bedrooms (min.)"
+              type="number"
+              register={register}
+              error={errors.BedRoomsMin?.message}
               />
               {/* DesiredFloor */}
               <Input 
@@ -395,11 +437,11 @@ console.log(output);
 
                {/* MaidsRoomWithBathroom */}
                <Input 
-              id="MaidsRoomWithBathroom"
+              id="MaidRoomWithBathroom"
               label="Maid's room with bathroom"
               type="checkbox"
               register={register}
-              error={errors.MaidsRoomWithBathroom?.message}
+              error={errors.MaidRoomWithBathroom?.message}
               />
 
 
@@ -410,6 +452,16 @@ console.log(output);
               type="number"
               register={register}
               error={errors.StorageRoom?.message}
+              />
+
+              {/* WaterWell */}
+
+              <Input 
+              id="WaterWell"
+              label="Water Well"
+              type="checkbox"
+              register={register}
+              error={errors.WaterWell?.message}
               />
 
                {/* Generator */}
@@ -905,17 +957,25 @@ console.log(output);
               />
             {/*'WalkInCloset',*/}
             <Input 
-              id="FiberOpticCable"
-              label="Fiber optic cable"
+              id="WalkInCloset"
+              label="Walk In Closet"
               type="checkbox"
               register={register}
-              error={errors.FiberOpticCable?.message}
+              error={errors.WalkInCloset?.message}
               />
             {/*'OtherHomeFeaturesInterior'*/}
             <Input 
               id="OtherHomeFeaturesInterior"
               label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Interior"
               type="textarea"
+              register={register}
+              error={errors.OtherHomeFeaturesInterior?.message}
+              />
+              {/* honeypot */}
+            <Input 
+              id="honeypot"
+              label=""
+              type="hidden"
               register={register}
               error={errors.OtherHomeFeaturesInterior?.message}
               />
@@ -945,7 +1005,7 @@ console.log(output);
     <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
 
   
-    <a href="https://example.com" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
 </div>
 
 

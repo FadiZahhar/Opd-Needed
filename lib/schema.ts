@@ -10,9 +10,9 @@ export const FormDataSchema = z.object({
   SpecifyRegion: z.string().min(1, 'Region is required'),
   Country: z.string().min(1, 'Country is required'),
   District: z.string().min(1, 'District is required'),
-  state: z.string().min(1, 'State is required'),
   GovernateOrState : z.string().min(1, 'Governate or State is required'),
   LivableArea: z.string().min(1,'This field is required, please put 0 as minimum value'),
+  PriceRangeMax: z.string().min(1,'This field is required, please put 0 as minimum value'),
   BedRoomsMin: z.string().min(1,'This field is required, please put 0 as minimum value'),
   BathRoomsMin: z.string().min(1,'This field is required, please put 0 as minimum value'),
   DesiredFloor: z.string().min(1,'This field is required, please put 0 as minimum value'),
@@ -20,7 +20,7 @@ export const FormDataSchema = z.object({
   NumberOfLivingRooms: z.string().min(1,'This field is required, please put 0 as minimum value'),
   NumberOfBathrooms: z.string().min(1,'This field is required, please put 0 as minimum value'),
   NumberOfDiningRooms: z.string().min(1,'This field is required, please put 0 as minimum value'),
-  MaidRoomWithBathroom: z.string().min(1,'This field is required, please put 0 as minimum value'),
+  MaidRoomWithBathroom: z.boolean(),
   StorageRoom: z.string().min(1,'This field is required, please put 0 as minimum value'),
   WaterWell:z.boolean(),
   Generator: z.boolean(),
@@ -74,6 +74,7 @@ export const FormDataSchema = z.object({
   Office: z.boolean(),
   MasterBedroom: z.boolean(),
   MasterBathroom: z.boolean(),
+  WalkInCloset: z.boolean(),
   OtherHomeFeaturesInterior: z.string().min(1,'This field is required, please describe in breif what you are looking for'),
   honeypot: z.string()
 })
