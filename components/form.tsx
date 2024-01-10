@@ -380,7 +380,7 @@ export default function Form() {
               {/* BathRoomsMin */}
               <Input 
               id="BathRoomsMin"
-              label="Bedrooms (min.)"
+              label="Bath Rooms Min (min.)"
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
@@ -616,7 +616,7 @@ export default function Form() {
             {/*'OlderNeighbors',*/}
             <Input 
               id="OlderNeighbors"
-              label="Close to school"
+              label="Older Neighbors"
               type="checkbox"
               register={register}
               error={errors.OlderNeighbors?.message}
@@ -624,7 +624,7 @@ export default function Form() {
             {/*'ChildFriendly',*/}
             <Input 
               id="ChildFriendly"
-              label="Close to school"
+              label="Child Friendly"
               type="checkbox"
               register={register}
               error={errors.ChildFriendly?.message}
