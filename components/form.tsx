@@ -380,7 +380,7 @@ export default function Form() {
               {/* BathRoomsMin */}
               <Input 
               id="BathRoomsMin"
-              label="Bath Rooms Min (min.)"
+              label="BathRooms Min (min.)"
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
