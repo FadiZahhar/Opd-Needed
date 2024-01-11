@@ -586,14 +586,14 @@ export default function FormAr() {
               error={errors.OtherLocation?.message}
               />
             </div><br/>
-            <Heading title='Neighborhood'>
-             Provide more details about the neighborhood of the property.
+            <Heading title='الحي'>
+            تقديم مزيد من التفاصيل حول حي العقار.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/* 'NoTraffic', */}
             <Input 
               id="NoTraffic"
-              label="No Traffic"
+              label="لا يوجد زحمة سير"
               type="checkbox"
               register={register}
               error={errors.NoTraffic?.message}
@@ -601,7 +601,7 @@ export default function FormAr() {
             {/*'VeryQuiet',*/}
             <Input 
               id="VeryQuiet"
-              label="Very quiet"
+              label="هادئة جدا"
               type="checkbox"
               register={register}
               error={errors.VeryQuiet?.message}
@@ -609,7 +609,7 @@ export default function FormAr() {
             {/*'YoungerNeighbors',*/}
             <Input 
               id="YoungerNeighbors"
-              label="Younger neighbors"
+              label="الجيران الأصغر سنا"
               type="checkbox"
               register={register}
               error={errors.YoungerNeighbors?.message}
@@ -617,7 +617,7 @@ export default function FormAr() {
             {/*'OlderNeighbors',*/}
             <Input 
               id="OlderNeighbors"
-              label="Older Neighbors"
+              label="الجيران الأكبر سنا"
               type="checkbox"
               register={register}
               error={errors.OlderNeighbors?.message}
@@ -625,7 +625,7 @@ export default function FormAr() {
             {/*'ChildFriendly',*/}
             <Input 
               id="ChildFriendly"
-              label="Child Friendly"
+              label="مناسب للأطفال"
               type="checkbox"
               register={register}
               error={errors.ChildFriendly?.message}
@@ -633,7 +633,7 @@ export default function FormAr() {
             {/*'OtherNeighborhood'*/}
             <Input 
               id="OtherNeighborhood"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Neighborhood"
+              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في الحي الذي تسكن فيه"
               type="textarea"
               register={register}
               error={errors.OtherNeighborhood?.message}
