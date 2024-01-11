@@ -649,14 +649,14 @@ export default function FormAr() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Schools'>
-             Provide more details about the schools suround the property.
+            تقديم مزيد من التفاصيل حول المدارس المحيطة بالعقار.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'CloseToHome',*/}
             <Input 
               id="CloseToHome"
-              label="Close to home"
+              label="قريب من المنزل"
               type="checkbox"
               register={register}
               error={errors.CloseToHome?.message}
@@ -664,7 +664,7 @@ export default function FormAr() {
             {/*'GoodReputation',*/}
             <Input 
               id="GoodReputation"
-              label="Good reputation"
+              label="سمعة جيدة"
               type="checkbox"
               register={register}
               error={errors.GoodReputation?.message}
@@ -672,7 +672,7 @@ export default function FormAr() {
             {/*'SmallClassSize',*/}
             <Input 
               id="SmallClassSize"
-              label="Small class size"
+              label="حجم الصف صغير"
               type="checkbox"
               register={register}
               error={errors.SmallClassSize?.message}
@@ -680,7 +680,7 @@ export default function FormAr() {
             {/*'SolidCurriculum',*/}
             <Input 
               id="SolidCurriculum"
-              label="Solid curriculum"
+              label="المناهج الصلبة"
               type="checkbox"
               register={register}
               error={errors.SolidCurriculum?.message}
@@ -688,7 +688,7 @@ export default function FormAr() {
             {/*'OtherSchools',*/}
             <Input 
               id="OtherSchools"
-              label="Describe Breifly What Exactly You Like To Have For Your Property School suroundings"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في محيط المدرسة الخاص بك"
               type="textarea"
               register={register}
               error={errors.OtherSchools?.message}
