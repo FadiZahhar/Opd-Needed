@@ -250,7 +250,7 @@ export default function FormAr() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Specifications of the required property'>
+            <Heading title='معلومات شخصية'>
             قدم تفاصيل أكثر عن نفسك.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
@@ -303,14 +303,14 @@ export default function FormAr() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Specifications of the required property'>
-              Provide more details about the required property.
+            <Heading title='مواصفات العقار المطلوب'>
+            تقديم المزيد من التفاصيل حول العقار المطلوب.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* LikeTo */}
               <Select
               id="LikeTo"
-              label="I would like to:"
+              label="وأود أن:"
               register={register}
               options={likeArray}
               error={errors.LikeTo?.message}
@@ -318,7 +318,7 @@ export default function FormAr() {
               {/* SpecifyType */}
               <Select
               id="SpecifyType"
-              label="Specify Type"
+              label="تحديد النوع"
               register={register}
               options={specifyTypeArray}
               error={errors.SpecifyType?.message}
@@ -326,7 +326,7 @@ export default function FormAr() {
               {/* SpecifyRegion */}
               <Select
               id="SpecifyRegion"
-              label="Specify Region"
+              label="تحديد المنطقة"
               register={register}
               options={specifyRegionArray}
               error={errors.SpecifyRegion?.message}
@@ -334,7 +334,7 @@ export default function FormAr() {
               {/* Country */}
               <Select
               id="Country"
-              label="Country"
+              label="دولة"
               register={register}
               options={countryArray}
               error={errors.Country?.message}
@@ -342,7 +342,7 @@ export default function FormAr() {
               {/* District */}
               <Input
               id="District"
-              label="District"
+              label="المنطقة"
               register={register}
               error={errors.District?.message}
               />
@@ -350,7 +350,7 @@ export default function FormAr() {
                {/* GovernateOrState */}
               <Input
               id="GovernateOrState"
-              label="Governate Or State"
+              label="المحافظة أو الولاية"
               register={register}
               error={errors.GovernateOrState?.message}
               />
@@ -358,14 +358,14 @@ export default function FormAr() {
             </div>
 
             <br /><br/>
-            <Heading title='Home Size'>
-             Provide more details about the the size of the property.
+            <Heading title='حجم المنزل'>
+            تقديم المزيد من التفاصيل حول حجم العقار.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* Livable area */}
               <Input 
               id="LivableArea"
-              label="Livable Area"
+              label="منطقة مناسبة للعيش"
               type="number"
               register={register}
               error={errors.LivableArea?.message}
@@ -373,7 +373,7 @@ export default function FormAr() {
               {/* PriceRangeMax */}
               <Input 
               id="PriceRangeMax"
-              label="Price Range (Maximum)"
+              label="نطاق السعر (الأقصى)"
               type="number"
               register={register}
               error={errors.PriceRangeMax?.message}
@@ -381,7 +381,7 @@ export default function FormAr() {
               {/* BathRoomsMin */}
               <Input 
               id="BathRoomsMin"
-              label="BathRooms Min (min.)"
+              label="عدد الحمامات الحد الأدنى (الحد الأدنى)"
               type="number"
               register={register}
               error={errors.BathRoomsMin?.message}
@@ -389,7 +389,7 @@ export default function FormAr() {
               {/* BedRoomsMin */}
               <Input 
               id="BedRoomsMin"
-              label="Bedrooms (min.)"
+              label="غرف النوم (الحد الأدنى)"
               type="number"
               register={register}
               error={errors.BedRoomsMin?.message}
@@ -397,7 +397,7 @@ export default function FormAr() {
               {/* DesiredFloor */}
               <Input 
               id="DesiredFloor"
-              label="Desired floor"
+              label="الأرضية المرغوبة"
               type="number"
               register={register}
               error={errors.DesiredFloor?.message}
@@ -405,7 +405,7 @@ export default function FormAr() {
               {/* NumberOfSalons */}
               <Input 
               id="NumberOfSalons"
-              label="Number of salons"
+              label="عدد الصالونات"
               type="number"
               register={register}
               error={errors.NumberOfSalons?.message}
@@ -413,7 +413,7 @@ export default function FormAr() {
               {/* NumberOfLivingRooms */}
               <Input 
               id="NumberOfLivingRooms"
-              label="Number of Living Rooms"
+              label="عدد غرف الجلوس"
               type="number"
               register={register}
               error={errors.NumberOfLivingRooms?.message}
@@ -421,7 +421,7 @@ export default function FormAr() {
               {/* NumberOfBathrooms */}
               <Input 
               id="NumberOfBathrooms"
-              label="Number of bathrooms"
+              label="عدد دورات المياه"
               type="number"
               register={register}
               error={errors.NumberOfBathrooms?.message}
@@ -429,7 +429,7 @@ export default function FormAr() {
               {/* NumberOfDiningRooms */}
               <Input 
               id="NumberOfDiningRooms"
-              label="Number of dining rooms"
+              label="عدد غرف الطعام"
               type="number"
               register={register}
               error={errors.NumberOfDiningRooms?.message}
@@ -439,7 +439,7 @@ export default function FormAr() {
                {/* MaidsRoomWithBathroom */}
                <Input 
               id="MaidRoomWithBathroom"
-              label="Maid's room with bathroom"
+              label="غرفة خادمة مع الحمام"
               type="checkbox"
               register={register}
               error={errors.MaidRoomWithBathroom?.message}
@@ -449,7 +449,7 @@ export default function FormAr() {
               {/* StorageRoom */}
               <Input 
               id="StorageRoom"
-              label="Storage room"
+              label="غرفة تخزين"
               type="number"
               register={register}
               error={errors.StorageRoom?.message}
@@ -459,7 +459,7 @@ export default function FormAr() {
 
               <Input 
               id="WaterWell"
-              label="Water Well"
+              label="بئر ماء"
               type="checkbox"
               register={register}
               error={errors.WaterWell?.message}
@@ -468,7 +468,7 @@ export default function FormAr() {
                {/* Generator */}
               <Input 
               id="Generator"
-              label="Generator"
+              label="مولد كهرباء"
               type="checkbox"
               register={register}
               error={errors.Generator?.message}
@@ -477,7 +477,7 @@ export default function FormAr() {
               {/* NumberOfParkingLots */}
               <Input 
               id="NumberOfParkingLots"
-              label="Number of parking lots"
+              label="عدد مواقف السيارات"
               type="number"
               register={register}
               error={errors.NumberOfParkingLots?.message}
@@ -486,7 +486,7 @@ export default function FormAr() {
               {/* OtherHomeSize */}
               <Input 
               id="OtherHomeSize"
-              label="Describe breifly what exactly you like to have for your property size"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لحجم الممتلكات الخاصة بك"
               type="textarea"
               register={register}
               error={errors.OtherHomeSize?.message}
