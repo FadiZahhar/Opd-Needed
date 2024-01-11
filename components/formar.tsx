@@ -505,8 +505,8 @@ export default function FormAr() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Location'>
-             Provide more details about the location of the property.
+            <Heading title='الموقع'>
+            تقديم المزيد من التفاصيل حول موقع العقار.
             </Heading>
            
 
@@ -516,7 +516,7 @@ export default function FormAr() {
             {/*'CloseToWork',*/}
             <Input 
               id="CloseToWork"
-              label="Close to work"
+              label="قريب من العمل"
               type="checkbox"
               register={register}
               error={errors.OtherHomeSize?.message}
@@ -524,7 +524,7 @@ export default function FormAr() {
             {/*'CloseToSchool',*/}
             <Input 
               id="CloseToSchool"
-              label="Close to school"
+              label="على مقربة من المدرسة"
               type="checkbox"
               register={register}
               error={errors.CloseToSchool?.message}
@@ -532,7 +532,7 @@ export default function FormAr() {
             {/*'CloseToHospital',*/}
             <Input 
               id="CloseToHospital"
-              label="Close to hospital"
+              label="قريب من المستشفى"
               type="checkbox"
               register={register}
               error={errors.CloseToHospital?.message}
@@ -540,7 +540,7 @@ export default function FormAr() {
             {/*'CloseToSupermarket',*/}
             <Input 
               id="CloseToSupermarket"
-              label="Close to supermarket"
+              label="بالقرب من السوبر ماركت"
               type="checkbox"
               register={register}
               error={errors.CloseToSupermarket?.message}
@@ -548,7 +548,7 @@ export default function FormAr() {
             {/*'CloseToParksRecreation',*/}
             <Input 
               id="CloseToParksRecreation"
-              label="Close to parks recreation"
+              label="قريب من حدائق الترفيه"
               type="checkbox"
               register={register}
               error={errors.CloseToParksRecreation?.message}
@@ -556,7 +556,7 @@ export default function FormAr() {
             {/*'CloseToRestaurants',*/}
             <Input 
               id="CloseToRestaurants"
-              label="Close to restaurants"
+              label="بالقرب من المطاعم"
               type="checkbox"
               register={register}
               error={errors.CloseToRestaurants?.message}
@@ -564,7 +564,7 @@ export default function FormAr() {
             {/*'CloseToHighways',*/}
             <Input 
               id="CloseToHighways"
-              label="Close to highways"
+              label="قريب من الطرق السريعة"
               type="checkbox"
               register={register}
               error={errors.CloseToHighways?.message}
@@ -572,7 +572,7 @@ export default function FormAr() {
             {/*'PublicTransportation',*/}
             <Input 
               id="PublicTransportation"
-              label="Public transportation"
+              label="وسائل النقل العامة"
               type="checkbox"
               register={register}
               error={errors.PublicTransportation?.message}
@@ -580,7 +580,7 @@ export default function FormAr() {
             {/*'OtherLocation'*/}
             <Input 
               id="OtherLocation"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Location"
+              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في موقع عقارك"
               type="textarea"
               register={register}
               error={errors.OtherLocation?.message}
