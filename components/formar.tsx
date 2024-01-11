@@ -816,15 +816,15 @@ export default function FormAr() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Home Features Exterior'>
-             Provide more details about the exterior home features of the property.
+            <Heading title='ميزات المنزل الخارج'>
+            تقديم المزيد من التفاصيل حول ميزات المنزل الخارجي للعقار.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'Garage',*/}
             <Input 
               id="Garage"
-              label="Garage"
+              label="كراج"
               type="checkbox"
               register={register}
               error={errors.Garage?.message}
@@ -832,7 +832,7 @@ export default function FormAr() {
             {/*'WalkOutBasement',*/}
             <Input 
               id="WalkOutBasement"
-              label="WalkOut basement"
+              label="الطابق السفلي للمشي"
               type="checkbox"
               register={register}
               error={errors.WalkOutBasement?.message}
@@ -840,7 +840,7 @@ export default function FormAr() {
             {/*'Driveway',*/}
             <Input 
               id="Driveway"
-              label="Driveway"
+              label="طريق خاص"
               type="checkbox"
               register={register}
               error={errors.Driveway?.message}
@@ -848,7 +848,7 @@ export default function FormAr() {
             {/*'FencedYard',*/}
             <Input 
               id="FencedYard"
-              label="Fenced Yard"
+              label="ساحة مسيجة"
               type="checkbox"
               register={register}
               error={errors.FencedYard?.message}
@@ -856,7 +856,7 @@ export default function FormAr() {
             {/*'Gardens',*/}
             <Input 
               id="Gardens"
-              label="Gardens"
+              label="حدائق"
               type="checkbox"
               register={register}
               error={errors.Gardens?.message}
@@ -864,7 +864,7 @@ export default function FormAr() {
             {/*'Pool',*/}
             <Input 
               id="Pool"
-              label="Pool"
+              label="حمام سباحة"
               type="checkbox"
               register={register}
               error={errors.Pool?.message}
@@ -872,22 +872,22 @@ export default function FormAr() {
             {/*'OtherHomeFeaturesExterior',*/}
             <Input 
               id="OtherHomeFeaturesExterior"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Exterior"
+              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في الميزات الخارجية لمنزلك"
               type="textarea"
               register={register}
               error={errors.OtherHomeFeaturesExterior?.message}
               />
             </div>
 
-            <Heading title='Home Features Interior'>
-             Provide more details about the interior features of the property.
+            <Heading title='ميزات المنزل الداخلية'>
+            تقديم المزيد من التفاصيل حول الميزات الداخلية للعقار.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'WoodFlooring',*/}
             <Input 
               id="WoodFlooring"
-              label="Wood Flooring"
+              label="الأرضيات الخشبية"
               type="checkbox"
               register={register}
               error={errors.WoodFlooring?.message}
@@ -895,7 +895,7 @@ export default function FormAr() {
             {/*'MaidRoom',*/}
             <Input 
               id="MaidRoom"
-              label="Maid room"
+              label="غرفة الخادمة"
               type="checkbox"
               register={register}
               error={errors.MaidRoom?.message}
@@ -903,7 +903,7 @@ export default function FormAr() {
             {/*'LaundryRoom',*/}
             <Input 
               id="LaundryRoom"
-              label="Laundry room"
+              label="غرفة الغسيل"
               type="checkbox"
               register={register}
               error={errors.LaundryRoom?.message}
@@ -911,7 +911,7 @@ export default function FormAr() {
             {/*'FinishedBasement',*/}
             <Input 
               id="FinishedBasement"
-              label="Finished basement"
+              label="الطابق السفلي مكتمل"
               type="checkbox"
               register={register}
               error={errors.FinishedBasement?.message}
@@ -919,7 +919,7 @@ export default function FormAr() {
             {/*'EatInKitchen',*/}
             <Input 
               id="EatInKitchen"
-              label="Eat In Kitchen"
+              label="تناول الطعام في المطبخ"
               type="checkbox"
               register={register}
               error={errors.EatInKitchen?.message}
@@ -927,7 +927,7 @@ export default function FormAr() {
             {/*'GameRoom',*/}
             <Input 
               id="GameRoom"
-              label="Game room"
+              label="غرفة الالعاب"
               type="checkbox"
               register={register}
               error={errors.GameRoom?.message}
@@ -935,7 +935,7 @@ export default function FormAr() {
             {/*'Office',*/}
             <Input 
               id="Office"
-              label="Office"
+              label="مكتب"
               type="checkbox"
               register={register}
               error={errors.Office?.message}
@@ -943,7 +943,7 @@ export default function FormAr() {
             {/*'MasterBedroom',*/}
             <Input 
               id="MasterBedroom"
-              label="Master bedroom"
+              label="غرفة نوم رئيسية"
               type="checkbox"
               register={register}
               error={errors.MasterBedroom?.message}
@@ -951,7 +951,7 @@ export default function FormAr() {
             {/*'MasterBathroom',*/}
             <Input 
               id="MasterBathroom"
-              label="Master bathroom"
+              label="حمام رئيسي"
               type="checkbox"
               register={register}
               error={errors.MasterBathroom?.message}
@@ -959,7 +959,7 @@ export default function FormAr() {
             {/*'WalkInCloset',*/}
             <Input 
               id="WalkInCloset"
-              label="Walk In Closet"
+              label="خزانة في الحائط"
               type="checkbox"
               register={register}
               error={errors.WalkInCloset?.message}
@@ -967,7 +967,7 @@ export default function FormAr() {
             {/*'OtherHomeFeaturesInterior'*/}
             <Input 
               id="OtherHomeFeaturesInterior"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Interior"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في ميزات منزلك الداخلية"
               type="textarea"
               register={register}
               error={errors.OtherHomeFeaturesInterior?.message}
@@ -1002,11 +1002,11 @@ export default function FormAr() {
           </svg><br/>
 
    
-    <h2 className="text-lg font-semibold mb-2 opd-heading">Your request has been sent</h2>
-    <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
+    <h2 className="text-lg font-semibold mb-2 opd-heading">تم ارسال طلبك</h2>
+    <p className='opd-text'>سيتصل بك وكيلنا خلال الـ 24 ساعة القادمة</p><br/>
 
   
-    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">انقر هنا للعودة إلى الموقع</a>
 </div>
 
 
@@ -1029,7 +1029,7 @@ export default function FormAr() {
             disabled={currentStep === 0}
             className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50'
           >
-            Prev
+            السابق
           </button>}
           {(currentStep !== steps.length - 1) &&
           <button
@@ -1038,7 +1038,7 @@ export default function FormAr() {
             disabled={currentStep === steps.length - 1}
             className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset disabled:cursor-not-allowed disabled:opacity-50'
           >
-             {(currentStep === steps.length - 2) ? "Finish" : "Next" }
+             {(currentStep === steps.length - 2) ? "إنهاء" : "التالي" }
           </button>}
         </div>
       </div>
