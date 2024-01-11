@@ -695,15 +695,15 @@ export default function FormAr() {
               />
             </div>
 
-            <Heading title='Home Systems'>
-             Provide more details about the home system provided by the property.
+            <Heading title='الأنظمة المنزلية'>
+            تقديم المزيد من التفاصيل حول نظام المنزل الذي يوفره العقار.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/*'CentralAC',*/}
             <Input 
               id="CentralAC"
-              label="Central AC"
+              label="تكييف مركزي"
               type="checkbox"
               register={register}
               error={errors.CentralAC?.message}
@@ -711,7 +711,7 @@ export default function FormAr() {
             {/*'WoodStove',*/}
             <Input 
               id="WoodStove"
-              label="Wood Stove"
+              label="موقد الخشب"
               type="checkbox"
               register={register}
               error={errors.WoodStove?.message}
@@ -719,7 +719,7 @@ export default function FormAr() {
             {/*'Fireplace',*/}
             <Input 
               id="Fireplace"
-              label="Fire Place"
+              label="المدفأة"
               type="checkbox"
               register={register}
               error={errors.Fireplace?.message}
@@ -727,7 +727,7 @@ export default function FormAr() {
             {/*'TanklessWaterHeater',*/}
             <Input 
               id="TanklessWaterHeater"
-              label="Tankless water heater"
+              label="سخان ماء بدون خزان"
               type="checkbox"
               register={register}
               error={errors.TanklessWaterHeater?.message}
@@ -735,7 +735,7 @@ export default function FormAr() {
             {/*'CopperPlumbing',*/}
             <Input 
               id="CopperPlumbing"
-              label="Copper Plumbing"
+              label="السباكة النحاسية"
               type="checkbox"
               register={register}
               error={errors.CopperPlumbing?.message}
@@ -743,7 +743,7 @@ export default function FormAr() {
             {/*'SolarPower',*/}
             <Input 
               id="SolarPower"
-              label="Solar Power"
+              label="الطاقة الشمسية"
               type="checkbox"
               register={register}
               error={errors.SolarPower?.message}
@@ -751,7 +751,7 @@ export default function FormAr() {
             {/*'Generator',*/}
             <Input 
               id="Generator"
-              label="Generator"
+              label="مولد كهربائي"
               type="checkbox"
               register={register}
               error={errors.Generator?.message}
@@ -759,7 +759,7 @@ export default function FormAr() {
             {/*'SecuritySystem',*/}
             <Input 
               id="SecuritySystem"
-              label="Security System"
+              label="نظام الأمن"
               type="checkbox"
               register={register}
               error={errors.SecuritySystem?.message}
@@ -767,7 +767,7 @@ export default function FormAr() {
             {/*'HomeAutomation',*/}
             <Input 
               id="HomeAutomation"
-              label="Home Automation"
+              label="التشغيل الآلي للمنزل"
               type="checkbox"
               register={register}
               error={errors.HomeAutomation?.message}
@@ -775,7 +775,7 @@ export default function FormAr() {
             {/*'Cable',*/}
             <Input 
               id="Cable"
-              label="Cable"
+              label="كابل"
               type="checkbox"
               register={register}
               error={errors.Cable?.message}
@@ -783,7 +783,7 @@ export default function FormAr() {
             {/*'SatelliteDish',*/}
             <Input 
               id="SatelliteDish"
-              label="Satellite dish"
+              label="طبق القمر الصناعي"
               type="checkbox"
               register={register}
               error={errors.SatelliteDish?.message}
@@ -791,7 +791,7 @@ export default function FormAr() {
             {/*'FiberOpticCable',*/}
             <Input 
               id="FiberOpticCable"
-              label="Fiber Optic Cable"
+              label="كابل الألياف الضوئية"
               type="checkbox"
               register={register}
               error={errors.FiberOpticCable?.message}
@@ -799,7 +799,7 @@ export default function FormAr() {
             {/*'OtherHomeSystems'*/}
             <Input 
               id="OtherHomeSystems"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Systems"
+              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لأنظمة المنزل الخاصة بك"
               type="textarea"
               register={register}
               error={errors.OtherHomeSystems?.message}
