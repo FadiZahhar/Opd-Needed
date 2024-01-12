@@ -135,7 +135,7 @@ export default function FormAr() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmail',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailAr',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -146,7 +146,7 @@ export default function FormAr() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClient',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClientAr',
       headers: { 
         'Content-Type': 'application/json'
       },
