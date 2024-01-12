@@ -249,7 +249,7 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Specifications of the required property'>
+            <Heading title='Personal Information'>
               Provide more details about your self.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>

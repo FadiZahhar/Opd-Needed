@@ -1,4 +1,3 @@
-import Form from '@/components/form'
 import FormAr from '@/components/formar'
 
 export default function Home() {
