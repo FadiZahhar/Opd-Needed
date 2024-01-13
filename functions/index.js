@@ -1155,11 +1155,11 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LaundryRoom)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطابق السفلي الانتهاء</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطابق السفلي مكتمل</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FinishedBasement)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مطبخ تناول الطعام</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">تناول الطعام في المطبخ</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(EatInKitchen)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
@@ -1179,7 +1179,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MasterBathroom)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">خزانة ملابس</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">خزانة في الحائط</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WalkInCloset)}</td>
       </tr>
 

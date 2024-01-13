@@ -365,7 +365,7 @@ export default function FormAr() {
               {/* Livable area */}
               <Input 
               id="LivableArea"
-              label="منطقة مناسبة للعيش"
+              label="غرف المعيشة"
               type="number"
               register={register}
               error={errors.LivableArea?.message}
@@ -373,7 +373,7 @@ export default function FormAr() {
               {/* PriceRangeMax */}
               <Input 
               id="PriceRangeMax"
-              label="نطاق السعر (الأقصى)"
+              label="نطاق السعر (الحد الأقصى)"
               type="number"
               register={register}
               error={errors.PriceRangeMax?.message}
@@ -413,7 +413,7 @@ export default function FormAr() {
               {/* NumberOfLivingRooms */}
               <Input 
               id="NumberOfLivingRooms"
-              label="عدد غرف الجلوس"
+              label="عدد غرف المعيشة"
               type="number"
               register={register}
               error={errors.NumberOfLivingRooms?.message}
@@ -672,7 +672,7 @@ export default function FormAr() {
             {/*'SmallClassSize',*/}
             <Input 
               id="SmallClassSize"
-              label="حجم الصف صغير"
+              label="حجم الفصل صغير"
               type="checkbox"
               register={register}
               error={errors.SmallClassSize?.message}
@@ -680,7 +680,7 @@ export default function FormAr() {
             {/*'SolidCurriculum',*/}
             <Input 
               id="SolidCurriculum"
-              label="المناهج الصلبة"
+              label="منهج متين"
               type="checkbox"
               register={register}
               error={errors.SolidCurriculum?.message}
@@ -783,7 +783,7 @@ export default function FormAr() {
             {/*'SatelliteDish',*/}
             <Input 
               id="SatelliteDish"
-              label="طبق القمر الصناعي"
+              label="طبق استقبال أقمار صناعية"
               type="checkbox"
               register={register}
               error={errors.SatelliteDish?.message}
@@ -791,7 +791,7 @@ export default function FormAr() {
             {/*'FiberOpticCable',*/}
             <Input 
               id="FiberOpticCable"
-              label="كابل الألياف الضوئية"
+              label="كابل الألياف البصرية"
               type="checkbox"
               register={register}
               error={errors.FiberOpticCable?.message}
@@ -832,7 +832,7 @@ export default function FormAr() {
             {/*'WalkOutBasement',*/}
             <Input 
               id="WalkOutBasement"
-              label="الطابق السفلي للمشي"
+              label="الطابق السفلي للخروج"
               type="checkbox"
               register={register}
               error={errors.WalkOutBasement?.message}
