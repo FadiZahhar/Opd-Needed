@@ -801,7 +801,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
      
 
 
-    const html = `<div style="width:600px; height: 800px;margin:0 auto;font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
+    const html = `<div style="width:600px; height: 800px;margin:0 auto;font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif; direction:rtl;">
 
 <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
   <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
