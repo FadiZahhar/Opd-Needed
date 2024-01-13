@@ -1103,88 +1103,88 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
     </table>
 
 
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Home Features - Exterior</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">ميزات المنزل - الخارج</h3>
     
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Garage</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">كراج</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Garage)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Walk-Out Basement</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطابق السفلي للخروج</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WalkOutBasement)}</td>
         </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Driveway</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طريق خاص</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Driveway)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fenced Yard</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">ساحة مسيجة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FencedYard)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Gardens</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">حدائق</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Gardens)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Pool</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">حمام سباحة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Pool)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesExterior)}</td>
       </tr>
       
     </table>
 
 
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Home Features - Interior</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">ميزات المنزل - الداخلية</h3>
     
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Wood Flooring</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الأرضيات الخشبية</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WoodFlooring)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Maid Room</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة الخادمة</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaidRoom)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Laundry Room</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة الغسيل</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LaundryRoom)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Finished Basement</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطابق السفلي الانتهاء</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FinishedBasement)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Eat-In Kitchen</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مطبخ تناول الطعام</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(EatInKitchen)}</td>
         </tr>
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Game Room</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة الالعاب</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GameRoom)}</td>
           </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Office</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مكتب</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Office)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Master Bedroom</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة النوم الرئيسية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MasterBedroom)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Master Bathroom</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">لحمام الرئيسي</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MasterBathroom)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Walk-In Closet</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">خزانة ملابس</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WalkInCloset)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesInterior)}</td>
       </tr>
       
