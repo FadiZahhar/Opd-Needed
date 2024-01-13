@@ -12,7 +12,7 @@ import Heading from './heading'
 import './form.css';
 import './formar.css';
 import Select from './select'
-import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
+import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/dataar'
 import axios from 'axios'
 
 type Inputs = z.infer<typeof FormDataSchema>
