@@ -854,249 +854,249 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Country)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">District</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المدينة، القرية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(District)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Governate or state</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المحافظة أو الولاية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GovernateOrState)}</td>
       </tr>
     </table>
     
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Home Size</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">حجم المنزل</h3>
     
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Livable Area</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرف المعيشة</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LivableArea)}</td>
           </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Price Range (Maximum)</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">نطاق السعر (الحد الأقصى)</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PriceRangeMax)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Bedrooms (min.)</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرف النوم (الحد الأدنى)</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(BedRoomsMin)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Bathrooms (min.)</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الحمامات (الحد الأدنى)</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(BathRoomsMin)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Desired floor</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الأرضية المرغوبة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(DesiredFloor)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of salons</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">عدد الصالونات</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfSalons)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of living rooms</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">عدد غرف المعيشة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfLivingRooms)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of dining rooms</td>
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">عدد غرف الطعام</td>
       <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfDiningRooms)}</td>
     </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Maid's room with bathroom</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة خادمة مع حمام</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaidRoomWithBathroom)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Storage room</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة تخزين</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(StorageRoom)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Water well</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">بئر ماء</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WaterWell)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Generator</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مولد كهرباء</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Generator)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Number of parking lots</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">عدد مواقف السيارات</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NumberOfParkingLots)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSize)}</td>
       </tr>
     </table>
     
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Location</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">لموقع</h3>
     
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Work</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من العمل</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToWork)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to School</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">على مقربة من المدرسة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSchool)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Hospital</td>
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من المستشفى</td>
       <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHospital)}</td>
     </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Supermarket</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">بالقرب من السوبر ماركت</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToSupermarket)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Parks/Recreation</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من المتنزهات/الاستجمام</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToParksRecreation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Restaurants</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من المطاعم</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToRestaurants)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Highways</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من الطرق السريعة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHighways)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Public Transportation</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">وسائل النقل العامة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PublicTransportation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherLocation)}</td>
       </tr>
       
     </table>
     
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Neighborhood</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">الحيّ</h3>
     
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">No Traffic</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">لا يوجد زحمة سير</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NoTraffic)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Very Quiet</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">هادئة جدا</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(VeryQuiet)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Younger Neighbors</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الجيران الأصغر سنا</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(YoungerNeighbors)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Older Neighbors</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الجيران الأكبر سنا</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OlderNeighbors)}</td>
       </tr>
       
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Child-Friendly</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">صديقة للطفل</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(ChildFriendly)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherNeighborhood)}</td>
       </tr>
       
     </table>
 
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Schools</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">المدارس</h3>
     
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Close to Home</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">قريب من المنزل</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CloseToHome)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Good Reputation</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">سمعة جيدة</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GoodReputation)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Small Class Size</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">حجم الفصل صغير</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SmallClassSize)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Solid Curriculum</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">منهج متين</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SolidCurriculum)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">خر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherSchools)}</td>
       </tr>
       
     </table>
 
-    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Home Systems</h3>
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">ميزات المنزل - الخارج</h3>
     
     <table style="color:#444;">
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Central A/C</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">تكييف مركزي</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CentralAC)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Wood Stove</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">موقد الخشب</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WoodStove)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fireplace</td>
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المدفأة</td>
       <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Fireplace)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Tankless Water Heater</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">سخان ماء بدون خزان</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(TanklessWaterHeater)}</td>
       </tr>
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Copper Plumbing</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">السباكة النحاسية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CopperPlumbing)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Solar Power</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطاقة الشمسية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SolarPower)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Generator</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مولد كهرباء</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Generator)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Security System</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">نظام الأمن</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SecuritySystem)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Home Automation</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">أتمتة المنزل</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(HomeAutomation)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Cable</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">كابل</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Cable)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Satellite Dish</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طبق استقبال أقمار صناعية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SatelliteDish)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Fiber Optic Cable</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">كابل الألياف البصرية</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FiberOpticCable)}</td>
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSystems)}</td>
       </tr>
       
