@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /functions/.runtimeconfig.json
+/functions/firebase-debug.log
 /.pnp
 .pnp.js
 
