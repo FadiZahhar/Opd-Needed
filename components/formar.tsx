@@ -192,12 +192,17 @@ export default function FormAr() {
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
     }
+
+     // Scroll to the top of the page
+     window.scrollTo(0, 0);
   }
 
   const prev = () => {
     if (currentStep > 0) {
       setPreviousStep(currentStep)
       setCurrentStep(step => step - 1)
+       // Scroll to the top of the page
+       window.scrollTo(0, 0);
     }
   }
 
@@ -486,7 +491,7 @@ export default function FormAr() {
               {/* OtherHomeSize */}
               <Input 
               id="OtherHomeSize"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لحجم الممتلكات الخاصة بك"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherHomeSize?.message}
@@ -580,7 +585,7 @@ export default function FormAr() {
             {/*'OtherLocation'*/}
             <Input 
               id="OtherLocation"
-              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في موقع عقارك"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherLocation?.message}
@@ -633,7 +638,7 @@ export default function FormAr() {
             {/*'OtherNeighborhood'*/}
             <Input 
               id="OtherNeighborhood"
-              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في الحي الذي تسكن فيه"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherNeighborhood?.message}
@@ -688,7 +693,7 @@ export default function FormAr() {
             {/*'OtherSchools',*/}
             <Input 
               id="OtherSchools"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في محيط المدرسة الخاص بك"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherSchools?.message}
@@ -799,7 +804,7 @@ export default function FormAr() {
             {/*'OtherHomeSystems'*/}
             <Input 
               id="OtherHomeSystems"
-              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لأنظمة المنزل الخاصة بك"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherHomeSystems?.message}
@@ -872,7 +877,7 @@ export default function FormAr() {
             {/*'OtherHomeFeaturesExterior',*/}
             <Input 
               id="OtherHomeFeaturesExterior"
-              label="صِف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في الميزات الخارجية لمنزلك"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherHomeFeaturesExterior?.message}
@@ -967,7 +972,7 @@ export default function FormAr() {
             {/*'OtherHomeFeaturesInterior'*/}
             <Input 
               id="OtherHomeFeaturesInterior"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في ميزات منزلك الداخلية"
+              label="طلبات اضافية أخرى"
               type="textarea"
               register={register}
               error={errors.OtherHomeFeaturesInterior?.message}

@@ -926,7 +926,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSize)}</td>
       </tr>
     </table>
@@ -971,7 +971,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherLocation)}</td>
       </tr>
       
@@ -1003,7 +1003,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherNeighborhood)}</td>
       </tr>
       
@@ -1030,7 +1030,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">خر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherSchools)}</td>
       </tr>
       
@@ -1096,7 +1096,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeSystems)}</td>
       </tr>
       
@@ -1132,7 +1132,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesExterior)}</td>
       </tr>
       
@@ -1184,7 +1184,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
       </tr>
 
       <tr style="border: 1px solid #b2b2b2;">
-        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">طلبات اضافية أخرى</td>
         <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherHomeFeaturesInterior)}</td>
       </tr>
       

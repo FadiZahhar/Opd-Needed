@@ -191,12 +191,17 @@ export default function Form() {
       setPreviousStep(currentStep)
       setCurrentStep(step => step + 1)
     }
+
+     // Scroll to the top of the page
+     window.scrollTo(0, 0);
   }
 
   const prev = () => {
     if (currentStep > 0) {
       setPreviousStep(currentStep)
       setCurrentStep(step => step - 1)
+       // Scroll to the top of the page
+       window.scrollTo(0, 0);
     }
   }
 
