@@ -397,7 +397,7 @@ export default function Form() {
               <Input 
               id="DesiredFloor"
               label="Desired floor"
-              type="number"
+              type="text"
               register={register}
               error={errors.DesiredFloor?.message}
               />

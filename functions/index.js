@@ -838,7 +838,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
 
     <tr style="border: 1px solid #b2b2b2;">
     <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">رقم الهاتف</td>
-    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PhoneNumber)}</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;direction:ltr">${validateValue(PhoneNumber)}</td>
     </tr>
 
       <tr style="border: 1px solid #b2b2b2;">

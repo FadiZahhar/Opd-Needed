@@ -398,7 +398,7 @@ export default function FormAr() {
               <Input 
               id="DesiredFloor"
               label="الأرضية المرغوبة"
-              type="number"
+              type="text"
               register={register}
               error={errors.DesiredFloor?.message}
               />
