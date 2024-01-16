@@ -18,7 +18,7 @@ function validateValue(value) {
   return value === undefined ? '' : value;
 }
 // Setup Nodemailer with your SMTP provider credentials
-const apiKey = functions.config().sebdgrid.api_key;
+const apiKey = functions.config().sendgrid.api_key;
 const transporter = nodemailer.createTransport({
   host: 'smtp.sendgrid.net',
   port: 465,
