@@ -1,6 +1,6 @@
 
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 
 interface FormPlansProps {
     type: string; // Adjust the type as necessary
@@ -18,6 +18,8 @@ import axios from 'axios'
 type Inputs = z.infer<typeof FormDataSchema>
 
 const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
+  const[submited,setSubmited] = useState(false);
+  const[loading,setLoading] = useState(false);
     /*useEffect(() => {
         // Store the original background color
         const originalBackgroundColor = document.body.style.backgroundColor;
@@ -43,11 +45,12 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       })
 
       const processForm: SubmitHandler<Inputs> = data => {
+        setLoading(true);
         console.log("data is ",data);
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
+          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdPlan',
           url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdPlan',
           headers: { 
             'Content-Type': 'application/json'
@@ -70,9 +73,13 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
         axios.request(config)
         .then((response:any) => {
           console.log(JSON.stringify(response.data));
+          setSubmited(true);
+          setLoading(false);
         })
         .catch((error:any) => {
           console.log(error);
+          setSubmited(true);
+          setLoading(false);
         });
     
         // send email to Client
@@ -110,6 +117,8 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       <img src="/propertypro.svg" alt="logo" width="50" height="50" />
       <h2 className="opd-header">Property Pro</h2>
       </div>
+      {(!submited) && 
+    <>
     <h1>Request for a {type} plan</h1>
     <form>
     <div className="form-control">
@@ -158,10 +167,34 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
         />
       </div>
 
+      {(!loading) && 
       <button  className="btn"
       onClick={submit}
       >Request A {type} Plan Offer</button>
+      }
+
+      {(loading) &&
+      <div className="loader"></div>
+      }
     </form>
+    </>
+}
+
+{(submited) && 
+<div>
+<h1><strong>Thank You for Your Submission!</strong></h1>
+
+<p>Your request for the Basic Plan has been successfully submitted.</p>
+
+<p>We appreciate your interest and are excited to explore how our services can meet your needs. A member of our team will be in touch with you shortly to discuss the details and next steps.</p>
+
+<p>In the meantime, if you have any questions or require immediate assistance, please feel free to contact us at <a href="info@propertypro.vip">info@propertypro.vip</a> .</p>
+
+<p>Thank you for choosing OPD. We look forward to speaking with you soon!</p>
+<br/>
+<a href='https://propertypro.vip' className='btn'>Back to Website</a>
+</div>
+}
     {type === "Basic" &&
      <style jsx>{`
      .container {

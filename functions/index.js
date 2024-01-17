@@ -1245,6 +1245,101 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
   });
 });
 
+exports.sendOpdPlan = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Invalid HTTP method!' });
+    }
+
+        // Extract data from request bodyu
+        const { 
+          FirstName,
+          LastName,
+          Email,
+          PhoneNumber,
+          Type,
+          honeypot } = req.body;
+      
+          if (honeypot) {
+            console.log('Bot detected');
+            // Handle as bot submission, like ignoring the request
+            return res.status(400).json({ status: 'error', message: 'Bot detected' });
+          }
+
+    const html=`<div style="width:600px; height: 800px;margin:0 auto; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
+
+    <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
+      <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
+        <img style="float: left; padding-left:20px; width:60px;" src="https://needed.propertypro.vip/propertypro.png" />
+        <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">&nbsp;DOT VIP</h1>
+      </div>
+      
+      <div style="width:50%; float: right; ">
+        <!--<div style="font-size: 18px; font-weight:300; margin:30px 30px 0px; padding-left:20px;">Needed
+        </div> -->
+      </div>
+    </div>
+    
+    <div style="padding: 10px; color: rgba(255, 255, 255, 0.75); background-color:#e6e6e6;">
+      <div style="background-color: #fff; color:#444; padding:20px 40px; font-weight: 400; font-size:15px; text-align:justify;">
+        <h3 style="font-weight: 500; letter-spacing: 0.9px;">Dear Sir</h3>
+        <p>My name is ${FirstName} ${LastName} and I would like to request a ${Type} plan please</p>
+        <p>You may contact me by email at : <a href="mailto:${Email}">${Email}</a> <br/>
+        or by phone number at: <a href="tel:${PhoneNumber}">${PhoneNumber}</a>
+        </p>
+
+
+      </div>
+         
+    </div>
+    
+    <div style="padding: 10px 15px; background-color: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.75); height:100px; position: relative; ">
+      
+      <div style="width:35%; height: 100px; float: left; font-size:10px; margin-right:10px;">
+        
+        <h3 style="font-size: 14px;">Shanay</h3>
+        Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+        
+        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        
+        Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
+  
+      </div>
+      
+      <div style="width:35%; height: 100px; float: left; font-size:10px; margin-left:10px; margin-top:-1.5px;">
+        
+        <h3 style="font-size: 14px;">Deir Qoubil</h3>
+        Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+        
+        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        
+        Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
+  
+      </div>
+      
+      
+    </div>
+  </div>`;
+
+      // Set up email content
+      const mailOptions = {
+        from: 'info@wmvp.dev',
+        to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+        subject: `OPD Request for a ${Type} Plan`,
+        text: '',
+        html: html // Include your HTML content
+      };
+  
+
+    // Send email
+    return transporter.sendMail(mailOptions)
+      .then(() => res.status(200).send({ status: 'Successs', message: 'Email Sent' }))
+      .catch(error => {
+        console.error('Error sending email:', error);
+        return res.status(500).send({ status: 'error',message: `Error sending email: ${error.message}` });
+      });
+  });
+});
 
 exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
