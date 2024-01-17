@@ -1,10 +1,10 @@
 import Form from '@/components/form'
 
-export default function Home() {
+export default function MyHomeKey() {
   return (
     <section className='py-24'>
       <div className='container'>
-      <h1>Under Construction</h1>
+        <Form />
       </div>
     </section>
   )
