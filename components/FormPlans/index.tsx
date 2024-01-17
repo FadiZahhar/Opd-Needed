@@ -90,7 +90,7 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
     
       type FieldName = keyof Inputs
 
-      const submit = async (e) => {
+      const submit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const fields = ['FirstName', 'LastName','Email','PhoneNumber','Type','honeypot'];
         const output = await trigger(fields as FieldName[], { shouldFocus: true })
