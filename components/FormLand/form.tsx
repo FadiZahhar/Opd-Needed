@@ -11,8 +11,9 @@ import Input from './input'
 import Heading from './heading'
 import './form.css';
 import Select from './select'
-import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/Landdata'
+import { countryArray, doesAnyoneHaveARight, isItPossibleTo, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/Landdata'
 import axios from 'axios'
+import MultipleSelect from './multipleselect'
 
 type Inputs = z.infer<typeof FormDataSchema>
 
@@ -41,19 +42,14 @@ const steps = [
   {
     id: 'Step 4',
     name: 'Nature and Location',
-    fields: ['NatureAndLocation']
+    fields: ['NatureAndLocation','IsItNearA']
   },
   {
     id: 'Step 5',
-    name: 'Neighbourhood',
-    fields: ['IsItNearA']
-  },
-  {
-    id: 'Step 6',
     name: 'Various legal possibilities',
     fields: ['IsItPossibleTo','DoesAnyoneHaveARight']
   },
-  { id: 'Step 7', name: 'Complete' }
+  { id: 'Step 6', name: 'Complete' }
 ]
 
 export default function Form() {
@@ -87,7 +83,7 @@ export default function Form() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmail',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmail',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -312,17 +308,17 @@ export default function Form() {
               error={errors.GovernateOrState?.message}
               />
 
-            <Select
+              <Input 
               id="Financials"
               label="Financials"
+              type="number"
               register={register}
-              options={likeArray}
               error={errors.Financials?.message}
               />
               {/* MaximumPricePerSquareMetre */}
               <Input 
               id="MaximumPricePerSquareMetre"
-              label="MaximumPricePerSquareMetre"
+              label="Maximum Price Per Square Metre"
               type="number"
               register={register}
               error={errors.MaximumPricePerSquareMetre?.message}
@@ -350,17 +346,17 @@ export default function Form() {
               {/* LandClassification */}
               <Select
               id="LandClassification"
-              label="LandClassification"
+              label="Land Classification"
               register={register}
               options={likeArray}
               error={errors.LandClassification?.message}
               />
               {/* MoreDetails */}
-              <Select
+              <MultipleSelect
               id="MoreDetails"
-              label="MoreDetails"
+              label="More Details"
               register={register}
-              options={likeArray}
+              options={moreDetails}
               error={errors.MoreDetails?.message}
               />
 
@@ -391,9 +387,9 @@ export default function Form() {
             {/* LikeTo */}
             <Select
               id="NatureAndLocation"
-              label="NatureAndLocation"
+              label="Nature And Location"
               register={register}
-              options={likeArray}
+              options={natureAndLocation}
               error={errors.NatureAndLocation?.message}
               />
               
@@ -405,11 +401,11 @@ export default function Form() {
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/* LikeTo */}
-            <Select
+            <MultipleSelect
               id="IsItNearA"
-              label="IsItNearA"
+              label="Is It Near A"
               register={register}
-              options={likeArray}
+              options={neighbourhood}
               error={errors.IsItNearA?.message}
               />
               
@@ -432,19 +428,19 @@ export default function Form() {
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
 
              {/* IsItPossibleTo */}
-            <Select
+            <MultipleSelect
               id="IsItPossibleTo"
-              label="IsItPossibleTo"
+              label="Is It Possible To"
               register={register}
-              options={likeArray}
+              options={isItPossibleTo}
               error={errors.IsItPossibleTo?.message}
               />
                {/* DoesAnyoneHaveARight */}
-            <Select
+            <MultipleSelect
               id="DoesAnyoneHaveARight"
-              label="DoesAnyoneHaveARight"
+              label="Does Anyone Have A Right"
               register={register}
-              options={likeArray}
+              options={doesAnyoneHaveARight}
               error={errors.DoesAnyoneHaveARight?.message}
               />
             </div>

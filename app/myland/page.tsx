@@ -1,4 +1,4 @@
-import Form from '@/components/form'
+import Form from '@/components/FormLand/form'
 
 export default function MyLand() {
   return (

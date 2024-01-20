@@ -14,10 +14,10 @@ export const FormDataSchema = z.object({
   Financials: z.string().min(1,'This field is required, please put 0 as minimum value'),
   MaximumPricePerSquareMetre: z.string().min(1,'This field is required, please put 0 as minimum value'),
   LandClassification: z.string().min(1,'This field is required, please put 0 as minimum value'),
-  MoreDetails: z.string().min(1,'This field is required, please put 0 as minimum value'),
+  MoreDetails: z.array(z.string()),
   MaximumOverallInvestmentZone: z.string().min(1,'This field is required, please put 0 as minimum value'),
-  NatureAndLocation: z.string().min(1,'This field is required, please put 0 as minimum value'),
-  IsItNearA: z.string().min(1,'This field is required, please put 0 as minimum value'),
+  NatureAndLocation: z.string().min(1,'This field is required'),
+  IsItNearA: z.array(z.string()),
   IsItPossibleTo: z.string().min(1,'This field is required, please put 0 as minimum value'),
   DoesAnyoneHaveARight : z.string().min(1,'This field is required, please put 0 as minimum value'),
   honeypot: z.string()
