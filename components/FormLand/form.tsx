@@ -11,7 +11,7 @@ import Input from './input'
 import Heading from './heading'
 import './form.css';
 import Select from './select'
-import { countryArray, doesAnyoneHaveARight, isItPossibleTo, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/Landdata'
+import { countryArray, doesAnyoneHaveARight, isItPossibleTo, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/landdata'
 import axios from 'axios'
 import MultipleSelect from './multipleselect'
 
@@ -358,6 +358,15 @@ export default function Form() {
               register={register}
               options={moreDetails}
               error={errors.MoreDetails?.message}
+              />
+
+              {/* OtherMoreDetails */}
+              <Input 
+              id="OtherMoreDetails"
+              label="Describe breifly what exactly you like to have for your land investment"
+              type="textarea"
+              register={register}
+              error={errors.OtherMoreDetails?.message}
               />
 
               {/* MaximumPricePerSquareMetre */}
