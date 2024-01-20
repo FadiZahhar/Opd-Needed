@@ -12,6 +12,7 @@ export const FormDataSchema = z.object({
   District: z.string().min(1, 'المنطقة مطلوبة'),
   GovernateOrState : z.string().min(1, ' يجب ملء الحقل محافظة أو ولاية'),
   Financials: z.string().min(1,'هذا الحقل مطلوب ، يرجى وضع 0 كقيمة دنيا'),
+  MaximumPricePerSquareMetre: z.string().min(1,'هذا الحقل مطلوب ، يرجى وضع 0 كقيمة دنيا'),
   LandClassification: z.string().min(1,'هذا الحقل مطلوب ، يرجى وضع 0 كقيمة دنيا'),
   MoreDetails: z.string().min(1,'هذا الحقل مطلوب ، يرجى وضع 0 كقيمة دنيا'),
   MaximumOverallInvestmentZone: z.string().min(1,'هذا الحقل مطلوب ، يرجى وضع 0 كقيمة دنيا'),

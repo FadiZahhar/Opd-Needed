@@ -11,7 +11,7 @@ import Input from './input'
 import Heading from './heading'
 import './form.css';
 import Select from './select'
-import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/data'
+import { countryArray, likeArray, specifyRegionArray, specifyTypeArray } from '@/lib/Landdata'
 import axios from 'axios'
 
 type Inputs = z.infer<typeof FormDataSchema>
@@ -312,15 +312,7 @@ export default function Form() {
               error={errors.GovernateOrState?.message}
               />
 
-            </div>
-
-            <br /><br/>
-            <Heading title='Home Size'>
-             Provide more details about the the size of the property.
-            </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-              {/* LikeTo */}
-              <Select
+            <Select
               id="Financials"
               label="Financials"
               register={register}
@@ -335,10 +327,7 @@ export default function Form() {
               register={register}
               error={errors.MaximumPricePerSquareMetre?.message}
               />
-              
-              
 
-              
             </div>
 
            
@@ -352,13 +341,37 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Location'>
-             Provide more details about the location of the property.
+             Provide more details about the investment.
             </Heading>
            
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-              
 
+              {/* LandClassification */}
+              <Select
+              id="LandClassification"
+              label="LandClassification"
+              register={register}
+              options={likeArray}
+              error={errors.LandClassification?.message}
+              />
+              {/* MoreDetails */}
+              <Select
+              id="MoreDetails"
+              label="MoreDetails"
+              register={register}
+              options={likeArray}
+              error={errors.MoreDetails?.message}
+              />
+
+              {/* MaximumPricePerSquareMetre */}
+              <Input 
+              id="MaximumOverallInvestmentZone"
+              label="MaximumOverallInvestmentZone"
+              type="number"
+              register={register}
+              error={errors.MaximumOverallInvestmentZone?.message}
+              />
             
             </div>
           </motion.div>
@@ -371,19 +384,35 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Schools'>
-             Provide more details about the schools suround the property.
+             Provide more details about the nature and location of the land.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            
+            {/* LikeTo */}
+            <Select
+              id="NatureAndLocation"
+              label="NatureAndLocation"
+              register={register}
+              options={likeArray}
+              error={errors.NatureAndLocation?.message}
+              />
+              
             </div>
 
             <Heading title='Home Systems'>
-             Provide more details about the home system provided by the property.
+             Provide more details about the neighbourhood.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            
+            {/* LikeTo */}
+            <Select
+              id="IsItNearA"
+              label="IsItNearA"
+              register={register}
+              options={likeArray}
+              error={errors.IsItNearA?.message}
+              />
+              
             </div>
 
             
@@ -397,50 +426,35 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Home Features Exterior'>
-             Provide more details about the exterior home features of the property.
+             Provide more details about the legal possibilities of the land.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            
+
+             {/* IsItPossibleTo */}
+            <Select
+              id="IsItPossibleTo"
+              label="IsItPossibleTo"
+              register={register}
+              options={likeArray}
+              error={errors.IsItPossibleTo?.message}
+              />
+               {/* DoesAnyoneHaveARight */}
+            <Select
+              id="DoesAnyoneHaveARight"
+              label="DoesAnyoneHaveARight"
+              register={register}
+              options={likeArray}
+              error={errors.DoesAnyoneHaveARight?.message}
+              />
             </div>
 
-            <Heading title='Home Features Interior'>
-             Provide more details about the interior features of the property.
-            </Heading>
-
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             
-            </div>
             
           </motion.div>
         )}
 
         {currentStep === 5 && (
-          <motion.div
-            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <Heading title='Home Features Exterior'>
-             Provide more details about the exterior home features of the property.
-            </Heading>
-
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            
-            </div>
-
-            <Heading title='Home Features Interior'>
-             Provide more details about the interior features of the property.
-            </Heading>
-
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            
-            </div>
-            
-          </motion.div>
-        )}
-
-        {currentStep === 6 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}

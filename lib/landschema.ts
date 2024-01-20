@@ -12,6 +12,7 @@ export const FormDataSchema = z.object({
   District: z.string().min(1, 'District is required'),
   GovernateOrState : z.string().min(1, 'Governate or State is required'),
   Financials: z.string().min(1,'This field is required, please put 0 as minimum value'),
+  MaximumPricePerSquareMetre: z.string().min(1,'This field is required, please put 0 as minimum value'),
   LandClassification: z.string().min(1,'This field is required, please put 0 as minimum value'),
   MoreDetails: z.string().min(1,'This field is required, please put 0 as minimum value'),
   MaximumOverallInvestmentZone: z.string().min(1,'This field is required, please put 0 as minimum value'),
