@@ -29,6 +29,15 @@ body {
   border-radius: 10px;
   box-shadow: 1px 6px 15px rgba(0, 0, 0, 0.45);
 }
+
+.container.Standard{
+  background-color:#477B11;
+}
+
+.container.Premium {
+  background-color:#11587B;
+}
+
 .container h1 {
   text-align: center;
   margin-bottom: 40px;

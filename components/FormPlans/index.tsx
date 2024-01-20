@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 interface FormPlansProps {
-    type: string; // Adjust the type as necessary
+    type: string | string[] | undefined // Adjust the type as necessary
 }
 
 import { useEffect } from 'react';
@@ -20,19 +20,24 @@ type Inputs = z.infer<typeof FormDataSchema>
 const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
   const[submited,setSubmited] = useState(false);
   const[loading,setLoading] = useState(false);
-    /*useEffect(() => {
+    useEffect(() => {
         // Store the original background color
+        
         const originalBackgroundColor = document.body.style.backgroundColor;
     
         // Change the background color
-        //document.body.style.backgroundColor = '#fff'; // Set your desired color
-        //document.body.style.backgroundColor = '#11587B';
+        if(type==="Standard"){
+        document.body.style.backgroundColor = '#eee'; // Set your desired color
+        }
+        if(type==="Premium"){
+        document.body.style.backgroundColor = '#ccc';
+        }
     
         // Reset the background color when the component unmounts
         return () => {
           document.body.style.backgroundColor = originalBackgroundColor;
         };
-      }, []);*/
+      }, []);
       const {
         register,
         handleSubmit,
@@ -112,7 +117,8 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
          // Scroll to the top of the page
          window.scrollTo(0, 0);
       }
-    return( <div className="container">
+      const theClass = `container ${type}`;
+    return( <div className={theClass}>
               <div className="flex flex-col items-center justify-center mb-3">
       <img src="/propertypro.svg" alt="logo" width="50" height="50" />
       <h2 className="opd-header">Property Pro</h2>
@@ -195,29 +201,6 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
 <a href='https://propertypro.vip' className='btn'>Back to Website</a>
 </div>
 }
-    {type === "Basic" &&
-     <style jsx>{`
-     .container {
-       background-color:#7E7E7E;
-     }
-   `}</style>
-    }
-
-{type === "Standard" &&
-     <style jsx>{`
-     .container {
-       background-color:#477B11;
-     }
-   `}</style>
-    }
-
-{type === "Premium" &&
-     <style jsx>{`
-     .container {
-       background-color:#11587B;
-     }
-   `}</style>
-    }
 
   </div>)
 }
