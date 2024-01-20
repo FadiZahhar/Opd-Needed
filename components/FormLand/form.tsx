@@ -393,13 +393,23 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/* LikeTo */}
+            {/* NatureAndLocation */}
             <Select
               id="NatureAndLocation"
               label="Nature And Location"
               register={register}
               options={natureAndLocation}
               error={errors.NatureAndLocation?.message}
+              />
+
+
+              {/* OtherNatureAndLocation */}
+              <Input 
+              id="OtherNatureAndLocation"
+              label="Describe breifly what exactly you like to have for your land nature and location"
+              type="textarea"
+              register={register}
+              error={errors.OtherNatureAndLocation?.message}
               />
               
             </div>
@@ -409,13 +419,22 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/* LikeTo */}
+            {/* IsItNearA */}
             <MultipleSelect
               id="IsItNearA"
               label="Is It Near A"
               register={register}
               options={neighbourhood}
               error={errors.IsItNearA?.message}
+              />
+
+               {/* OtherIsItNearA */}
+               <Input 
+              id="OtherIsItNearA"
+              label="Describe breifly what exactly you like to have for your land nature and location"
+              type="textarea"
+              register={register}
+              error={errors.OtherIsItNearA?.message}
               />
               
             </div>
@@ -454,6 +473,14 @@ export default function Form() {
               />
             </div>
 
+             {/* OtherDoesAnyoneHaveARight*/}
+             <Input 
+              id="OtherDoesAnyoneHaveARight"
+              label="Describe breifly what exactly you like to have for your land nature and location"
+              type="textarea"
+              register={register}
+              error={errors.OtherDoesAnyoneHaveARight?.message}
+              />
             
             
           </motion.div>
