@@ -4,7 +4,7 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
-import { FormDataSchema } from '@/lib/schema'
+import { FormDataSchema } from '@/lib/landschema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
@@ -319,135 +319,24 @@ export default function Form() {
              Provide more details about the the size of the property.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-              {/* Livable area */}
+              {/* LikeTo */}
+              <Select
+              id="Financials"
+              label="Financials"
+              register={register}
+              options={likeArray}
+              error={errors.Financials?.message}
+              />
+              {/* MaximumPricePerSquareMetre */}
               <Input 
-              id="LivableArea"
-              label="Livable Area"
+              id="MaximumPricePerSquareMetre"
+              label="MaximumPricePerSquareMetre"
               type="number"
               register={register}
-              error={errors.LivableArea?.message}
+              error={errors.MaximumPricePerSquareMetre?.message}
               />
-              {/* PriceRangeMax */}
-              <Input 
-              id="PriceRangeMax"
-              label="Price Range (Maximum)"
-              type="number"
-              register={register}
-              error={errors.PriceRangeMax?.message}
-              />
-              {/* BathRoomsMin */}
-              <Input 
-              id="BathRoomsMin"
-              label="BathRooms Min (min.)"
-              type="number"
-              register={register}
-              error={errors.BathRoomsMin?.message}
-              />
-              {/* BedRoomsMin */}
-              <Input 
-              id="BedRoomsMin"
-              label="Bedrooms (min.)"
-              type="number"
-              register={register}
-              error={errors.BedRoomsMin?.message}
-              />
-              {/* DesiredFloor */}
-              <Input 
-              id="DesiredFloor"
-              label="Desired floor"
-              type="text"
-              register={register}
-              error={errors.DesiredFloor?.message}
-              />
-              {/* NumberOfSalons */}
-              <Input 
-              id="NumberOfSalons"
-              label="Number of salons"
-              type="number"
-              register={register}
-              error={errors.NumberOfSalons?.message}
-              />
-              {/* NumberOfLivingRooms */}
-              <Input 
-              id="NumberOfLivingRooms"
-              label="Number of Living Rooms"
-              type="number"
-              register={register}
-              error={errors.NumberOfLivingRooms?.message}
-              />
-              {/* NumberOfBathrooms */}
-              <Input 
-              id="NumberOfBathrooms"
-              label="Number of bathrooms"
-              type="number"
-              register={register}
-              error={errors.NumberOfBathrooms?.message}
-              />
-              {/* NumberOfDiningRooms */}
-              <Input 
-              id="NumberOfDiningRooms"
-              label="Number of dining rooms"
-              type="number"
-              register={register}
-              error={errors.NumberOfDiningRooms?.message}
-              />
-
-
-               {/* MaidsRoomWithBathroom */}
-               <Input 
-              id="MaidRoomWithBathroom"
-              label="Maid's room with bathroom"
-              type="checkbox"
-              register={register}
-              error={errors.MaidRoomWithBathroom?.message}
-              />
-
-
-              {/* StorageRoom */}
-              <Input 
-              id="StorageRoom"
-              label="Storage room"
-              type="number"
-              register={register}
-              error={errors.StorageRoom?.message}
-              />
-
-              {/* WaterWell */}
-
-              <Input 
-              id="WaterWell"
-              label="Water Well"
-              type="checkbox"
-              register={register}
-              error={errors.WaterWell?.message}
-              />
-
-               {/* Generator */}
-              <Input 
-              id="Generator"
-              label="Generator"
-              type="checkbox"
-              register={register}
-              error={errors.Generator?.message}
-              />
-
-              {/* NumberOfParkingLots */}
-              <Input 
-              id="NumberOfParkingLots"
-              label="Number of parking lots"
-              type="number"
-              register={register}
-              error={errors.NumberOfParkingLots?.message}
-              />
-              <br/>
-              {/* OtherHomeSize */}
-              <Input 
-              id="OtherHomeSize"
-              label="Describe breifly what exactly you like to have for your property size"
-              type="textarea"
-              register={register}
-              error={errors.OtherHomeSize?.message}
-              />
+              
+              
 
               
             </div>
@@ -470,131 +359,7 @@ export default function Form() {
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               
 
-            {/*'CloseToWork',*/}
-            <Input 
-              id="CloseToWork"
-              label="Close to work"
-              type="checkbox"
-              register={register}
-              error={errors.OtherHomeSize?.message}
-              />
-            {/*'CloseToSchool',*/}
-            <Input 
-              id="CloseToSchool"
-              label="Close to school"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToSchool?.message}
-              />
-            {/*'CloseToHospital',*/}
-            <Input 
-              id="CloseToHospital"
-              label="Close to hospital"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToHospital?.message}
-              />
-            {/*'CloseToSupermarket',*/}
-            <Input 
-              id="CloseToSupermarket"
-              label="Close to supermarket"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToSupermarket?.message}
-              />
-            {/*'CloseToParksRecreation',*/}
-            <Input 
-              id="CloseToParksRecreation"
-              label="Close to parks recreation"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToParksRecreation?.message}
-              />
-            {/*'CloseToRestaurants',*/}
-            <Input 
-              id="CloseToRestaurants"
-              label="Close to restaurants"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToRestaurants?.message}
-              />
-            {/*'CloseToHighways',*/}
-            <Input 
-              id="CloseToHighways"
-              label="Close to highways"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToHighways?.message}
-              />
-            {/*'PublicTransportation',*/}
-            <Input 
-              id="PublicTransportation"
-              label="Public transportation"
-              type="checkbox"
-              register={register}
-              error={errors.PublicTransportation?.message}
-              />
-            {/*'OtherLocation'*/}
-            <Input 
-              id="OtherLocation"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Location"
-              type="textarea"
-              register={register}
-              error={errors.OtherLocation?.message}
-              />
-            </div><br/>
-            <Heading title='Neighborhood'>
-             Provide more details about the neighborhood of the property.
-            </Heading>
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/* 'NoTraffic', */}
-            <Input 
-              id="NoTraffic"
-              label="No Traffic"
-              type="checkbox"
-              register={register}
-              error={errors.NoTraffic?.message}
-              />
-            {/*'VeryQuiet',*/}
-            <Input 
-              id="VeryQuiet"
-              label="Very quiet"
-              type="checkbox"
-              register={register}
-              error={errors.VeryQuiet?.message}
-              />
-            {/*'YoungerNeighbors',*/}
-            <Input 
-              id="YoungerNeighbors"
-              label="Younger neighbors"
-              type="checkbox"
-              register={register}
-              error={errors.YoungerNeighbors?.message}
-              />
-            {/*'OlderNeighbors',*/}
-            <Input 
-              id="OlderNeighbors"
-              label="Older Neighbors"
-              type="checkbox"
-              register={register}
-              error={errors.OlderNeighbors?.message}
-              />
-            {/*'ChildFriendly',*/}
-            <Input 
-              id="ChildFriendly"
-              label="Child Friendly"
-              type="checkbox"
-              register={register}
-              error={errors.ChildFriendly?.message}
-              />
-            {/*'OtherNeighborhood'*/}
-            <Input 
-              id="OtherNeighborhood"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Neighborhood"
-              type="textarea"
-              register={register}
-              error={errors.OtherNeighborhood?.message}
-              />
+            
             </div>
           </motion.div>
         )}
@@ -610,46 +375,7 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/*'CloseToHome',*/}
-            <Input 
-              id="CloseToHome"
-              label="Close to home"
-              type="checkbox"
-              register={register}
-              error={errors.CloseToHome?.message}
-              />
-            {/*'GoodReputation',*/}
-            <Input 
-              id="GoodReputation"
-              label="Good reputation"
-              type="checkbox"
-              register={register}
-              error={errors.GoodReputation?.message}
-              />
-            {/*'SmallClassSize',*/}
-            <Input 
-              id="SmallClassSize"
-              label="Small class size"
-              type="checkbox"
-              register={register}
-              error={errors.SmallClassSize?.message}
-              />
-            {/*'SolidCurriculum',*/}
-            <Input 
-              id="SolidCurriculum"
-              label="Solid curriculum"
-              type="checkbox"
-              register={register}
-              error={errors.SolidCurriculum?.message}
-              />
-            {/*'OtherSchools',*/}
-            <Input 
-              id="OtherSchools"
-              label="Describe Breifly What Exactly You Like To Have For Your Property School suroundings"
-              type="textarea"
-              register={register}
-              error={errors.OtherSchools?.message}
-              />
+            
             </div>
 
             <Heading title='Home Systems'>
@@ -657,110 +383,7 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/*'CentralAC',*/}
-            <Input 
-              id="CentralAC"
-              label="Central AC"
-              type="checkbox"
-              register={register}
-              error={errors.CentralAC?.message}
-              />
-            {/*'WoodStove',*/}
-            <Input 
-              id="WoodStove"
-              label="Wood Stove"
-              type="checkbox"
-              register={register}
-              error={errors.WoodStove?.message}
-              />
-            {/*'Fireplace',*/}
-            <Input 
-              id="Fireplace"
-              label="Fire Place"
-              type="checkbox"
-              register={register}
-              error={errors.Fireplace?.message}
-              />
-            {/*'TanklessWaterHeater',*/}
-            <Input 
-              id="TanklessWaterHeater"
-              label="Tankless water heater"
-              type="checkbox"
-              register={register}
-              error={errors.TanklessWaterHeater?.message}
-              />
-            {/*'CopperPlumbing',*/}
-            <Input 
-              id="CopperPlumbing"
-              label="Copper Plumbing"
-              type="checkbox"
-              register={register}
-              error={errors.CopperPlumbing?.message}
-              />
-            {/*'SolarPower',*/}
-            <Input 
-              id="SolarPower"
-              label="Solar Power"
-              type="checkbox"
-              register={register}
-              error={errors.SolarPower?.message}
-              />
-            {/*'Generator',*/}
-            <Input 
-              id="Generator"
-              label="Generator"
-              type="checkbox"
-              register={register}
-              error={errors.Generator?.message}
-              />
-            {/*'SecuritySystem',*/}
-            <Input 
-              id="SecuritySystem"
-              label="Security System"
-              type="checkbox"
-              register={register}
-              error={errors.SecuritySystem?.message}
-              />
-            {/*'HomeAutomation',*/}
-            <Input 
-              id="HomeAutomation"
-              label="Home Automation"
-              type="checkbox"
-              register={register}
-              error={errors.HomeAutomation?.message}
-              />
-            {/*'Cable',*/}
-            <Input 
-              id="Cable"
-              label="Cable"
-              type="checkbox"
-              register={register}
-              error={errors.Cable?.message}
-              />
-            {/*'SatelliteDish',*/}
-            <Input 
-              id="SatelliteDish"
-              label="Satellite dish"
-              type="checkbox"
-              register={register}
-              error={errors.SatelliteDish?.message}
-              />
-            {/*'FiberOpticCable',*/}
-            <Input 
-              id="FiberOpticCable"
-              label="Fiber Optic Cable"
-              type="checkbox"
-              register={register}
-              error={errors.FiberOpticCable?.message}
-              />
-            {/*'OtherHomeSystems'*/}
-            <Input 
-              id="OtherHomeSystems"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Systems"
-              type="textarea"
-              register={register}
-              error={errors.OtherHomeSystems?.message}
-              />
+            
             </div>
 
             
@@ -778,62 +401,7 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/*'Garage',*/}
-            <Input 
-              id="Garage"
-              label="Garage"
-              type="checkbox"
-              register={register}
-              error={errors.Garage?.message}
-              />
-            {/*'WalkOutBasement',*/}
-            <Input 
-              id="WalkOutBasement"
-              label="WalkOut basement"
-              type="checkbox"
-              register={register}
-              error={errors.WalkOutBasement?.message}
-              />
-            {/*'Driveway',*/}
-            <Input 
-              id="Driveway"
-              label="Driveway"
-              type="checkbox"
-              register={register}
-              error={errors.Driveway?.message}
-              />
-            {/*'FencedYard',*/}
-            <Input 
-              id="FencedYard"
-              label="Fenced Yard"
-              type="checkbox"
-              register={register}
-              error={errors.FencedYard?.message}
-              />
-            {/*'Gardens',*/}
-            <Input 
-              id="Gardens"
-              label="Gardens"
-              type="checkbox"
-              register={register}
-              error={errors.Gardens?.message}
-              />
-            {/*'Pool',*/}
-            <Input 
-              id="Pool"
-              label="Pool"
-              type="checkbox"
-              register={register}
-              error={errors.Pool?.message}
-              />
-            {/*'OtherHomeFeaturesExterior',*/}
-            <Input 
-              id="OtherHomeFeaturesExterior"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Exterior"
-              type="textarea"
-              register={register}
-              error={errors.OtherHomeFeaturesExterior?.message}
-              />
+            
             </div>
 
             <Heading title='Home Features Interior'>
@@ -841,108 +409,38 @@ export default function Form() {
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/*'WoodFlooring',*/}
-            <Input 
-              id="WoodFlooring"
-              label="Wood Flooring"
-              type="checkbox"
-              register={register}
-              error={errors.WoodFlooring?.message}
-              />
-            {/*'MaidRoom',*/}
-            <Input 
-              id="MaidRoom"
-              label="Maid room"
-              type="checkbox"
-              register={register}
-              error={errors.MaidRoom?.message}
-              />
-            {/*'LaundryRoom',*/}
-            <Input 
-              id="LaundryRoom"
-              label="Laundry room"
-              type="checkbox"
-              register={register}
-              error={errors.LaundryRoom?.message}
-              />
-            {/*'FinishedBasement',*/}
-            <Input 
-              id="FinishedBasement"
-              label="Finished basement"
-              type="checkbox"
-              register={register}
-              error={errors.FinishedBasement?.message}
-              />
-            {/*'EatInKitchen',*/}
-            <Input 
-              id="EatInKitchen"
-              label="Eat In Kitchen"
-              type="checkbox"
-              register={register}
-              error={errors.EatInKitchen?.message}
-              />
-            {/*'GameRoom',*/}
-            <Input 
-              id="GameRoom"
-              label="Game room"
-              type="checkbox"
-              register={register}
-              error={errors.GameRoom?.message}
-              />
-            {/*'Office',*/}
-            <Input 
-              id="Office"
-              label="Office"
-              type="checkbox"
-              register={register}
-              error={errors.Office?.message}
-              />
-            {/*'MasterBedroom',*/}
-            <Input 
-              id="MasterBedroom"
-              label="Master bedroom"
-              type="checkbox"
-              register={register}
-              error={errors.MasterBedroom?.message}
-              />
-            {/*'MasterBathroom',*/}
-            <Input 
-              id="MasterBathroom"
-              label="Master bathroom"
-              type="checkbox"
-              register={register}
-              error={errors.MasterBathroom?.message}
-              />
-            {/*'WalkInCloset',*/}
-            <Input 
-              id="WalkInCloset"
-              label="Walk In Closet"
-              type="checkbox"
-              register={register}
-              error={errors.WalkInCloset?.message}
-              />
-            {/*'OtherHomeFeaturesInterior'*/}
-            <Input 
-              id="OtherHomeFeaturesInterior"
-              label="Describe Breifly What Exactly You Like To Have For Your Property Home Features Interior"
-              type="textarea"
-              register={register}
-              error={errors.OtherHomeFeaturesInterior?.message}
-              />
-              {/* honeypot */}
-            <Input 
-              id="honeypot"
-              label=""
-              type="hidden"
-              register={register}
-              error={errors.OtherHomeFeaturesInterior?.message}
-              />
+            
             </div>
             
           </motion.div>
         )}
 
         {currentStep === 5 && (
+          <motion.div
+            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Heading title='Home Features Exterior'>
+             Provide more details about the exterior home features of the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
+            
+            </div>
+
+            <Heading title='Home Features Interior'>
+             Provide more details about the interior features of the property.
+            </Heading>
+
+            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
+            
+            </div>
+            
+          </motion.div>
+        )}
+
+        {currentStep === 6 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
