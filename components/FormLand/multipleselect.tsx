@@ -14,7 +14,7 @@ export default function MultipleSelect({id,label,register,options,error}:any){
       </label>
       <div className='mt-2'>
         <select
-          multiple="true"
+          multiple={true}
           id={id}
           {...register(id)}
           autoComplete={id}

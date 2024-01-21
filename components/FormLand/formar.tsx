@@ -4,14 +4,15 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
-import { FormDataSchema } from '@/lib/landschema'
+import { FormDataSchema } from '@/lib/landschemaar'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
 import Heading from './heading'
 import './form.css';
+import './formar.css';
 import Select from './select'
-import { countryArray, doesAnyoneHaveARight, isItPossibleTo, landClassification, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/landdata'
+import { countryArray, doesAnyoneHaveARight, isItPossibleTo, landClassification, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/landdataar'
 import axios from 'axios'
 import MultipleSelect from './multipleselect'
 
@@ -20,36 +21,36 @@ type Inputs = z.infer<typeof FormDataSchema>
 
 const steps = [
   {
-    id: 'Step 1',
-    name: 'Personal information',
+    id: 'الخطوة الأولى',
+    name: 'معلومات شخصية',
     fields: [
       'FirstName', 'LastName','Email','PhoneNumber']
   },
   {
-    id: 'Step 2',
-    name: 'Specifications of the required property',
+    id: 'الخطوة الثانية',
+    name: 'مواصفات العقار المطلوب',
     fields: [
       'LikeTo', 'SpecifyType','SpecifyRegion','Country','District','GovernateOrState',
     'Financials','MaximumPricePerSquareMetre']
   },
   {
-    id: 'Step 3',
-    name: 'Investment Details',
+    id: 'الخطوة الثالثة',
+    name: 'تفاصيل الاستثمار',
     fields: ['LandClassification',
       'MoreDetails',
       'MaximumOverallInvestmentZone']
   },
   {
-    id: 'Step 4',
-    name: 'Nature and Location',
+    id: 'الخطوة الرابعة',
+    name: 'الطبيعة والموقع',
     fields: ['NatureAndLocation','IsItNearA']
   },
   {
-    id: 'Step 5',
-    name: 'Various legal possibilities',
+    id: 'الخطوة الخامسة',
+    name: 'إمكانيات قانونية مختلفة',
     fields: ['IsItPossibleTo','DoesAnyoneHaveARight']
   },
-  { id: 'Step 6', name: 'Complete' }
+  { id: 'الخطوة السادسة', name: 'مكتمل' }
 ]
 
 export default function Form() {
@@ -82,8 +83,8 @@ export default function Form() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyLandEmail',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyLandEmailAr',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmailAr',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -93,8 +94,8 @@ export default function Form() {
     let config2 = {
       method: 'post',
       maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClient',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClientAr',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClientAr',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -202,15 +203,15 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Personal Information'>
-              Provide more details about your self.
+            <Heading title='معلومات شخصية'>
+            قدم تفاصيل أكثر عن نفسك.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               
-              {/* FirstName */}
-              <Input
+               {/* FirstName */}
+               <Input
               id="FirstName"
-              label="First Name"
+              label="الاسم الأول"
               type="text"
               register={register}
               error={errors.FirstName?.message}
@@ -219,7 +220,7 @@ export default function Form() {
                {/* LastName */}
               <Input
               id="LastName"
-              label="Last Name"
+              label="اسم العائلة"
               type="text"
               register={register}
               error={errors.LastName?.message}
@@ -228,7 +229,7 @@ export default function Form() {
               {/* Email */}
               <Input 
               id="Email"
-              label="Email"
+              label="البريد الإلكتروني"
               type="text"
               register={register}
               error={errors.Email?.message}
@@ -236,7 +237,7 @@ export default function Form() {
               {/* PhoneNumber */}
               <Input 
               id="PhoneNumber"
-              label="Phone Number"
+              label="رقم الهاتف"
               type="text"
               register={register}
               error={errors.PhoneNumber?.message}
@@ -255,14 +256,14 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Specifications of the required property'>
-              Provide more details about the required property.
+            <Heading title='مواصفات العقار المطلوب'>
+            تقديم المزيد من التفاصيل حول العقار المطلوب.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               {/* LikeTo */}
               <Select
               id="LikeTo"
-              label="I would like to:"
+              label="وأود أن:"
               register={register}
               options={likeArray}
               error={errors.LikeTo?.message}
@@ -270,7 +271,7 @@ export default function Form() {
               {/* SpecifyType */}
               <Select
               id="SpecifyType"
-              label="Specify Type"
+              label="تحديد النوع"
               register={register}
               options={specifyTypeArray}
               error={errors.SpecifyType?.message}
@@ -278,7 +279,7 @@ export default function Form() {
               {/* SpecifyRegion */}
               <Select
               id="SpecifyRegion"
-              label="Specify Region"
+              label="تحديد المنطقة"
               register={register}
               options={specifyRegionArray}
               error={errors.SpecifyRegion?.message}
@@ -286,7 +287,7 @@ export default function Form() {
               {/* Country */}
               <Select
               id="Country"
-              label="Country"
+              label="دولة"
               register={register}
               options={countryArray}
               error={errors.Country?.message}
@@ -294,7 +295,7 @@ export default function Form() {
               {/* District */}
               <Input
               id="District"
-              label="District"
+              label="المنطقة"
               register={register}
               error={errors.District?.message}
               />
@@ -302,14 +303,14 @@ export default function Form() {
                {/* GovernateOrState */}
               <Input
               id="GovernateOrState"
-              label="Governate Or State"
+              label="المحافظة أو الولاية"
               register={register}
               error={errors.GovernateOrState?.message}
               />
 
               <Input 
               id="Financials"
-              label="Financials"
+              label="المالية"
               type="number"
               register={register}
               error={errors.Financials?.message}
@@ -317,7 +318,7 @@ export default function Form() {
               {/* MaximumPricePerSquareMetre */}
               <Input 
               id="MaximumPricePerSquareMetre"
-              label="Maximum Price Per Square Metre"
+              label="المبلغ الأقصى المرصود للشراء"
               type="number"
               register={register}
               error={errors.MaximumPricePerSquareMetre?.message}
@@ -336,7 +337,7 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Location'>
-             Provide more details about the investment.
+            تقديم المزيد من التفاصيل حول الاستثمار.
             </Heading>
            
 
@@ -345,7 +346,7 @@ export default function Form() {
               {/* LandClassification */}
               <Select
               id="LandClassification"
-              label="Land Classification"
+              label="تصنيف الأرض"
               register={register}
               options={landClassification}
               error={errors.LandClassification?.message}
@@ -353,7 +354,7 @@ export default function Form() {
               {/* MoreDetails */}
               <MultipleSelect
               id="MoreDetails"
-              label="More Details"
+              label="المزيد من التفاصيل"
               register={register}
               options={moreDetails}
               error={errors.MoreDetails?.message}
@@ -362,7 +363,7 @@ export default function Form() {
               {/* OtherMoreDetails */}
               <Input 
               id="OtherMoreDetails"
-              label="Describe breifly what exactly you like to have for your land investment"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط لاستثمار أرضك"
               type="textarea"
               register={register}
               error={errors.OtherMoreDetails?.message}
@@ -371,7 +372,7 @@ export default function Form() {
               {/* MaximumPricePerSquareMetre */}
               <Input 
               id="MaximumOverallInvestmentZone"
-              label="Maximum Overall Investment Zone"
+              label="الحد الأقصى للمنطقة الاستثمارية الشاملة"
               type="number"
               register={register}
               error={errors.MaximumOverallInvestmentZone?.message}
@@ -388,14 +389,14 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Schools'>
-             Provide more details about the nature and location of the land.
+            تقديم المزيد من التفاصيل حول طبيعة وموقع الأرض.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
             {/* NatureAndLocation */}
             <Select
               id="NatureAndLocation"
-              label="Nature And Location"
+              label="الطبيعة والموقع"
               register={register}
               options={natureAndLocation}
               error={errors.NatureAndLocation?.message}
@@ -405,7 +406,7 @@ export default function Form() {
               {/* OtherNatureAndLocation */}
               <Input 
               id="OtherNatureAndLocation"
-              label="Describe breifly what exactly you like to have for your land nature and location"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
               type="textarea"
               register={register}
               error={errors.OtherNatureAndLocation?.message}
@@ -414,7 +415,7 @@ export default function Form() {
             </div>
 
             <Heading title='Home Systems'>
-             Provide more details about the neighbourhood.
+            تقديم المزيد من التفاصيل حول الحي.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
@@ -430,7 +431,7 @@ export default function Form() {
                {/* OtherIsItNearA */}
                <Input 
               id="OtherIsItNearA"
-              label="Describe breifly what exactly you like to have for your land nature and location"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
               type="textarea"
               register={register}
               error={errors.OtherIsItNearA?.message}
@@ -449,7 +450,7 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='Home Features Exterior'>
-             Provide more details about the legal possibilities of the land.
+            تقديم المزيد من التفاصيل حول الإمكانيات القانونية للأرض.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
@@ -457,7 +458,7 @@ export default function Form() {
              {/* IsItPossibleTo */}
             <MultipleSelect
               id="IsItPossibleTo"
-              label="Is It Possible To"
+              label="هل من الممكن ان"
               register={register}
               options={isItPossibleTo}
               error={errors.IsItPossibleTo?.message}
@@ -465,7 +466,7 @@ export default function Form() {
                {/* DoesAnyoneHaveARight */}
             <MultipleSelect
               id="DoesAnyoneHaveARight"
-              label="Does Anyone Have A Right"
+              label="هل لدى أي شخص الحق"
               register={register}
               options={doesAnyoneHaveARight}
               error={errors.DoesAnyoneHaveARight?.message}
@@ -475,7 +476,7 @@ export default function Form() {
              {/* OtherDoesAnyoneHaveARight*/}
              <Input 
               id="OtherDoesAnyoneHaveARight"
-              label="Describe breifly what exactly you like to have for your land nature and location"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
               type="textarea"
               register={register}
               error={errors.OtherDoesAnyoneHaveARight?.message}
@@ -503,6 +504,7 @@ export default function Form() {
             
 
             
+            
             <div className="flex flex-col items-center justify-center">
 
    <br/><br/>
@@ -511,11 +513,11 @@ export default function Form() {
           </svg><br/>
 
    
-    <h2 className="text-lg font-semibold mb-2 opd-heading">Your request has been sent</h2>
-    <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
+    <h2 className="text-lg font-semibold mb-2 opd-heading">تم ارسال طلبك</h2>
+    <p className='opd-text'>سيتصل بك وكيلنا خلال الـ 24 ساعة القادمة</p><br/>
 
   
-    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">انقر هنا للعودة إلى الموقع</a>
 </div>
 
 
@@ -538,7 +540,7 @@ export default function Form() {
             disabled={currentStep === 0}
             className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset ring-sky-300 hover:bg-sky-50 disabled:cursor-not-allowed disabled:opacity-50'
           >
-            Prev
+            السابق
           </button>}
           {(currentStep !== steps.length - 1) &&
           <button
@@ -547,7 +549,7 @@ export default function Form() {
             disabled={currentStep === steps.length - 1}
             className=' bg-white px-2 py-1 text-sm font-semibold text-sky-900 shadow-sm ring-1 ring-inset disabled:cursor-not-allowed disabled:opacity-50'
           >
-             {(currentStep === steps.length - 2) ? "Finish" : "Next" }
+             {(currentStep === steps.length - 2) ? "إنهاء" : "التالي" }
           </button>}
         </div>
       </div>

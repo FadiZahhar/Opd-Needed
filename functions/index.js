@@ -278,6 +278,253 @@ exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
   });
 });
 
+exports.sendOpdMyLandEmailAr = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Invalid HTTP method!' });
+    }
+
+    // Extract data from request bodyu
+    const { 
+      FirstName,
+      LastName,
+      Email,
+      PhoneNumber,
+      LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState
+      ,Financials
+      ,MaximumPricePerSquareMetre
+      ,LandClassification
+      ,MoreDetails
+      ,OtherMoreDetails
+      ,MaximumOverallInvestmentZone
+      ,NatureAndLocation
+      ,OtherNatureAndLocation
+      ,IsItNearA
+      ,OtherIsItNearA
+      ,IsItPossibleTo
+      ,DoesAnyoneHaveARight
+      ,OtherDoesAnyoneHaveARight
+      ,honeypot } = req.body;
+
+    if (honeypot) {
+      console.log('Bot detected');
+      // Handle as bot submission, like ignoring the request
+      return res.status(400).json({ status: 'error', message: 'Bot detected' });
+    }
+    //validate fields
+
+
+    // save to db
+     // Add data to Firestore (optional)
+     db.collection("opd-myland-form").add({
+      FirstName: validateValue(FirstName),
+      LastName: validateValue(LastName), 
+      Email: validateValue(Email), 
+      PhoneNumber: validateValue(PhoneNumber), 
+      LikeTo: validateValue(LikeTo), 
+      SpecifyType: validateValue(SpecifyType),
+      SpecifyRegion: validateValue(SpecifyRegion),
+      Country: validateValue(Country),
+      District: validateValue(District),
+      GovernateOrState: validateValue(GovernateOrState)
+     ,Financials: validateValue(Financials)
+     ,MaximumPricePerSquareMetre : validateValue(MaximumPricePerSquareMetre)
+     ,LandClassification: validateValue(LandClassification)
+     ,MoreDetails: validateValue(MoreDetails)
+     ,OtherMoreDetails: validateValue(OtherMoreDetails)
+     ,MaximumOverallInvestmentZone: validateValue(MaximumOverallInvestmentZone)
+     ,NatureAndLocation: validateValue(NatureAndLocation)
+     ,OtherNatureAndLocation: validateValue(OtherNatureAndLocation)
+     ,IsItNearA: validateValue(IsItNearA)
+     ,OtherIsItNearA: validateValue(OtherIsItNearA)
+     ,IsItPossibleTo: validateValue(IsItPossibleTo)
+     ,DoesAnyoneHaveARight: validateValue(DoesAnyoneHaveARight)
+     ,OtherDoesAnyoneHaveARight: validateValue(OtherDoesAnyoneHaveARight)
+      // Add more fields as required
+    });
+     
+
+
+    const html = `<div style="width:600px; height: 800px;margin:0 auto;font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif; direction:rtl;">
+
+<div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
+  <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
+    <img style="float: left; padding-left:20px; width:60px;" src="https://needed.propertypro.vip/propertypro.png" />
+    <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">&nbsp;DOT VIP</h1>
+  </div>
+  
+  <div style="width:50%; float: right; ">
+    <!--<div style="font-size: 18px; font-weight:300; margin:30px 30px 0px; padding-left:20px;">Needed
+    </div> -->
+  </div>
+</div>
+
+<div style="padding: 10px; color: rgba(255, 255, 255, 0.75); background-color:#e6e6e6;">
+  <div style="background-color: #fff; color:#444; padding:20px 40px; font-weight: 400; font-size:15px; text-align:justify;">
+   
+    
+    <table style="color:#444;">
+    
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الاسم الأول</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FirstName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">اسم العائلة</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LastName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">بريد إلكتروني</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Email)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">رقم الهاتف</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;direction:ltr">${validateValue(PhoneNumber)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">أود: ${validateValue(LikeTo)}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyType)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">منطقة</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyRegion)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">البلد</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Country)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المدينة، القرية</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(District)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المحافظة أو الولاية</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GovernateOrState)}</td>
+      </tr>
+    </table>
+    
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">تفاصيل الاستثمار</h3>
+    
+    <table style="color:#444;">
+        <tr style="border: 1px solid #b2b2b2;">
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المالية</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Financials)}</td>
+          </tr>
+          <tr style="border: 1px solid #b2b2b2;">
+          <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الحد الأقصى لسعر المتر المربع</td>
+          <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaximumPricePerSquareMetre)}</td>
+        </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">تصنيف الأراضي</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LandClassification)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المزيد من التفاصيل</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MoreDetails)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مزيد من التفاصيل الأخرى</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherMoreDetails)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الحد الأقصى للمنطقة الاستثمارية الشاملة</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(MaximumOverallInvestmentZone)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطبيعة والموقع</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NatureAndLocation)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطبيعة والموقع الأخرى</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherNatureAndLocation)}</td>
+    </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">هل هو بالقرب من</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(IsItNearA)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherIsItNearA)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">هل من الممكن ان</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(IsItPossibleTo)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">هل لأحد الحق</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(DoesAnyoneHaveARight)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">آخر</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherDoesAnyoneHaveARight)}</td>
+    </tr>
+
+      
+    </table>
+  <!--  <center>
+        <div style="width:60%;">
+      <a href="http://winspiremagazine.com/Winspire_Website/refer-friend.jsp" style="text-decoration: none;"><p style="background-color:rgb(242, 18, 44); color:#fff; padding:15px;letter-spacing:1.5px;">REFER YOUR FRIEND.</p></a>
+        </div>
+          </center> -->
+  </div>
+     
+</div>
+
+<div style="padding: 10px 15px; background-color: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.75); height:100px; position: relative; ">
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-right:10px;">
+    
+    <h3 style="font-size: 14px;">Shanay</h3>
+    Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    
+    Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
+
+  </div>
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-left:10px; margin-top:-1.5px;">
+    
+    <h3 style="font-size: 14px;">Deir Qoubil</h3>
+    Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    
+    Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
+
+  </div>
+  
+  
+</div>
+</div>`;
+
+    // Set up email content
+    const mailOptions = {
+      from: 'info@wmvp.dev',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+      subject: `OPD My Home Key Submission`,
+      text: '',
+      html: html // Include your HTML content
+    };   
+
+    // Send email
+    return transporter.sendMail(mailOptions)
+      .then(() => res.status(200).send({ status: 'Successs', message: 'Email Sent' }))
+      .catch(error => {
+        console.error('Error sending email:', error);
+        return res.status(500).send({ status: 'error',message: `Error sending email: ${error.message}` });
+      });
+  });
+});
+
 exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if (req.method !== 'POST') {
@@ -1611,7 +1858,7 @@ exports.sendOpdPlanAr = functions.https.onRequest((req, res) => {
             return res.status(400).json({ status: 'error', message: 'Bot detected' });
           }
 
-    const html=`<div style="width:600px; height: 800px;margin:0 auto; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
+    const html=`<div style="width:600px; height: 800px;margin:0 auto; font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif; direction:rtl;">
 
     <div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
       <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
@@ -1770,7 +2017,7 @@ exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
       const mailOptions = {
         from: 'info@wmvp.dev',
         to: `${Email}`,
-        subject: `OPD My Home Key Submission`,
+        subject: `Thank you for contacting DOT VIP Team!`,
         text: '',
         html: html // Include your HTML content
       };
@@ -1871,7 +2118,7 @@ exports.sendOpdNeededEmailToClientAr = functions.https.onRequest((req, res) => {
       const mailOptions = {
         from: 'info@wmvp.dev',
         to: `${Email}`,
-        subject: `OPD My Home Key Submission`,
+        subject: `شكرًا لتواصلكم مع فريق DOT VIP!`,
         text: '',
         html: html // Include your HTML content
       };

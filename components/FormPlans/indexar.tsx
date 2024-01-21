@@ -8,8 +8,9 @@ interface FormPlansProps {
 
 import { useEffect } from 'react';
 import './style.css';
+import './stylear.css';
 import { z } from 'zod'
-import { FormDataSchema } from '@/lib/planschema'
+import { FormDataSchema } from '@/lib/planschemaar'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 
@@ -55,8 +56,8 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdPlan',
-          url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdPlan',
+          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdPlanAr',
+          url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdPlanAr',
           headers: { 
             'Content-Type': 'application/json'
           },
@@ -125,11 +126,11 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       </div>
       {(!submited) && 
     <>
-    <h1>Request for a {type} plan</h1>
+    <h1>طلب خطة {type}.</h1>
     <form>
     <div className="form-control">
         <input type="text" 
-         placeholder='First Name'
+         placeholder='الاسم الأول'
          {...register("FirstName")}
          />
          {errors.FirstName?.message &&
@@ -138,7 +139,7 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       </div>
       <div className="form-control">
         <input type="text" 
-        placeholder='Last Name'
+        placeholder='اسم العائلة'
         {...register("LastName")}
         />
         {errors.LastName?.message &&
@@ -147,7 +148,7 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       </div>
       <div className="form-control">
         <input type="email" 
-         placeholder='Email'
+         placeholder='بريد إلكتروني'
         {...register("Email")}
         />
          {errors.Email?.message &&
@@ -156,7 +157,7 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       </div>
       <div className="form-control">
         <input type="text" 
-        placeholder='Phone Number'
+        placeholder='رقم التليفون'
         {...register("PhoneNumber")}
         />
        {errors.PhoneNumber?.message &&
@@ -176,7 +177,7 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
       {(!loading) && 
       <button  className="btn"
       onClick={submit}
-      >Request A {type} Plan Offer</button>
+      >اطلب عرض الخطة {type}.</button>
       }
 
       {(loading) &&
@@ -188,17 +189,17 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
 
 {(submited) && 
 <div>
-<h1><strong>Thank You for Your Submission!</strong></h1>
+<h1><strong>شكرا لك على تقديمك!</strong></h1>
 
-<p>Your request for the {type} Plan has been successfully submitted.</p>
+<p>لقد تم إرسال طلبك لخطة {type} بنجاح.</p>
 
-<p>We appreciate your interest and are excited to explore how our services can meet your needs. A member of our team will be in touch with you shortly to discuss the details and next steps.</p>
+<p>نحن نقدر اهتمامك ويسعدنا استكشاف كيف يمكن لخدماتنا أن تلبي احتياجاتك. سيتواصل معك أحد أعضاء فريقنا قريبًا لمناقشة التفاصيل والخطوات التالية.</p>
 
-<p>In the meantime, if you have any questions or require immediate assistance, please feel free to contact us at <a href="info@propertypro.vip">info@propertypro.vip</a> .</p>
+<p>في هذه الأثناء، إذا كانت لديك أية أسئلة أو كنت بحاجة إلى مساعدة فورية، فلا تتردد في الاتصال بنا على <a href="info@propertypro.vip">info@propertypro.vip</a>.</p>
 
-<p>Thank you for choosing OPD. We look forward to speaking with you soon!</p>
+<p>شكرًا لك على اختيار العيادات الخارجية. ونحن نتطلع إلى التحدث معكم قريبا!</p>
 <br/>
-<a href='https://propertypro.vip' className='btn'>Back to Website</a>
+<a href='https://propertypro.vip' className='btn'>العودة إلى الموقع الإلكتروني</a>
 </div>
 }
 

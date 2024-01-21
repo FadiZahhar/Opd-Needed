@@ -21,8 +21,8 @@ export const FormDataSchema = z.object({
   OtherNatureAndLocation : z.string(),
   IsItNearA: z.array(z.string()),
   OtherIsItNearA : z.string(),
-  IsItPossibleTo: z.string().min(1,'This field is required, please put 0 as minimum value'),
-  DoesAnyoneHaveARight : z.string().min(1,'This field is required, please put 0 as minimum value'),
+  IsItPossibleTo: z.array(z.string()),
+  DoesAnyoneHaveARight : z.array(z.string()),
   OtherDoesAnyoneHaveARight : z.string(),
   honeypot: z.string()
 })
