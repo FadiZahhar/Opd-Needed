@@ -1741,7 +1741,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
   });
 });
 
-exports.sendOpdPlan = functions.https.onRequest((req, res) => {
+exports.sendOpdPlanEn = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Invalid HTTP method!' });

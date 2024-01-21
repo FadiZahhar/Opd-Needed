@@ -55,8 +55,8 @@ const FormPlans: React.FC<FormPlansProps> = ({ type }) => {
         let config = {
           method: 'post',
           maxBodyLength: Infinity,
-          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdPlan',
-          url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdPlan',
+          //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdPlanEn',
+          url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdPlanEn',
           headers: { 
             'Content-Type': 'application/json'
           },
