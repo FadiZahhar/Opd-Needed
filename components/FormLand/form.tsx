@@ -309,7 +309,7 @@ export default function Form() {
 
               <Input 
               id="Financials"
-              label="Financials"
+              label="Max Budget"
               type="number"
               register={register}
               error={errors.Financials?.message}

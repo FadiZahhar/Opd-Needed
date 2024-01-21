@@ -162,7 +162,7 @@ exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
     
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Financials</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Max Budget</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Financials)}</td>
           </tr>
           <tr style="border: 1px solid #b2b2b2;">
@@ -238,7 +238,7 @@ exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Shanay</h3>
     Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
 
@@ -249,7 +249,7 @@ exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Deir Qoubil</h3>
     Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
 
@@ -411,7 +411,7 @@ exports.sendOpdMyLandEmailAr = functions.https.onRequest((req, res) => {
     
     <table style="color:#444;">
         <tr style="border: 1px solid #b2b2b2;">
-            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المالية</td>
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الحد الأقصى للميزانية</td>
             <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Financials)}</td>
           </tr>
           <tr style="border: 1px solid #b2b2b2;">
@@ -485,7 +485,7 @@ exports.sendOpdMyLandEmailAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Shanay</h3>
     Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
 
@@ -496,7 +496,7 @@ exports.sendOpdMyLandEmailAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Deir Qoubil</h3>
     Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
 
@@ -1093,7 +1093,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Shanay</h3>
     Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
 
@@ -1104,7 +1104,7 @@ exports.sendOpdNeededEmail = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Deir Qoubil</h3>
     Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
 
@@ -1701,7 +1701,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Shanay</h3>
     Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
 
@@ -1712,7 +1712,7 @@ exports.sendOpdNeededEmailAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">Deir Qoubil</h3>
     Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
 
@@ -1796,7 +1796,7 @@ exports.sendOpdPlanEn = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Shanay</h3>
         Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
   
@@ -1807,7 +1807,7 @@ exports.sendOpdPlanEn = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Deir Qoubil</h3>
         Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
   
@@ -1892,7 +1892,7 @@ exports.sendOpdPlanAr = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Shanay</h3>
         Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
   
@@ -1903,7 +1903,7 @@ exports.sendOpdPlanAr = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Deir Qoubil</h3>
         Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
   
@@ -1992,7 +1992,7 @@ exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Shanay</h3>
         Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
   
@@ -2003,7 +2003,7 @@ exports.sendOpdNeededEmailToClient = functions.https.onRequest((req, res) => {
         <h3 style="font-size: 14px;">Deir Qoubil</h3>
         Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
         
-        Email: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+        Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
         
         Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
   
@@ -2093,7 +2093,7 @@ exports.sendOpdNeededEmailToClientAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">شاناي</h3>
     رقم الهاتف:  <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    البريد الإلكتروني: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    البريد الإلكتروني: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     العنوان: شاناي 1502 ، لبنان ، مين ستريت ، مبنى الأندلس ، الطابق الثاني
 
@@ -2104,7 +2104,7 @@ exports.sendOpdNeededEmailToClientAr = functions.https.onRequest((req, res) => {
     <h3 style="font-size: 14px;">دير Qoubil</h3>
     هاتف:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
     
-    بريد إلكتروني: <a href="mailto:info@propertydeals.com" style="color:#fff">info@propertydeals.com</a><br/>
+    بريد إلكتروني: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
     
     العنوان: دير كوبيل ، مبنى وادي بيشامون الغوتاني ، الطابق الثاني
 

@@ -310,7 +310,7 @@ export default function Form() {
 
               <Input 
               id="Financials"
-              label="المالية"
+              label="الحد الأقصى للميزانية"
               type="number"
               register={register}
               error={errors.Financials?.message}
