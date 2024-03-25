@@ -1,5 +1,6 @@
 import Form from '@/components/FormBusiness/form'
 
+
 export default function MyBusiness() {
   return (
     <section className='py-24'>

@@ -4,15 +4,14 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 import { z } from 'zod'
-import { FormDataSchema } from '@/lib/landschemaar'
+import { FormDataSchema } from '@/lib/businessschemaar'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Input from './input'
 import Heading from './heading'
-import './form.css';
 import './formar.css';
 import Select from './select'
-import { countryArray, doesAnyoneHaveARight, isItPossibleTo, landClassification, likeArray, moreDetails, natureAndLocation, neighbourhood, specifyRegionArray, specifyTypeArray } from '@/lib/landdataar'
+import { countryArray,likeArray,natureAndLocationArray,specifyRegionArray, specifyTypeArray } from '@/lib/businessdata'
 import axios from 'axios'
 import MultipleSelect from './multipleselect'
 
@@ -21,36 +20,43 @@ type Inputs = z.infer<typeof FormDataSchema>
 
 const steps = [
   {
-    id: 'الخطوة الأولى',
+    id: 'الخطوة 1',
     name: 'معلومات شخصية',
     fields: [
       'FirstName', 'LastName','Email','PhoneNumber']
   },
   {
-    id: 'الخطوة الثانية',
+    id: 'الخطوة 2',
     name: 'مواصفات العقار المطلوب',
     fields: [
       'LikeTo', 'SpecifyType','SpecifyRegion','Country','District','GovernateOrState',
-    'Financials','MaximumPricePerSquareMetre']
+    'Financials','NatureAndLocation']
   },
   {
-    id: 'الخطوة الثالثة',
-    name: 'تفاصيل الاستثمار',
-    fields: ['LandClassification',
-      'MoreDetails',
-      'MaximumOverallInvestmentZone']
+    id: 'الخطوه 3',
+    name: 'المنطقة والمرافق',
+    fields: ['AreaDesiredInSqm',
+      'Lounge',
+      'WaitingRoom',
+      'Bathrooms',
+      'Office',
+      'SecretaryOffice', 
+      'Reception',
+      'OtherAreaAndFacilities']
   },
   {
-    id: 'الخطوة الرابعة',
-    name: 'الطبيعة والموقع',
-    fields: ['NatureAndLocation','IsItNearA']
+    id: 'الخطوة 4',
+    name: 'المزيد من التفاصيل',
+    fields: ['CeilingHeightInMeters',
+      'WidthOfEntranceInMeters',
+      'Ramp',
+      'Stairs',
+      'Elevator',
+      'CommodityElevator',
+      'Escalator',
+      'OtherDetails']
   },
-  {
-    id: 'الخطوة الخامسة',
-    name: 'إمكانيات قانونية مختلفة',
-    fields: ['IsItPossibleTo','DoesAnyoneHaveARight']
-  },
-  { id: 'الخطوة السادسة', name: 'مكتمل' }
+  { id: 'الخطوة 5', name: 'مكتمل' }
 ]
 
 export default function Form() {
@@ -83,8 +89,8 @@ export default function Form() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyLandEmailAr',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmailAr',
+      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyBusinessEmailAr',
+      //url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -94,8 +100,8 @@ export default function Form() {
     let config2 = {
       method: 'post',
       maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClientAr',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClientAr',
+      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClientAr',
+      //url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -134,6 +140,8 @@ export default function Form() {
     if (!output) return
 
     if (currentStep < steps.length - 1) {
+      console.log("currentStep",currentStep);
+      console.log("steps.length",steps.length);
       if (currentStep === steps.length - 2) {
         await handleSubmit(processForm)();
       }
@@ -204,12 +212,12 @@ export default function Form() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Heading title='معلومات شخصية'>
-            قدم تفاصيل أكثر عن نفسك.
+            تقديم المزيد من التفاصيل عن نفسك.
             </Heading>
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
               
-               {/* FirstName */}
-               <Input
+              {/* FirstName */}
+              <Input
               id="FirstName"
               label="الاسم الأول"
               type="text"
@@ -229,7 +237,7 @@ export default function Form() {
               {/* Email */}
               <Input 
               id="Email"
-              label="البريد الإلكتروني"
+              label="بريد إلكتروني"
               type="text"
               register={register}
               error={errors.Email?.message}
@@ -237,7 +245,7 @@ export default function Form() {
               {/* PhoneNumber */}
               <Input 
               id="PhoneNumber"
-              label="رقم الهاتف"
+              label="رقم التليفون"
               type="text"
               register={register}
               error={errors.PhoneNumber?.message}
@@ -287,7 +295,7 @@ export default function Form() {
               {/* Country */}
               <Select
               id="Country"
-              label="دولة"
+              label="الدولة"
               register={register}
               options={countryArray}
               error={errors.Country?.message}
@@ -310,18 +318,19 @@ export default function Form() {
 
               <Input 
               id="Financials"
-              label="الحد الأقصى للميزانية"
+              label="الحد الأقصى للسعر بالدولار الأمريكي"
               type="number"
               register={register}
               error={errors.Financials?.message}
               />
               {/* MaximumPricePerSquareMetre */}
-              <Input 
-              id="MaximumPricePerSquareMetre"
-              label="المبلغ الأقصى المرصود للشراء"
-              type="number"
+
+            <Select
+              id="NatureAndLocation"
+              label="الطبيعة والموقع"
               register={register}
-              error={errors.MaximumPricePerSquareMetre?.message}
+              options={natureAndLocationArray}
+              error={errors.NatureAndLocation?.message}
               />
 
             </div>
@@ -336,46 +345,87 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Location'>
-            تقديم المزيد من التفاصيل حول الاستثمار.
+            <Heading title='الموقع'>
+            تقديم المزيد من التفاصيل حول المنطقة والمرافق.
             </Heading>
            
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
 
-              {/* LandClassification */}
-              <Select
-              id="LandClassification"
-              label="تصنيف الأرض"
-              register={register}
-              options={landClassification}
-              error={errors.LandClassification?.message}
-              />
-              {/* MoreDetails */}
-              <MultipleSelect
-              id="MoreDetails"
-              label="المزيد من التفاصيل"
-              register={register}
-              options={moreDetails}
-              error={errors.MoreDetails?.message}
-              />
-
-              {/* OtherMoreDetails */}
+              {/* AreaDesiredInSqm */}
               <Input 
-              id="OtherMoreDetails"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط لاستثمار أرضك"
+              id="AreaDesiredInSqm"
+              label="المساحة المرغوبة بالمتر المربع"
               type="textarea"
               register={register}
-              error={errors.OtherMoreDetails?.message}
+              error={errors.AreaDesiredInSqm?.message}
               />
 
-              {/* MaximumPricePerSquareMetre */}
+
+              {/* Lounge */}
               <Input 
-              id="MaximumOverallInvestmentZone"
-              label="الحد الأقصى للمنطقة الاستثمارية الشاملة"
-              type="number"
+              id="Lounge"
+              label="الصالة"
+              type="checkbox"
               register={register}
-              error={errors.MaximumOverallInvestmentZone?.message}
+              error={errors.Lounge?.message}
+              />
+
+              {/* Waiting Room */}
+               <Input 
+              id="WaitingRoom"
+              label="غرفة الانتظار"
+              type="checkbox"
+              register={register}
+              error={errors.WaitingRoom?.message}
+              />
+
+
+               {/* Bathrooms */}
+               <Input 
+              id="Bathrooms"
+              label="الحمامات"
+              type="checkbox"
+              register={register}
+              error={errors.Bathrooms?.message}
+              />
+
+
+              {/* Office */}
+             <Input 
+              id="Office"
+              label="المكتب"
+              type="checkbox"
+              register={register}
+              error={errors.Office?.message}
+              />
+
+
+              {/* Secretary Office  */}
+              <Input 
+              id="SecretaryOffice"
+              label="مكتب السكرتارية "
+              type="checkbox"
+              register={register}
+              error={errors.SecretaryOffice?.message}
+              />
+
+              {/* Reception */}
+              <Input 
+              id="Reception"
+              label="استقبال"
+              type="checkbox"
+              register={register}
+              error={errors.Reception?.message}
+              />
+
+              {/* OtherAreaAndFacilities */}
+             <Input 
+              id="OtherAreaAndFacilities"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في منطقتك ومرافقك"
+              type="textarea"
+              register={register}
+              error={errors.OtherAreaAndFacilities?.message}
               />
             
             </div>
@@ -388,98 +438,85 @@ export default function Form() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Heading title='Schools'>
-            تقديم المزيد من التفاصيل حول طبيعة وموقع الأرض.
-            </Heading>
-
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/* NatureAndLocation */}
-            <Select
-              id="NatureAndLocation"
-              label="الطبيعة والموقع"
-              register={register}
-              options={natureAndLocation}
-              error={errors.NatureAndLocation?.message}
-              />
-
-
-              {/* OtherNatureAndLocation */}
-              <Input 
-              id="OtherNatureAndLocation"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
-              type="textarea"
-              register={register}
-              error={errors.OtherNatureAndLocation?.message}
-              />
-              
-            </div>
-
-            <Heading title='Home Systems'>
-            تقديم المزيد من التفاصيل حول الحي.
-            </Heading>
-
-            <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
-            {/* IsItNearA */}
-            <MultipleSelect
-              id="IsItNearA"
-              label="Is It Near A"
-              register={register}
-              options={neighbourhood}
-              error={errors.IsItNearA?.message}
-              />
-
-               {/* OtherIsItNearA */}
-               <Input 
-              id="OtherIsItNearA"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
-              type="textarea"
-              register={register}
-              error={errors.OtherIsItNearA?.message}
-              />
-              
-            </div>
-
-            
-          </motion.div>
-        )}
-
-        {currentStep === 4 && (
-          <motion.div
-            initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <Heading title='Home Features Exterior'>
-            تقديم المزيد من التفاصيل حول الإمكانيات القانونية للأرض.
+            <Heading title='ميزات المنزل الخارج'>
+            تقديم المزيد من التفاصيل حول العقار.
             </Heading>
 
             <div className='mt-1 grid grid-cols-1 gap-x-2 gap-y-2 sm:grid-cols-6'>
 
-             {/* IsItPossibleTo */}
-            <MultipleSelect
-              id="IsItPossibleTo"
-              label="هل من الممكن ان"
+            {/* CeilingHeightinMeters*/}
+            <Input 
+              id="CeilingHeightInMeters"
+              label="ارتفاع السقف بالأمتار"
+              type="text"
               register={register}
-              options={isItPossibleTo}
-              error={errors.IsItPossibleTo?.message}
+              error={errors.CeilingHeightInMeters?.message}
               />
-               {/* DoesAnyoneHaveARight */}
-            <MultipleSelect
-              id="DoesAnyoneHaveARight"
-              label="هل لدى أي شخص الحق"
-              register={register}
-              options={doesAnyoneHaveARight}
-              error={errors.DoesAnyoneHaveARight?.message}
-              />
-            </div>
 
-             {/* OtherDoesAnyoneHaveARight*/}
+              {/* Width of Entrance in Meters*/}
+            <Input 
+              id="WidthOfEntranceInMeters"
+              label="عرض المدخل بالأمتار"
+              type="text"
+              register={register}
+              error={errors.CeilingHeightInMeters?.message}
+              />
+
+
+                {/* Ramp */}
+            <Input 
+              id="Ramp"
+              label="منحدر"
+              type="checkbox"
+              register={register}
+              error={errors.Ramp?.message}
+              />
+
+
+                   {/* Stairs */}
+            <Input 
+              id="Stairs"
+              label="سلالم"
+              type="checkbox"
+              register={register}
+              error={errors.Stairs?.message}
+              />
+
+                                 {/* Elevator */}
+            <Input 
+              id="Elevator"
+              label="مصعد"
+              type="checkbox"
+              register={register}
+              error={errors.Elevator?.message}
+              />
+
+
+             {/* Commodity Elevator */}
+            <Input 
+              id="CommodityElevator"
+              label="مصعد البضائع"
+              type="checkbox"
+              register={register}
+              error={errors.CommodityElevator?.message}
+              />
+
+               {/* Escalator */}
+            <Input 
+              id="Escalator"
+              label="سلم متحرك"
+              type="checkbox"
+              register={register}
+              error={errors.Escalator?.message}
+              />
+
+             {/* OtherDetails*/}
              <Input 
-              id="OtherDoesAnyoneHaveARight"
-              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط بالنسبة لطبيعة أرضك وموقعك"
+              id="OtherDetails"
+              label="صف بإيجاز ما الذي ترغب في الحصول عليه بالضبط في الممتلكات الخاصة بك، مزيد من التفاصيل"
               type="textarea"
               register={register}
-              error={errors.OtherDoesAnyoneHaveARight?.message}
+              error={errors.OtherDetails?.message}
               />
 
               {/* honeypot */}
@@ -491,11 +528,11 @@ export default function Form() {
               error={errors.honeypot?.message}
               />
             
-            
+            </div>
           </motion.div>
         )}
 
-        {currentStep === 5 && (
+        {currentStep === 4 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -503,7 +540,6 @@ export default function Form() {
           >
             
 
-            
             
             <div className="flex flex-col items-center justify-center">
 
@@ -513,7 +549,7 @@ export default function Form() {
           </svg><br/>
 
    
-    <h2 className="text-lg font-semibold mb-2 opd-heading">تم ارسال طلبك</h2>
+    <h2 className="text-lg font-semibold mb-2 opd-heading">لقد تم إرسال طلبك</h2>
     <p className='opd-text'>سيتصل بك وكيلنا خلال الـ 24 ساعة القادمة</p><br/>
 
   

@@ -1,4 +1,4 @@
-import Form from '@/components/FormLand/formar'
+import FormAr from '@/components/FormBusiness/formar'
 import { Metadata } from 'next'
 
 
@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   }
 }
 
-export default function MyLand() {
+export default function MyBusiness() {
   return (
     <section className='py-24'>
       <div className='container'>
-        <Form />
+      <FormAr />
       </div>
     </section>
   )

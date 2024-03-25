@@ -278,6 +278,568 @@ exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
   });
 });
 
+exports.sendOpdMyBusinessEmail = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Invalid HTTP method!' });
+    }
+
+    // Extract data from request bodyu
+    const { 
+    FirstName,
+    LastName,
+    Email,
+    PhoneNumber,
+    LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState
+    ,Financials
+    ,NatureAndLocation
+    ,AreaDesiredInSqm
+    ,Lounge
+    ,WaitingRoom
+    ,Bathrooms
+    ,Office
+    ,SecretaryOffice
+    ,Reception
+    ,OtherAreaAndFacilities
+    ,CeilingHeightInMeters
+    ,Ramp
+    ,Stairs
+    ,Elevator
+    ,CommodityElevator
+    ,Escalator
+    ,OtherDetails
+    ,honeypot } = req.body;
+
+    if (honeypot) {
+      console.log('Bot detected');
+      // Handle as bot submission, like ignoring the request
+      return res.status(400).json({ status: 'error', message: 'Bot detected' });
+    }
+    //validate fields
+
+
+    // save to db
+     // Add data to Firestore (optional)
+     db.collection("opd-mybusiness-form").add({
+      FirstName: validateValue(FirstName),
+      LastName: validateValue(LastName), 
+      Email: validateValue(Email), 
+      PhoneNumber: validateValue(PhoneNumber), 
+      LikeTo: validateValue(LikeTo), 
+      SpecifyType: validateValue(SpecifyType),
+      SpecifyRegion: validateValue(SpecifyRegion),
+      Country: validateValue(Country),
+      District: validateValue(District),
+      GovernateOrState: validateValue(GovernateOrState)
+     ,Financials: validateValue(Financials)
+     ,NatureAndLocation: validateValue(NatureAndLocation)
+     ,AreaDesiredInSqm: validateValue(AreaDesiredInSqm)
+     ,Lounge: validateValue(Lounge)
+     ,WaitingRoom: validateValue(WaitingRoom)
+     ,Bathrooms: validateValue(Bathrooms)
+     ,Office: validateValue(Office)
+     ,SecretaryOffice: validateValue(SecretaryOffice)
+     ,Reception: validateValue(Reception)
+     ,OtherAreaAndFacilities: validateValue(OtherAreaAndFacilities)
+     ,CeilingHeightInMeters: validateValue(CeilingHeightInMeters)
+     ,Ramp: validateValue(Ramp)
+     ,Stairs: validateValue(Stairs)
+     ,Elevator: validateValue(Elevator)
+     ,CommodityElevator: validateValue(CommodityElevator)
+     ,Escalator: validateValue(Escalator)
+     ,OtherDetails: validateValue(OtherDetails)
+      // Add more fields as required
+    });
+     
+
+
+    const html = `<div style="width:600px; height: 800px;margin:0 auto;font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;">
+
+<div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
+  <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
+    <img style="float: left; padding-left:20px; width:60px;" src="https://needed.propertypro.vip/propertypro.png" />
+    <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">&nbsp;DOT VIP</h1>
+  </div>
+  
+  <div style="width:50%; float: right; ">
+    <!--<div style="font-size: 18px; font-weight:300; margin:30px 30px 0px; padding-left:20px;">Needed
+    </div> -->
+  </div>
+</div>
+
+<div style="padding: 10px; color: rgba(255, 255, 255, 0.75); background-color:#e6e6e6;">
+  <div style="background-color: #fff; color:#444; padding:20px 40px; font-weight: 400; font-size:15px; text-align:justify;">
+   
+    
+    <table style="color:#444;">
+    
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">First Name</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FirstName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Last Name</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LastName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Email</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Email)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Phone Number</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(PhoneNumber)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">I would like to: ${validateValue(LikeTo)}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyType)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Region</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyRegion)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Country</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Country)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">District</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(District)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Governate or state</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GovernateOrState)}</td>
+      </tr>
+    </table>
+    
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">Investment Details</h3>
+    
+    <table style="color:#444;">
+        <tr style="border: 1px solid #b2b2b2;">
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Max Budget</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Financials)}</td>
+          </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Nature and Location</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NatureAndLocation)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Area Desired In Sqm</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(AreaDesiredInSqm)}</td>
+    </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Lounge</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Lounge)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Waiting Room</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WaitingRoom)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Bathrooms</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Bathrooms)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Office</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Office)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Secretary Office</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SecretaryOffice)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Reception</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Reception)}</td>
+  </tr>
+
+  <tr style="border: 1px solid #b2b2b2;">
+  <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">OtherAreaAndFacilities</td>
+  <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherAreaAndFacilities)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">CeilingHeightInMeters</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CeilingHeightInMeters)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Ramp</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Ramp)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Stairs</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Stairs)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Elevator</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Elevator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Commodity Elevator</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CommodityElevator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Escalator</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Escalator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">Other Details</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherDetails)}</td>
+</tr>
+      
+    </table>
+    
+    
+  <!--  <center>
+        <div style="width:60%;">
+      <a href="http://winspiremagazine.com/Winspire_Website/refer-friend.jsp" style="text-decoration: none;"><p style="background-color:rgb(242, 18, 44); color:#fff; padding:15px;letter-spacing:1.5px;">REFER YOUR FRIEND.</p></a>
+        </div>
+          </center> -->
+  </div>
+     
+</div>
+
+<div style="padding: 10px 15px; background-color: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.75); height:100px; position: relative; ">
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-right:10px;">
+    
+    <h3 style="font-size: 14px;">Shanay</h3>
+    Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
+    
+    Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
+
+  </div>
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-left:10px; margin-top:-1.5px;">
+    
+    <h3 style="font-size: 14px;">Deir Qoubil</h3>
+    Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
+    
+    Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
+
+  </div>
+  
+  
+</div>
+</div>`;
+
+    // Set up email content
+    const mailOptions = {
+      from: 'info@wmvp.dev',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+      subject: `OPD My Business Submission`,
+      text: '',
+      html: html // Include your HTML content
+    };   
+
+    // Send email
+    return transporter.sendMail(mailOptions)
+      .then(() => res.status(200).send({ status: 'Successs', message: 'Email Sent' }))
+      .catch(error => {
+        console.error('Error sending email:', error);
+        return res.status(500).send({ status: 'error',message: `Error sending email: ${error.message}` });
+      });
+  });
+});
+
+exports.sendOpdMyBusinessEmailAr = functions.https.onRequest((req, res) => {
+  return cors(req, res, () => {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Invalid HTTP method!' });
+    }
+
+    // Extract data from request bodyu
+    const { 
+    FirstName,
+    LastName,
+    Email,
+    PhoneNumber,
+    LikeTo, SpecifyType,SpecifyRegion,Country,District,GovernateOrState
+    ,Financials
+    ,NatureAndLocation
+    ,AreaDesiredInSqm
+    ,Lounge
+    ,WaitingRoom
+    ,Bathrooms
+    ,Office
+    ,SecretaryOffice
+    ,Reception
+    ,OtherAreaAndFacilities
+    ,CeilingHeightInMeters
+    ,Ramp
+    ,Stairs
+    ,Elevator
+    ,CommodityElevator
+    ,Escalator
+    ,OtherDetails
+    ,honeypot } = req.body;
+
+    if (honeypot) {
+      console.log('Bot detected');
+      // Handle as bot submission, like ignoring the request
+      return res.status(400).json({ status: 'error', message: 'Bot detected' });
+    }
+    //validate fields
+
+
+    // save to db
+     // Add data to Firestore (optional)
+     db.collection("opd-mybusiness-form").add({
+      FirstName: validateValue(FirstName),
+      LastName: validateValue(LastName), 
+      Email: validateValue(Email), 
+      PhoneNumber: validateValue(PhoneNumber), 
+      LikeTo: validateValue(LikeTo), 
+      SpecifyType: validateValue(SpecifyType),
+      SpecifyRegion: validateValue(SpecifyRegion),
+      Country: validateValue(Country),
+      District: validateValue(District),
+      GovernateOrState: validateValue(GovernateOrState)
+     ,Financials: validateValue(Financials)
+     ,NatureAndLocation: validateValue(NatureAndLocation)
+     ,AreaDesiredInSqm: validateValue(AreaDesiredInSqm)
+     ,Lounge: validateValue(Lounge)
+     ,WaitingRoom: validateValue(WaitingRoom)
+     ,Bathrooms: validateValue(Bathrooms)
+     ,Office: validateValue(Office)
+     ,SecretaryOffice: validateValue(SecretaryOffice)
+     ,Reception: validateValue(Reception)
+     ,OtherAreaAndFacilities: validateValue(OtherAreaAndFacilities)
+     ,CeilingHeightInMeters: validateValue(CeilingHeightInMeters)
+     ,Ramp: validateValue(Ramp)
+     ,Stairs: validateValue(Stairs)
+     ,Elevator: validateValue(Elevator)
+     ,CommodityElevator: validateValue(CommodityElevator)
+     ,Escalator: validateValue(Escalator)
+     ,OtherDetails: validateValue(OtherDetails)
+      // Add more fields as required
+    });
+     
+
+
+    const html = `<div style="width:600px; height: 800px;margin:0 auto;font-family: Tahoma, 'Lucida Grande', 'Lucida Sans', Helvetica, Arial, sans-serif;direction:rtl;">
+
+<div style="background: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.85); height:100px;">
+  <div style="width:48%; float:left; margin: 20px 0px 0px 10px;" >
+    <img style="float: left; padding-left:20px; width:60px;" src="https://needed.propertypro.vip/propertypro.png" />
+    <h1 style="margin-top:10px;margin-left:10px;font-size: 30px;font-family: Arial;">&nbsp;DOT VIP</h1>
+  </div>
+  
+  <div style="width:50%; float: right; ">
+    <!--<div style="font-size: 18px; font-weight:300; margin:30px 30px 0px; padding-left:20px;">Needed
+    </div> -->
+  </div>
+</div>
+
+<div style="padding: 10px; color: rgba(255, 255, 255, 0.75); background-color:#e6e6e6;">
+  <div style="background-color: #fff; color:#444; padding:20px 40px; font-weight: 400; font-size:15px; text-align:justify;">
+   
+    
+    <table style="color:#444;">
+    
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الاسم الأول</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(FirstName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">اسم العائلة</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(LastName)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">بريد إلكتروني</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Email)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">رقم التليفون</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;direction:rtl;">${validateValue(PhoneNumber)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">وأود أن: ${validateValue(LikeTo)}</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyType)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المنطقة</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SpecifyRegion)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">دولة</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Country)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">حي</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(District)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المحافظة أو الولاية</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(GovernateOrState)}</td>
+      </tr>
+    </table>
+    
+    <h3 style="font-weight: 500; letter-spacing: 0.9px;">تفاصيل الاستثمار</h3>
+    
+    <table style="color:#444;">
+        <tr style="border: 1px solid #b2b2b2;">
+            <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الميزانية القصوى</td>
+            <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Financials)}</td>
+          </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الطبيعة والموقع</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(NatureAndLocation)}</td>
+      </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المساحة المرغوبة بالمتر المربع</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(AreaDesiredInSqm)}</td>
+    </tr>
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الصالة</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Lounge)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">غرفة الانتظار</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(WaitingRoom)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">الحمامات</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Bathrooms)}</td>
+    </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+        <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المكتب</td>
+        <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Office)}</td>
+      </tr>
+
+      <tr style="border: 1px solid #b2b2b2;">
+      <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مكتب السكرتارية</td>
+      <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(SecretaryOffice)}</td>
+    </tr>
+
+    <tr style="border: 1px solid #b2b2b2;">
+    <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مكتب الاستقبال</td>
+    <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Reception)}</td>
+  </tr>
+
+  <tr style="border: 1px solid #b2b2b2;">
+  <td style="background-color: #f2f2f2;padding: 6px;width: 200px;">منطقة أخرى والمرافق</td>
+  <td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherAreaAndFacilities)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">ارتفاع السقف في متر</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CeilingHeightInMeters)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المنحدر</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Ramp)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">السلالم</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Stairs)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">المصعد الكهربائي</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Elevator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">مصعد البضائع</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(CommodityElevator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">سلم كهربائى</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(Escalator)}</td>
+</tr>
+
+<tr style="border: 1px solid #b2b2b2;">
+<td style="background-color: #f2f2f2;padding: 6px;width: 200px;">تفاصيل أخرى</td>
+<td style="background-color: #fff;padding: 6px;width: 240px;">${validateValue(OtherDetails)}</td>
+</tr>
+      
+    </table>
+    
+    
+  <!--  <center>
+        <div style="width:60%;">
+      <a href="http://winspiremagazine.com/Winspire_Website/refer-friend.jsp" style="text-decoration: none;"><p style="background-color:rgb(242, 18, 44); color:#fff; padding:15px;letter-spacing:1.5px;">REFER YOUR FRIEND.</p></a>
+        </div>
+          </center> -->
+  </div>
+     
+</div>
+
+<div style="padding: 10px 15px; background-color: rgba(17, 88, 123, 1); color: rgba(255, 255, 255, 0.75); height:100px; position: relative; ">
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-right:10px;">
+    
+    <h3 style="font-size: 14px;">Shanay</h3>
+    Phone: <a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
+    
+    Address: SHANAY 1502, LEBANON, MAIN STREET, ANDALUSIA BUILDING, SECOND FLOOR
+
+  </div>
+  
+  <div style="width:35%; height: 100px; float: left; font-size:10px; margin-left:10px; margin-top:-1.5px;">
+    
+    <h3 style="font-size: 14px;">Deir Qoubil</h3>
+    Phone:<a href="tel:+9613948739" style="color:#fff">+961 3 948 739</a><br/>
+    
+    Email: <a href="mailto:info@propertypro.vip" style="color:#fff">info@propertypro.vip</a><br/>
+    
+    Address: Deir Kobel, Wadi Bchamoun Al-Ghoutani Building, second floor
+
+  </div>
+  
+  
+</div>
+</div>`;
+
+    // Set up email content
+    const mailOptions = {
+      from: 'info@wmvp.dev',
+      to: 'fnzahhar@gmail.com,info@wmvp.dev,info@propertypro.vip',
+      subject: `OPD My Business Submission`,
+      text: '',
+      html: html // Include your HTML content
+    };   
+
+    // Send email
+    return transporter.sendMail(mailOptions)
+      .then(() => res.status(200).send({ status: 'Successs', message: 'Email Sent' }))
+      .catch(error => {
+        console.error('Error sending email:', error);
+        return res.status(500).send({ status: 'error',message: `Error sending email: ${error.message}` });
+      });
+  });
+});
+
 exports.sendOpdMyLandEmailAr = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if (req.method !== 'POST') {

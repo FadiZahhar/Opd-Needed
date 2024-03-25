@@ -89,7 +89,7 @@ export default function Form() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyLandEmail',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyBusinessEmail',
       url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
       headers: { 
         'Content-Type': 'application/json'
@@ -140,6 +140,8 @@ export default function Form() {
     if (!output) return
 
     if (currentStep < steps.length - 1) {
+      console.log("currentStep",currentStep);
+      console.log("steps.length",steps.length);
       if (currentStep === steps.length - 2) {
         await handleSubmit(processForm)();
       }
@@ -401,7 +403,7 @@ export default function Form() {
 
               {/* Secretary Office  */}
               <Input 
-              id="SecretaryOffice "
+              id="SecretaryOffice"
               label="SecretaryOffice "
               type="checkbox"
               register={register}
@@ -530,7 +532,7 @@ export default function Form() {
           </motion.div>
         )}
 
-        {currentStep === 5 && (
+        {currentStep === 4 && (
           <motion.div
             initial={{ x: delta >= 0 ? '50%' : '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
