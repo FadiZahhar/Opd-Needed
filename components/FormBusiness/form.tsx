@@ -90,7 +90,7 @@ export default function Form() {
       method: 'post',
       maxBodyLength: Infinity,
       //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyBusinessEmail',
-      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyBusinessEmail',
       headers: { 
         'Content-Type': 'application/json'
       },

@@ -89,8 +89,8 @@ export default function Form() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyBusinessEmailAr',
-      //url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyLandEmail',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdMyBusinessEmailAr',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdMyBusinessEmailAr',
       headers: { 
         'Content-Type': 'application/json'
       },
@@ -100,8 +100,8 @@ export default function Form() {
     let config2 = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClientAr',
-      //url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
+      //url: 'http://127.0.0.1:5001/opddev-51cfb/us-central1/sendOpdNeededEmailToClientAr',
+      url:' https://us-central1-opddev-51cfb.cloudfunctions.net/sendOpdNeededEmailToClient',
       headers: { 
         'Content-Type': 'application/json'
       },
