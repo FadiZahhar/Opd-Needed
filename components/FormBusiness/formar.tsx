@@ -11,7 +11,7 @@ import Input from './input'
 import Heading from './heading'
 import './formar.css';
 import Select from './select'
-import { countryArray,likeArray,natureAndLocationArray,specifyRegionArray, specifyTypeArray } from '@/lib/businessdata'
+import { countryArray,likeArray,natureAndLocationArray,specifyRegionArray, specifyTypeArray } from '@/lib/businessdataar'
 import axios from 'axios'
 import MultipleSelect from './multipleselect'
 
