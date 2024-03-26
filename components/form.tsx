@@ -106,6 +106,7 @@ const steps = [
 export default function Form() {
   const [previousStep, setPreviousStep] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
+  const [sending,setSending] = useState(false);
   const delta = currentStep - previousStep;
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -128,7 +129,7 @@ export default function Form() {
   })
 
   const processForm: SubmitHandler<Inputs> = data => {
-
+    setSending(true);
     console.log("data is ",data);
     let config = {
       method: 'post',
@@ -164,6 +165,7 @@ export default function Form() {
     // send email to Client
     axios.request(config2)
     .then((response:any) => {
+      setSending(false);
       console.log(JSON.stringify(response.data));
     })
     .catch((error:any) => {
@@ -1004,13 +1006,12 @@ export default function Form() {
             <svg xmlns="http://www.w3.org/2000/svg" width="60.039" height="45.06" viewBox="0 0 60.039 45.06">
             <path id="Path_162" data-name="Path 162" d="M22.362,42.423,9.928,29.989a3.573,3.573,0,1,0-5.052,5.052L19.854,50.02a3.569,3.569,0,0,0,5.052,0L62.818,12.108a3.573,3.573,0,1,0-5.052-5.052Z" transform="translate(-3.828 -6.008)" fill="#477b11"/>
           </svg><br/>
-
-   
-    <h2 className="text-lg font-semibold mb-2 opd-heading">Your request has been sent</h2>
-    <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
-
-  
-    <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+          {(sending) &&  <h2 className="text-lg font-semibold mb-2 opd-heading">Loading please waite...</h2>} 
+          {(!sending) &&   <>
+          <h2 className="text-lg font-semibold mb-2 opd-heading">Your request has been sent</h2>
+          <p className='opd-text'>Our agent will contact you within the next 24 hours</p><br/>
+          <a href="https://propertypro.vip" className="text-blue-500 hover:text-blue-700 opd-link">Click Here to go back to site</a>
+          </>} 
 </div>
 
 
