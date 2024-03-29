@@ -11,6 +11,8 @@ const functions = require("firebase-functions");
 const nodemailer = require('nodemailer');
 const cors = require('cors')({ origin: true });
 const admin = require("firebase-admin");
+const fetch = require('node-fetch'); // Ensure you've installed node-fetch
+
 admin.initializeApp();
 const db = admin.firestore();
 
@@ -26,6 +28,56 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: 'apikey',
     pass: apiKey // Your SendGrid API key
+  }
+});
+
+exports.checkAndUpdateImageSize = functions.https.onRequest(async (req, res) => {
+  // Check for GET request
+  if (req.method !== 'GET') {
+      return res.status(405).send('Method Not Allowed');
+  }
+
+  const addedBy = req.query.added_by;
+  if (!addedBy) {
+      return res.status(400).send('No added_by parameter provided');
+  }
+
+  const newUrl = 'https://firebasestorage.googleapis.com/v0/b/opddev-51cfb.appspot.com/o/property_type%2Fresidential-property-image.png?alt=media&token=c845df27-da31-47c1-bc72-ee4b9f3d7adc';
+
+  const propertiesRef = admin.firestore().collection('property');
+  try {
+      const snapshot = await propertiesRef.where('added_by', '==', addedBy).get();
+      if (snapshot.empty) {
+          return res.status(404).send('No documents found with the specified added_by value');
+      }
+
+      let updateCount = 0;
+      for (let doc of snapshot.docs) {
+          const documentData = doc.data();
+          let imageUrl = documentData.featured_image && documentData.featured_image.url;
+          if (imageUrl) {
+              const response = await fetch(imageUrl);
+              const contentLength = response.headers.get('content-length');
+
+              // Check if the image size is greater than 1MB
+              if (contentLength && parseInt(contentLength, 10) > 20971520) { // 20MB in bytes
+              //if (contentLength && parseInt(contentLength, 10) > 1048576) { // 1MB in bytes
+                  // Update the URL
+                  await doc.ref.update({
+                      featured_image: {
+                          ...documentData.featured_image,
+                          url: newUrl,
+                      },
+                  });
+                  updateCount++;
+              }
+          }
+      }
+
+      return res.status(200).send(`${updateCount} images updated successfully.`);
+  } catch (error) {
+      console.error('Error updating documents: ', error);
+      return res.status(500).send('Internal Server Error');
   }
 });
 
