@@ -29,6 +29,69 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+exports.socialShare = functions.https.onRequest(async (req, res) => {
+  // CORS configuration for public access, adjust according to your needs
+  res.set('Access-Control-Allow-Origin', '*');
+  if (req.method === 'OPTIONS') {
+      // Preflight request. Respond with accepted headers
+      res.set('Access-Control-Allow-Methods', 'GET');
+      res.set('Access-Control-Allow-Headers', 'Content-Type');
+      res.status(204).send('');
+      return;
+  }
+
+  // Get property ID from query parameters
+  const propertyId = req.query.id;
+  if (!propertyId) {
+      res.status(400).send('Property ID is required');
+      return;
+  }
+
+  try {
+      const propertyDoc = await admin.firestore().collection('property').doc(propertyId).get();
+      if (!propertyDoc.exists) {
+          res.status(404).send('Property not found');
+          return;
+      }
+
+      const property = propertyDoc.data();
+
+      // Generate HTML with meta tags
+      const htmlResponse = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>${property.title}</title>
+  <meta name="description" content="${property.description}">
+  <meta property="og:title" content="${property.title}">
+  <meta property="og:description" content="${property.description}">
+  <meta property="og:image" content="${property.featured_image.url}">
+  <meta property="og:url" content="https://propertypro.vip/property/${propertyId}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${property.title}">
+  <meta name="twitter:description" content="${property.description}">
+  <meta name="twitter:image" content="${property.featured_image.url}">
+  <!-- Add more meta tags as needed for LinkedIn, TikTok, etc. -->
+</head>
+<body>
+  <h1>${property.title}</h1>
+  <p>${property.description}</p>
+  <img src="${property.featured_image.url}" alt="${property.title}">
+  <p>Redirecting to the site please waite</p>
+  <script>
+  window.location.href='https://propertypro.vip/property/${propertyId}';
+  </script>
+  <!-- Your content here -->
+</body>
+</html>
+`;
+      res.status(200).send(htmlResponse);
+  } catch (error) {
+      console.error('Error fetching property:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
 exports.sendOpdMyLandEmail = functions.https.onRequest((req, res) => {
   return cors(req, res, () => {
     if (req.method !== 'POST') {
